@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="character" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAEAAAAAAwIAAAAAAAAAAAAAAUCAA=</HashCode>
+      <FileName>gameStructure\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="collisionManager" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAABIAEAAQACAAAAAAAEgA=</HashCode>
+      <FileName>gameStructure\CollisionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="enemy" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>gameStructure\Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="enemyFactory" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameStructure\EnemyFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gameManager" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAgAEAAAAAQAAAAAAEAAAIAAAAAAAAAAQA=</HashCode>
+      <FileName>gameStructure\GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gameObject" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIMCAAACAAwAAIUAiAEAAFhAgAAJAAgIAAAAGAAA=</HashCode>
+      <FileName>gameStructure\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LTexture" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACABBABAAAACAAAAAAAAQAIAAAAQAAAYAAY=</HashCode>
+      <FileName>gameStructure\LTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="player" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAAAEQIAAAAAAAAAAAAAIBAUAEAAAUAAA=</HashCode>
+      <FileName>gameStructure\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sprite" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACIAAAAAAAAECEAAAAAAQABGAAAIAAAAAAABAAgg=</HashCode>
+      <FileName>gameStructure\Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="worldManager" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAQAAAAAAAAAAEAAAAAAAAAAAAAQAAIBAAAAAAhA=</HashCode>
+      <FileName>gameStructure\WorldManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="eObjectType" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>gameStructure\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ePlayerState" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAgAAAAAAgEAAACAAA=</HashCode>
+      <FileName>gameStructure\Player.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
