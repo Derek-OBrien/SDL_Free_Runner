@@ -9,6 +9,7 @@
 #include "GameObject.h"
 
 //Character class inherits from gameObject class
+
 class Character: public GameObject{	
 public:
 	Character(){ this->init(); };	//Constructor
@@ -20,8 +21,6 @@ public:
 	void setSpriteDimensions(int height, int width){ mSpriteHeight = height; mSpriteWidth = width; };	//Set sprite dimensions
 	int getSpriteWidth(){ return mSpriteWidth; };	//Get Sprite width
 	int getSpriteHeight(){ return mSpriteHeight; };	//Get Sprite Height
-
-
 
 private:
 

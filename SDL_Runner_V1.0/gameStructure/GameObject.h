@@ -7,7 +7,10 @@
 #include <string>
 #include <cmath>
 
-typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE };	//enum to hold object type
+#include "LTexture.h"
+#include "GameDefines.h"
+
+typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_BACKGROUND };	//enum to hold object type
 
 //Base class for all game objects
 class GameObject{
@@ -18,7 +21,6 @@ public:
 
 	virtual void cleanup();
 	virtual bool init();
-	//virtual void boundingBox() = 0;	//The object has a bounding box for collision detection virtual method
 
 	//Setters
 	void setPosX(float x){ mPosX = x; };				//Set game object position

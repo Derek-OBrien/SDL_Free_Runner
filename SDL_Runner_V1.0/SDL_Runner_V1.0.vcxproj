@@ -72,13 +72,13 @@
     <ClCompile Include="gameStructure\Character.cpp" />
     <ClCompile Include="gameStructure\Collectable.cpp" />
     <ClCompile Include="gameStructure\CollisionManager.cpp" />
-    <ClCompile Include="gameStructure\LoadWindowManager.cpp" />
     <ClCompile Include="gameStructure\Obstical.cpp" />
     <ClCompile Include="gameStructure\Factory.cpp" />
     <ClCompile Include="gameStructure\GameManager.cpp" />
     <ClCompile Include="gameStructure\GameObject.cpp" />
     <ClCompile Include="gameStructure\LTexture.cpp" />
     <ClCompile Include="gameStructure\Player.cpp" />
+    <ClCompile Include="gameStructure\ScrollingBackground.cpp" />
     <ClCompile Include="gameStructure\Sprite.cpp" />
     <ClCompile Include="gameStructure\WorldManager.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -87,18 +87,20 @@
     <ClInclude Include="gameStructure\Character.h" />
     <ClInclude Include="gameStructure\Collectable.h" />
     <ClInclude Include="gameStructure\CollisionManager.h" />
-    <ClInclude Include="gameStructure\LoadWindowManager.h" />
+    <ClInclude Include="gameStructure\GameDefines.h" />
     <ClInclude Include="gameStructure\Obstical.h" />
     <ClInclude Include="gameStructure\IFactory.h" />
     <ClInclude Include="gameStructure\GameManager.h" />
     <ClInclude Include="gameStructure\GameObject.h" />
     <ClInclude Include="gameStructure\LTexture.h" />
     <ClInclude Include="gameStructure\Player.h" />
+    <ClInclude Include="gameStructure\ScrollingBackground.h" />
     <ClInclude Include="gameStructure\Sprite.h" />
     <ClInclude Include="gameStructure\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

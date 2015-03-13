@@ -6,10 +6,10 @@
 */
 
 #include "Character.h"	//Include Character header 
+#include "GameManager.h"
 
 //Character Init
 bool Character::init(){
-
 	return true;
 }
 
@@ -17,4 +17,3 @@ bool Character::init(){
 void Character::cleanup(){
 	delete this;
 }
-

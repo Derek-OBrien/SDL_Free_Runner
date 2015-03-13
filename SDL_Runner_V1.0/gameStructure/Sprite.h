@@ -7,6 +7,8 @@
 */
 
 #include "LTexture.h"
+#include "GameDefines.h"
+#include "GameManager.h"
 
 class Sprite : public GameObject{
 public:
@@ -15,8 +17,6 @@ public:
 
 	virtual bool init();
 	virtual void cleanup();
-
-	bool loadMedia(LTexture texture);
 
 	//Setters
 	void setPathToFile(std::string path){ pathToFile = path; };
@@ -28,11 +28,13 @@ public:
 	float getSpriteHeight(){ return mSpriteHeight; };
 	float getSpriteWidth(){ return mSpriteWidth; };
 
+
 private:
 	std::string pathToFile;
 	float mSpriteHeight;
 	float mSpriteWidth;
 	
+
 };
 
 #endif//_SPRITE_H_

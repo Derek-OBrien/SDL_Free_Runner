@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -18,6 +14,10 @@
     </Filter>
     <Filter Include="Header Files\dao">
       <UniqueIdentifier>{f08a9501-1ef4-4fff-98b3-ff334391ff1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Source Files\gameStructure">
       <UniqueIdentifier>{db462246-d751-4936-9c63-c9647bd3bde6}</UniqueIdentifier>
@@ -57,14 +57,14 @@
     <ClCompile Include="gameStructure\Obstical.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\LoadWindowManager.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\Collectable.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Factory.cpp">
       <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\ScrollingBackground.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,17 +95,21 @@
     <ClInclude Include="gameStructure\Obstical.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
-    <ClInclude Include="gameStructure\LoadWindowManager.h">
-      <Filter>Header Files\gameStructure</Filter>
-    </ClInclude>
     <ClInclude Include="gameStructure\Collectable.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\IFactory.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
+    <ClInclude Include="gameStructure\GameDefines.h">
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStructure\ScrollingBackground.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>
