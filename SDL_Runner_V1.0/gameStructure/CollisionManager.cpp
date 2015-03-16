@@ -33,12 +33,31 @@ void CollisionManager::registerPlayer(Player *p){
 
 //Check for collision between player and object 
 //first check state of player
-bool CollisionManager::checkCollision(GameObject *o, Player *p){
-	registerGameObject(o);			//register object
-	registerPlayer(p);				//register player
-
-	isCollide = false;				//set collide to false
+bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	
+	int leftA, rightA, topA, bottomA;
+	int leftB, rightB, topB, bottomB;
+	
+	//Calculate the sides of rect A
+	leftA = a->x;
+	rightA = a->x + a->w;
+	topA = a->y;
+	bottomA = a->y + a->h;
+
+	//Calculate the sides of rect B
+	leftB = b->x;
+	rightB = b->x + b->w;
+	topB = b->y;
+	bottomB = b->y + b->h;
+	
+	//If any of the sides from A are outside of B
+	if (bottomA >= topB){
+		isCollide =  true;
+	}
+	else{
+		isCollide = false;
+	}
+
 	return isCollide;
 }
 

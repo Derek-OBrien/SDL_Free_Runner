@@ -69,9 +69,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gameStructure\Background.cpp" />
     <ClCompile Include="gameStructure\Character.cpp" />
     <ClCompile Include="gameStructure\Collectable.cpp" />
     <ClCompile Include="gameStructure\CollisionManager.cpp" />
+    <ClCompile Include="gameStructure\LWindow.cpp" />
     <ClCompile Include="gameStructure\Obstical.cpp" />
     <ClCompile Include="gameStructure\Factory.cpp" />
     <ClCompile Include="gameStructure\GameManager.cpp" />
@@ -82,12 +84,21 @@
     <ClCompile Include="gameStructure\Sprite.cpp" />
     <ClCompile Include="gameStructure\WorldManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="sceneManagement\GameOverScene.cpp" />
+    <ClCompile Include="sceneManagement\GameScene.cpp" />
+    <ClCompile Include="sceneManagement\MenuScene.cpp" />
+    <ClCompile Include="sceneManagement\PauseScene.cpp" />
+    <ClCompile Include="sceneManagement\Scene.cpp" />
+    <ClCompile Include="sceneManagement\SceneManager.cpp" />
+    <ClCompile Include="sceneManagement\SplashScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gameStructure\Background.h" />
     <ClInclude Include="gameStructure\Character.h" />
     <ClInclude Include="gameStructure\Collectable.h" />
     <ClInclude Include="gameStructure\CollisionManager.h" />
     <ClInclude Include="gameStructure\GameDefines.h" />
+    <ClInclude Include="gameStructure\LWindow.h" />
     <ClInclude Include="gameStructure\Obstical.h" />
     <ClInclude Include="gameStructure\IFactory.h" />
     <ClInclude Include="gameStructure\GameManager.h" />
@@ -97,6 +108,13 @@
     <ClInclude Include="gameStructure\ScrollingBackground.h" />
     <ClInclude Include="gameStructure\Sprite.h" />
     <ClInclude Include="gameStructure\WorldManager.h" />
+    <ClInclude Include="sceneManagement\GameOverScene.h" />
+    <ClInclude Include="sceneManagement\GameScene.h" />
+    <ClInclude Include="sceneManagement\MenuScene.h" />
+    <ClInclude Include="sceneManagement\PauseScene.h" />
+    <ClInclude Include="sceneManagement\Scene.h" />
+    <ClInclude Include="sceneManagement\SceneManager.h" />
+    <ClInclude Include="sceneManagement\SplashScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

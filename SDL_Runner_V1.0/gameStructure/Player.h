@@ -35,6 +35,8 @@ public:
 	int getPlayerState(){ return currentState; };	//Get current palyer state
 	void setPlayerState(int state){ currentState = (EPlayerState)state; };	//Set player state
 
+
+	GameObject* getPlayer(){ return player; };
 	//Enum for player state
 	typedef enum { ALIVE, DEAD, SUPERSIZE, JUMPING, FALLING, SLIDING } EPlayerState;
 
@@ -44,12 +46,16 @@ public:
 	SDL_Rect gSpriteClips[PLAYER_ANIMATION_FRAMES];
 	SDL_Rect* currentFrame;
 	LTexture gSpriteSheetTexture;
+
+
 private:
 	
 	GameObject* player;
-	
+	SDL_Rect* playerBoundingBox;
+
+
 	//The X & Y offset of the dot
-	int m_PosX, m_PosY;
+	int m_PlayerPosX, m_PlayerPosY;
 	int frame;
 
 

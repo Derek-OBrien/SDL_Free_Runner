@@ -9,7 +9,7 @@ public:
 
 	void registerPlayer(Player *p);				//register player with collision manager
 	void registerGameObject(GameObject *o);		//register gameObject with collision manager
-	bool checkCollision(GameObject *o, Player *p);	//check for collision between player and object
+	bool checkCollision(SDL_Rect* a, SDL_Rect* b);	//check for collision between player and object
 
 private:
 	CollisionManager(){};//constructor

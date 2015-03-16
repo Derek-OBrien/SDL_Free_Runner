@@ -1,26 +1,31 @@
 #ifndef _SCROLLING_BACKGROUND_H_
 #define _SCROLLING_BACKGROUND_H_
 
-#include "LTexture.h"
-#include "GameDefines.h"
-
-class ScrollingBackground : public GameObject{
+#include "Background.h"
+class ScrollingBackground : public BackGround{
 public:
 
 	ScrollingBackground(){ this->init(); };
 	~ScrollingBackground(){ this->cleanup(); };
 
 	virtual bool init();
-	virtual void render();
+	void renderBg();
+	void renderFg();
 	virtual void update();
 	virtual void cleanup();
 
+
 	bool loadmedia();
 	
+
+	GameObject* getGround(){ return ground; };
+
 private:
 	LTexture bg_Texture;
-	SDL_Rect bg_Clips[1];
-	SDL_Rect* currentFrame;
+	LTexture bg_Texture_ForeGround;
+
+	GameObject* ground;
+	SDL_Rect* groundBoundingBox;
 
 	int frame;
 	int scrollingOffset;

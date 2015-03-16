@@ -12,7 +12,19 @@ bool LTexture::init(){
 	return true;
 }
 
+LTexture LTexture::loadmedia(std::string path){
 
+	//Loading success flag
+	bool success = true;
+	LTexture texture;
+	//Load press texture
+	if (!texture.loadFromFile(path)){
+		printf("P: Failed to load Player sprite sheet texture texture!\n");
+		success = false;
+	}
+
+	return texture;
+}
 bool LTexture::loadFromFile(std::string path){
 	//Get rid of preexisting texture
 	cleanup();
@@ -33,7 +45,7 @@ bool LTexture::loadFromFile(std::string path){
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
 
 		//Create texture from surface pixels
-		newTexture = SDL_CreateTextureFromSurface(GameManager::getInstance()->getRenderer(), loadedSurface);
+		newTexture = SDL_CreateTextureFromSurface(LWindow::getInstance()->getRenderer(), loadedSurface);
 		if (newTexture == NULL){
 			printf("LT: Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
 		}
@@ -65,7 +77,7 @@ void LTexture::render(int x, int y, SDL_Rect* clip){
 	}
 
 	//Render to screen
-	SDL_RenderCopy(GameManager::getInstance()->getRenderer(), mTexture, clip, &renderQuad);
+	SDL_RenderCopy(LWindow::getInstance()->getRenderer(), mTexture, clip, &renderQuad);
 }
 
 

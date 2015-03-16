@@ -22,11 +22,12 @@ void GameObject::cleanup(){
 }
 
 //Set up Object Bounding box
-void GameObject::setObjectBoundingBox(SDL_Rect rect, int height, int width){
+void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
+	SDL_Rect rect;
 	rect.h = height;		//set height of bounding box
 	rect.w = width;			//set width of bounding box
-	rect.x = getPositionX();	//set X position of bounding box
-	rect.y = getPositionY();	//set Y position of bounding box
+	rect.x = x;	//set X position of bounding box
+	rect.y = y;	//set Y position of bounding box
 
 	objectBoundingBox = rect;
 }

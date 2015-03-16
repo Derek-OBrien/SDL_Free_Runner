@@ -10,7 +10,7 @@
 #include "LTexture.h"
 #include "GameDefines.h"
 
-typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_BACKGROUND };	//enum to hold object type
+typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_BACKGROUND, OT_BUTTON };	//enum to hold object type
 
 //Base class for all game objects
 class GameObject{
@@ -37,7 +37,7 @@ public:
 	void setRotateObject(float x, float y){ mRotateXBy = x; mRotateYBy = y; };		//Rotate object by x amount
 
 	void setObjectType(EObjectType type){ eTypeOfObject = type; };
-	void setObjectBoundingBox(SDL_Rect rect, int height, int width);
+	void setObjectBoundingBox(int x, int y, int height, int width);
 	
 	//Getters
 	float getPositionX(){ return mPosX; };				//Get objects X position
@@ -51,7 +51,7 @@ public:
 
 	EObjectType getObjectType(){ return eTypeOfObject; };
 
-	SDL_Rect getObjectBoundingBox(){ return objectBoundingBox; };
+	SDL_Rect* getObjectBoundingBox(){ return &objectBoundingBox; };
 	
 private:	
 

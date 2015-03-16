@@ -6,6 +6,7 @@
 #define GAME_HEIGHT 640
 //Velocity
 #define FORCE_UP 10
+#define FORCE_WORLD 5
 
 //Animations
 #define PLAYER_ANIMATION_FRAMES 8

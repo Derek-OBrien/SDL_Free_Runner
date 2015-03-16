@@ -2,19 +2,18 @@
 #define _GAME_MANAGER_H_
 
 #include <iostream>
+#include "LWindow.h"
 #include "ScrollingBackground.h"
 #include "CollisionManager.h"
+#include "../sceneManagement/GameOverScene.h"
 
 class GameManager{
 public:
 	static GameManager* getInstance();
 
-	virtual bool init(const char* title, int posX, int posY, int height, int width, int flag);	//Init method
+	virtual bool init();	//Init method
 	virtual void cleanup();	//Clean up everything
 	virtual void render();	//Render
-
-	SDL_Window* getWindow() const { return m_pWindow; }
-	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 	
 	void GameLoop();	//Gameloop
 	bool running() { return mGameRunning; };
@@ -26,16 +25,19 @@ private:
 	GameManager(){};	//Constructor
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 	
-	SDL_Window* m_pWindow;
-	SDL_Renderer* m_pRenderer;
+	GameOverScene* gameOver;
 	bool mGameRunning;
 
 	ScrollingBackground* bg;
 	Player* player;
 
-	
+	GameObject* ground;
+	GameObject* playerBody;
+
 	int m_gameWidth = GAME_WIDTH;
 	int m_gameHeight = GAME_HEIGHT;
+
+	bool collided;
 };
 
 #endif//_GAME_MANAGER_H_

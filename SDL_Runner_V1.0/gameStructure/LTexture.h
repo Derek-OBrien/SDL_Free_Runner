@@ -7,7 +7,6 @@
 
 class LTexture{
 public:
-	//static LTexture* getInstance();
 
 	LTexture(){ this->init(); };			//Initializes variables
 	~LTexture(){ this->cleanup(); };		//Deallocates memory
@@ -15,7 +14,7 @@ public:
 	virtual bool init();
 	virtual void cleanup();		//Deallocates texture
 	
-
+	LTexture loadmedia(std::string path);
 	bool loadFromFile(std::string path);
 
 	void render(int x, int y, SDL_Rect* clip = NULL);
