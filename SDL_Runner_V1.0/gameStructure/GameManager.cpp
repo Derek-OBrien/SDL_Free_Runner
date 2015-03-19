@@ -13,6 +13,7 @@ Print statement (“render”)
 
 #include "GameManager.h"	//Include game manager header
 #include "../sceneManagement/SceneManager.h"
+#include "../sceneManagement/PauseScene.h"
 
 GameManager* GameManagerInstance = 0;//instance of the object to be used
 GameManager* GameManager::getInstance(){
@@ -25,67 +26,102 @@ GameManager* GameManager::getInstance(){
 
 //init game manager
 bool GameManager::init(){
-	gameOver = new GameOverScene();
 
 	mGameRunning = true;
 	collided = false;
 
 	bg = new ScrollingBackground();
 	ground = bg->getGround();
-	player = new Player();	//Constructor Calls player->init();
 
+	player = new Player();	//Constructor Calls player->init();
 	playerBody = player->getPlayer();
 
-	//GameLoop();//call update loop
+	obstical = new Obstical();
+	obsticalBody = obstical->getObstical();
+
 	return true;
 }
 
 //Game manager gameloop
 void GameManager::GameLoop(){
-	
-	bool quit = false;
-	SDL_Event e;	//Event handler
-	while (mGameRunning){ //Run Main Loop untill player quits
-
-		//Handle events on queue
-		while (SDL_PollEvent(&e) != 0){
-			//User requests quit
-			if (e.type == SDL_QUIT){
-				mGameRunning = false;
-			}
-
-			player->handleInput(e);
-		}
-
-		//Clear Screen 
-		SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
-		SDL_RenderClear(LWindow::getInstance()->getRenderer());
-		
+	//Run Main Loop untill player quits
+	while (mGameRunning){ 
 		
 		//Render everything
 		render();
-		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
-
-		//Call each obstical’s update
-		bg->update();
-		player->update();
-
-		//Call the collision manager to check collisions
-		collided = CollisionManager::getInstance()->checkCollision(playerBody->getObjectBoundingBox(), ground->getObjectBoundingBox());
 		
-		if (collided == true){
-		}
+		//Check Collision
+		checkCollision();
+
+		//Handle input
+		handleInput();
+
+		//Update everything
+		update();
 	}
 	//Call deconstructor to clean up 
 	cleanup();
 }
 
+/*
+	call each game objects render
+	Z-order goes in order there called => 1st = 0
+	*/
 void GameManager::render(){
+	//Clear Screen 
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(LWindow::getInstance()->getRenderer());
+
 	bg->renderBg();		//Render Background
+
+	obstical->render();	//Render Obstical
 	player->render();	//Render Player
-	bg->renderFg();
+
+	bg->renderFg();		//Render ForeGround Smoke
+	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
+
 }
 
+void GameManager::update(){
+	obstical->update();
+}
+
+void GameManager::handleInput(){
+	bool quit = false;
+	SDL_Event e;	//Event handler
+
+	Scene* scene = SceneManager::getInstance()->getCurrentScene();
+
+	//Handle events on queue
+	while (SDL_PollEvent(&e) != 0){
+		//User requests quit
+
+		//Handle input for player actions
+		player->handleInput(e);
+
+		//If space pressed Pause Game
+		if (e.type == SDL_KEYDOWN){
+			if (e.key.keysym.sym == SDLK_SPACE){
+				std::cout << "Space Pressed Pause Game Scene" << std::endl;
+				
+				scene->setSceneState(PAUSED);
+
+			}
+		}
+
+		//Quit 
+		if (e.type == SDL_QUIT){
+			scene->setSceneState(DESTROY);
+			scene->cleanup();
+			cleanup();
+		}
+	}//End of Handle Input
+}
+
+//Check Collision
+void GameManager::checkCollision(){
+	
+}
 
 //Clean up Everything 
 void GameManager::cleanup(){
@@ -94,5 +130,6 @@ void GameManager::cleanup(){
 
 	SDL_DestroyRenderer(LWindow::getInstance()->getRenderer());	//Move to Game over Scene
 	SDL_DestroyWindow(LWindow::getInstance()->getWindow());		//Move to Game over Scene
+
 	SDL_Quit();
 }

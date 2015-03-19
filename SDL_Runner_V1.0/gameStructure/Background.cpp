@@ -3,7 +3,8 @@
 #include "LWindow.h"
 
 bool BackGround::init(){
-
+	background = new GameObject();
+	background->setName("background");
 
 	return true;
 }

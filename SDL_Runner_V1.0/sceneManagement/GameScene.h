@@ -8,6 +8,10 @@ public:
 	GameScene(){init();}
 	virtual void init();
 	virtual void run();
+
+	virtual void setSceneState(SceneState state){ thisSceneState = state; };
+	virtual SceneState getSceneState() { return thisSceneState; };
+	
 	~GameScene(){}
 private:
 

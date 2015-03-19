@@ -16,6 +16,7 @@ public:
 
 private:
 
+	GameObject* background;
 	LTexture bg_Texture;
 
 };

@@ -11,6 +11,7 @@ public:
 	//runwithscene
 	void runwithscene(Scene* Scene);
 
+	Scene* getCurrentScene(){ return currentRunningScene; };
 
 private:
 	SceneManager();

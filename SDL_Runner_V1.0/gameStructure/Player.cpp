@@ -5,18 +5,23 @@
 
 #include "Player.h"	//Include player header
 #include "GameManager.h"
+#include "../dao/AssetsDao.h"
 
 //Player Init
 bool Player::init(){
 	player = new GameObject();
 	player->setObjectType(OT_PLAYER);
-
+	player->setName("player");
 	setPlayerState(ALIVE);			//Set state to ALIVE
 
-	player->setPos(100.0, 435);
+	//Set Player Position
+	player->setPos(100, 435);
 	m_PlayerPosX = player->getPositionX();
 	m_PlayerPosY = player->getPositionY();
 
+	//Read Player media from xml document
+	//spriteAnimation = new SpriteAnimation();
+	spriteAnimation = AssetsDAO::getInstance()->readSpriteAnimation(player->getName());
 	frame = 0;
 	loadMedia();
 
@@ -27,30 +32,32 @@ bool Player::init(){
 bool Player::loadMedia(){
 	//Loading success flag
 	bool success = true;
-
-	//Load press texture
-	if (!gSpriteSheetTexture.loadFromFile("../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png")){
-		printf("P: Failed to load Player sprite sheet texture texture!\n");
+	
+	std::string imagepath = spriteAnimation.pathToFile;
+	std::cout << "Path to player" << imagepath << std::endl;
+	//Load texture
+	if (!gSpriteSheetTexture.loadFromFile(imagepath)){
+		std::cout <<"P: Failed to load Player sprite sheet texture texture!" << std::endl;
 		success = false;
 	}
 	else{
-		cout << "P: Player Loaded" << endl;
+		std::cout << "P: Player Loaded" << std::endl;
 
 
 		int temp, x;
 		x = 0;
-		for (int i = 0; i < PLAYER_ANIMATION_FRAMES; i++){
-			temp = 125;
+		for (int i = 0; i < spriteAnimation.frames; i++){
+			temp = spriteAnimation.offsetX;
 			gSpriteClips[i].x = x;
-			gSpriteClips[i].y = 0;
-			gSpriteClips[i].w = 125;
-			gSpriteClips[i].h = 125;
+			gSpriteClips[i].y = spriteAnimation.offsetY;
+			gSpriteClips[i].w = spriteAnimation.spriteWidth;
+			gSpriteClips[i].h = spriteAnimation.spriteHeight;
 
 			x += temp;
 		}
 
 		//Set bounding box
-		player->setObjectBoundingBox(100, 435, 125, 125);
+		player->setObjectBoundingBox(m_PlayerPosX, m_PlayerPosY, 125, 125);
 	}
 
 	return success;
@@ -67,12 +74,12 @@ void Player::render(){
 	++frame;
 
 	//Cycle animation
-	if (frame / 3 >= PLAYER_ANIMATION_FRAMES){
+	if (frame / 3 >= spriteAnimation.frames){
 		frame = 0;
 	}
 
 	//Render Bounding Box
-	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 0xFF);
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
 	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), playerBoundingBox);
 
 }
@@ -87,7 +94,7 @@ void Player::jump(){
 	m_PlayerPosY -= FORCE_UP * 10;
 	player->setPosY(m_PlayerPosY);
 
-	playerBoundingBox->y = m_PlayerPosY;
+	playerBoundingBox->y = m_PlayerPosY;	//update bounding box pos
 }
 
 void Player::fallDown(){
@@ -96,7 +103,7 @@ void Player::fallDown(){
 	m_PlayerPosY += FORCE_UP * 10;
 	player->setPosY(m_PlayerPosY);
 
-	playerBoundingBox->y = m_PlayerPosY;
+	playerBoundingBox->y = m_PlayerPosY;	//update bounding box pos
 }
 
 
@@ -117,28 +124,20 @@ void Player::update(){
 
 //Handle Player movement
 void Player::handleInput(SDL_Event& e){
-
+	//If a key was pressed
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0){
-
 		switch (e.key.keysym.sym){
 		case SDLK_UP:
-			//cout << "UP Pressed, Jump Active" << endl;
+			//std::cout << "UP Pressed, Jump Active" << std::endl;
 			jump();
-			break;
-		case SDLK_DOWN:
 			break;
 		}
 	}
 	//If a key was released
-	else if (e.type == SDL_KEYUP && e.key.repeat == 0)
-	{
-		//Adjust the velocity
+	else if (e.type == SDL_KEYUP && e.key.repeat == 0){
 		switch (e.key.keysym.sym){
 		case SDLK_UP: 
 			fallDown();
-			break;
-
-		case SDLK_DOWN:
 			break;
 		}
 	}

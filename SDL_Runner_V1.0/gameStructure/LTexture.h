@@ -23,13 +23,9 @@ public:
 	int getWidth(){ return mWidth; };
 	int getHeight(){ return mHeight; };
 
-
-///	SDL_Texture* gTexture;/
-//	SDL_Renderer* gRenderer;
 private:
 
 	SDL_Texture* mTexture;
-
 
 	//Image dimensions
 	int mWidth;

@@ -23,9 +23,9 @@ public:
 	virtual bool init();
 
 	//Setters
-	void setPosX(float x){ mPosX = x; };				//Set game object position
-	void setPosY(float y){ mPosY = y; };				//Set game object position
-	void setPos(float x, float y){ mPosX = x; mPosY = y; };	//Set game object position
+	void setPosX(int x){ mPosX = x; };				//Set game object position
+	void setPosY(int y){ mPosY = y; };				//Set game object position
+	void setPos(int x, int y){ mPosX = x; mPosY = y; };	//Set game object position
 
 
 	void setScaleObjectX(float x){ mScaleXBy = x; };		//Scale object by x amount
@@ -39,9 +39,11 @@ public:
 	void setObjectType(EObjectType type){ eTypeOfObject = type; };
 	void setObjectBoundingBox(int x, int y, int height, int width);
 	
+	void setName(const char* name) { objectName = name; };
+
 	//Getters
-	float getPositionX(){ return mPosX; };				//Get objects X position
-	float getPositionY(){ return mPosY; };				//Get objects Y position
+	int getPositionX(){ return mPosX; };				//Get objects X position
+	int getPositionY(){ return mPosY; };				//Get objects Y position
 	
 	float getScaleX(){ return mScaleXBy; };
 	float getScaleY(){ return mScaleYBy; };
@@ -53,19 +55,22 @@ public:
 
 	SDL_Rect* getObjectBoundingBox(){ return &objectBoundingBox; };
 	
+	const char* getName(){ return objectName; };
 private:	
 
 	EObjectType eTypeOfObject;		//Set default object type
 	SDL_Rect objectBoundingBox;		//Object Bounding box
 
-	float mPosX;		//Hold X cooridnate
-	float mPosY;		//Hold Y cooridnate
+	int mPosX;		//Hold X cooridnate
+	int mPosY;		//Hold Y cooridnate
 	
-	float mScaleXBy;			//Value to scale object X by
-	float mScaleYBy;			//Value to scale object Y by
+	float mScaleXBy;		//Value to scale object X by
+	float mScaleYBy;		//Value to scale object Y by
 
 	float mRotateXBy;		//Value to rotate object X by
 	float mRotateYBy;		//Value to rotate object Y by
+
+	const char* objectName;		//Object Name
 };
 
 #endif//_GAME_OBJECT_H_

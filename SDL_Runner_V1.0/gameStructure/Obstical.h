@@ -11,15 +11,28 @@
 class Obstical : public GameObject{
 
 public:
-	Obstical(){ this->init(); };		//Constructor
+	Obstical(){ this->init(); };			//Constructor
 	~Obstical(){ this->cleanup(); };		//DeConstructor
 
 	virtual bool init();
 	virtual void cleanup();
 
+	//Load, Render, Update
+	bool loadMedia();
+	virtual void render();		//render obstical
+	virtual void update();		//update obstical
+
+	GameObject* getObstical(){ return obstical; };
+
 private:
 	
+	GameObject* obstical;
+	SDL_Rect* obsticalBoundingBox;
+	LTexture gObsticalTexture;
 
+	int scrollingOffset;
+	//The X & Y offset of the dot
+	int m_obsticalPosX, m_obsticalPosY;
 };
 
 #endif//_OBSTICAL_H_

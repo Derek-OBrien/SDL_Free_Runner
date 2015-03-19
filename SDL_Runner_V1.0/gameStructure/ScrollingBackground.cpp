@@ -18,19 +18,17 @@ bool ScrollingBackground::init(){
 bool ScrollingBackground::loadmedia(){
 	bool success = true;
 
-	//Load press texture
+	//Load texture
 	if (!bg_Texture.loadFromFile("../SDL_Runner_V1.0/assets/backgrounds/bg_image.png")){
 		printf("SBG: Failed to load Background texture!\n");
 		success = false;
 	}
-	else if (!bg_Texture_ForeGround.loadFromFile("../SDL_Runner_V1.0/assets/backgrounds/bg_foreground.png")){
+	else if (!bg_Texture_ForeGround.loadFromFile("../SDL_Runner_V1.0/assets/backgrounds/smoke2.png")){
 		printf("SBG: Failed to load Forground texture!\n");
 		success = false;
 	}
 	else{
 		printf("SBG: Background Loaded\n");
-		printf("SBG: Foreground Loaded\n");
-
 		ground->setObjectBoundingBox(0, 560, 50, GAME_WIDTH);
 	}
 
@@ -46,6 +44,10 @@ void ScrollingBackground::renderBg(){
 	//Render background
 	bg_Texture.render(scrollingOffset, 0);
 	bg_Texture.render(scrollingOffset + bg_Texture.getWidth(), 0);
+
+	//Render Bounding Box
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
+	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), groundBoundingBox);
 }
 
 //Render Background
@@ -54,9 +56,10 @@ void ScrollingBackground::renderFg(){
 	if (scrollingOffset < -bg_Texture_ForeGround.getWidth()){
 		scrollingOffset = 0;
 	}
+
 	//Render background
-	bg_Texture_ForeGround.render(scrollingOffset, 535);
-	bg_Texture_ForeGround.render(scrollingOffset + bg_Texture_ForeGround.getWidth(), 535);
+	bg_Texture_ForeGround.render(scrollingOffset, 0);
+	bg_Texture_ForeGround.render(scrollingOffset + bg_Texture_ForeGround.getWidth(), 0);
 }
 
 //Update

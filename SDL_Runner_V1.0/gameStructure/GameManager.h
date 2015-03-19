@@ -5,37 +5,38 @@
 #include "LWindow.h"
 #include "ScrollingBackground.h"
 #include "CollisionManager.h"
-#include "../sceneManagement/GameOverScene.h"
+
 
 class GameManager{
 public:
 	static GameManager* getInstance();
 
-	virtual bool init();	//Init method
-	virtual void cleanup();	//Clean up everything
-	virtual void render();	//Render
-	
+	 bool init();			//Init 
+	 void render();			//Render
+	 void update();			//Update 
+	 void handleInput();	//Handle input
+	 void checkCollision();	//Check collision
+	 void cleanup();		//Clean up everything
+
+
 	void GameLoop();	//Gameloop
 	bool running() { return mGameRunning; };
 
-	int getGameWidth(){ return m_gameWidth; };
-	int getGameHeight(){ return m_gameHeight; };
 
 private:
 	GameManager(){};	//Constructor
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 	
-	GameOverScene* gameOver;
 	bool mGameRunning;
 
 	ScrollingBackground* bg;
 	Player* player;
+	Obstical* obstical;
 
 	GameObject* ground;
 	GameObject* playerBody;
+	GameObject* obsticalBody;
 
-	int m_gameWidth = GAME_WIDTH;
-	int m_gameHeight = GAME_HEIGHT;
 
 	bool collided;
 };

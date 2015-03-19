@@ -5,13 +5,7 @@ Scene::Scene(){
 	thisSceneState = PAUSED;
 }
 
-void Scene::init()
-{
-
-	std::cout << "Scene Initializing" <<std::endl;
-	std::cout << "Loading Textures and other shizzle wizzle" <<std::endl;
-
-
+void Scene::init(){
 	initCompleted = true;
 }
 
@@ -22,8 +16,7 @@ void Scene::run()
 		init();
 	}
 	thisSceneState = RUNNING;
-	while(thisSceneState == RUNNING)
-	{
+	while(thisSceneState == RUNNING){
 		std::cout << "Update world" << std::endl;
 		std::cout << "Checking Collisions" << std::endl;
 		std::cout << "Handle Input" << std::endl;

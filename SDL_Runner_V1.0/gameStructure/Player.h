@@ -2,8 +2,7 @@
 #define _PLAYER_H_
 
 #include "Character.h"	//Include Character header file
-
-
+#include "SpriteAnimation.h"
 
 //player is subclass of character
 class Player : public Character{
@@ -37,30 +36,26 @@ public:
 
 
 	GameObject* getPlayer(){ return player; };
+
 	//Enum for player state
 	typedef enum { ALIVE, DEAD, SUPERSIZE, JUMPING, FALLING, SLIDING } EPlayerState;
 
 
 	//Scene sprites
-	
 	SDL_Rect gSpriteClips[PLAYER_ANIMATION_FRAMES];
 	SDL_Rect* currentFrame;
 	LTexture gSpriteSheetTexture;
 
 
-private:
-	
+private:	
 	GameObject* player;
 	SDL_Rect* playerBoundingBox;
-
-
+	
+	SpriteAnimation spriteAnimation;
 	//The X & Y offset of the dot
 	int m_PlayerPosX, m_PlayerPosY;
 	int frame;
 
-
-	// handle any animation for the player
-	void handleAnimation();
 
 	// player can be SuperSize for a time
 	int m_SuperSize;

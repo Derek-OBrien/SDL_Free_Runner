@@ -7,39 +7,35 @@
 
 void GameScene::init(){
 	Scene::init();
+	GameManager::getInstance()->init();		//Init Game Scene
+
 }
 
 void GameScene::run(){
 
-	if(!initCompleted){
+	if (!initCompleted){
 		init();
 	}
-	thisSceneState = RUNNING;
+	//thisSceneState = RUNNING;
+	setSceneState(RUNNING);
 
-	SDL_Event e;	//Event handler
+	while (getSceneState() == RUNNING){
+		//std::cout << "Game Scene Running!" << std::endl;
 
-	//Handle events on queue
-	/*while (SDL_PollEvent(&e) != 0){
-		if (e.type == SDL_KEYDOWN){
-			if (e.key.keysym.sym = SDLK_SPACE){
-				thisSceneState = PAUSED;
-				std::cout << "Space Pressed" << std::endl;
-			}
-		}
-	}*/
+		GameManager::getInstance()->render();
+		GameManager::getInstance()->update();
+		GameManager::getInstance()->handleInput();
 
-
-	while(thisSceneState == RUNNING){
-		std::cout << "Game Scene Running!" << std::endl;
-		
-		GameManager::getInstance()->init();		//Init
-		GameManager::getInstance()->GameLoop();	//Run Game loop
 	}
 
-	while (thisSceneState == PAUSED){
+	//Go To Pause Scene
+	while (getSceneState()== PAUSED){
+		std::cout << "Game Scene Paused" << std::endl;
+		Scene* scene = SceneManager::getInstance()->getCurrentScene();
 
 		PauseScene* nextScene = new PauseScene();
 		SceneManager::getInstance()->runwithscene(nextScene);
 	}
-	
+
+	GameManager::getInstance()->cleanup();
 }

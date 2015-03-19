@@ -19,12 +19,14 @@ LTexture LTexture::loadmedia(std::string path){
 	LTexture texture;
 	//Load press texture
 	if (!texture.loadFromFile(path)){
-		printf("P: Failed to load Player sprite sheet texture texture!\n");
+		std::cout << "P: Failed to load Player sprite sheet texture texture!" << std::endl;
 		success = false;
 	}
 
 	return texture;
 }
+
+
 bool LTexture::loadFromFile(std::string path){
 	//Get rid of preexisting texture
 	cleanup();
@@ -36,10 +38,10 @@ bool LTexture::loadFromFile(std::string path){
 	//Load image at specified path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == NULL){
-		printf("LT: Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+		std::cout << "LT: Unable to load image %s!\n SDL_image Error: %s" << path.c_str() << IMG_GetError() << std::endl;
 	}
 	else{
-		cout << "LT: image file loaded" << endl;
+		std::cout << "LT: image file loaded" << std::endl;
 
 		//Color key image
 		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
@@ -47,10 +49,10 @@ bool LTexture::loadFromFile(std::string path){
 		//Create texture from surface pixels
 		newTexture = SDL_CreateTextureFromSurface(LWindow::getInstance()->getRenderer(), loadedSurface);
 		if (newTexture == NULL){
-			printf("LT: Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+			std::cout << "LT: Unable to create texture from %s!\n SDL Error: %s" << path.c_str() << SDL_GetError() << std::endl;
 		}
 		else{
-			cout << "LT: texture created" << endl;
+			std::cout << "LT: texture created" << std::endl;
 		
 			//Get image dimensions
 			mWidth = loadedSurface->w;

@@ -4,12 +4,14 @@
 //Window
 #define GAME_WIDTH 1280
 #define GAME_HEIGHT 640
+
 //Velocity
 #define FORCE_UP 10
+#define FORCE_X 10
+
 #define FORCE_WORLD 5
 
-//Animations
-#define PLAYER_ANIMATION_FRAMES 8
-
+//Xml Document
+#define XMLDOC "../SDL_Runner_V1.0/assets/assets.xml"
 
 #endif//_GAMEDEFINES_H_

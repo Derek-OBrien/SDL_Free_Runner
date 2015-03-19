@@ -35,23 +35,23 @@ void CollisionManager::registerPlayer(Player *p){
 //first check state of player
 bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	
-	int leftA, rightA, topA, bottomA;
-	int leftB, rightB, topB, bottomB;
+	int A_l, A_r, A_t, A_b;
+	int B_l, B_r, B_t, B_b;
 	
 	//Calculate the sides of rect A
-	leftA = a->x;
-	rightA = a->x + a->w;
-	topA = a->y;
-	bottomA = a->y + a->h;
+	A_l = a->x;
+	A_r = a->x + a->w;
+	A_t = a->y;
+	A_b = a->y + a->h;
 
 	//Calculate the sides of rect B
-	leftB = b->x;
-	rightB = b->x + b->w;
-	topB = b->y;
-	bottomB = b->y + b->h;
+	B_l = b->x;
+	B_r = b->x + b->w;
+	B_b = b->y;
+	B_t = b->y + b->h;
 	
-	//If any of the sides from A are outside of B
-	if (bottomA >= topB){
+	//if right of a >= left of b
+	if (A_r <= B_l){
 		isCollide =  true;
 	}
 	else{

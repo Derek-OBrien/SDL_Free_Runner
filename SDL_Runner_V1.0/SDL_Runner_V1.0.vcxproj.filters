@@ -99,6 +99,12 @@
     <ClCompile Include="gameStructure\LWindow.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
+    <ClCompile Include="tinyxml\tinyxml2.cpp">
+      <Filter>Source Files\dao</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\AssetsDao.cpp">
+      <Filter>Source Files\dao</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameStructure\Character.h">
@@ -166,6 +172,24 @@
     </ClInclude>
     <ClInclude Include="gameStructure\Background.h">
       <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml\tinyxml2.h">
+      <Filter>Header Files\dao</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\AssetsDao.h">
+      <Filter>Header Files\dao</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\ImagePath.h">
+      <Filter>Header Files\dao</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\Path.h">
+      <Filter>Header Files\dao</Filter>
+    </ClInclude>
+    <ClInclude Include="dao\TextItem.h">
+      <Filter>Header Files\dao</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStructure\SpriteAnimation.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

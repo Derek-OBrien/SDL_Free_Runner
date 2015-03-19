@@ -7,12 +7,14 @@ enum  SceneState{RUNNING, PAUSED, DESTROY};
 class Scene{
 public:
 	Scene(); //constructor
-		
+	~Scene(); //deconstructor
+
 	
 	virtual void init();
 	virtual void run();
 	virtual void cleanup();
-	 ~Scene(); //deconstructor
+	virtual void setSceneState(SceneState state) { thisSceneState = state; };
+	virtual SceneState getSceneState(){ return thisSceneState; };
 	
 protected:
 	bool initCompleted;

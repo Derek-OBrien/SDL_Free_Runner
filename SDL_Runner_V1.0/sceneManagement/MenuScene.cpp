@@ -3,9 +3,10 @@
 #include "GameScene.h"
 #include "../gameStructure/LWindow.h"
 
+#include "../dao/AssetsDao.h"
+
 void MenuScene::init(){
 	Scene::init();
-
 
 	bg.loadMedia("../SDL_Runner_V1.0/assets/backgrounds/menu.png");
 }
@@ -18,32 +19,22 @@ void MenuScene::run(){
 
 	thisSceneState = RUNNING;
 
-	int lifetimeofscene = 100;
-
 	while (thisSceneState == RUNNING){
 		std::cout << "Menu Scene Running!" << std::endl;
-		//SDL_Event e;	//Event handler
-
-		lifetimeofscene--;
+		SDL_Event e;	//Event handler
 
 
-		if (lifetimeofscene < 1){
-			bg.cleanup();
-			thisSceneState = DESTROY;
-		}
-
-
-/*		//Handle events on queue
+	//Handle events on queue
 		while (SDL_PollEvent(&e) != 0){
-			//User requests quit
 			if (e.type == SDL_KEYDOWN){
-				if (e.key.keysym.sym = SDLK_SPACE){
+				if (e.key.keysym.sym == SDLK_SPACE){
+					//Destroy Scene and load Game Scene
 					thisSceneState = DESTROY;
 					bg.cleanup();
 				}
 			}
 		}
-*/
+
 		bg.render();
 	}
 

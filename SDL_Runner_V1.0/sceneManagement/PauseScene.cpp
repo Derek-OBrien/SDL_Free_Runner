@@ -1,5 +1,6 @@
 #include "PauseScene.h"
 #include "SceneManager.h"
+#include "GameScene.h"
 
 void PauseScene::init(){
 	Scene::init();
@@ -15,15 +16,27 @@ void PauseScene::run()
 	}
 	thisSceneState = RUNNING;
 
-	int lifetimeofscene = 2000;
+	std::cout << "Pause Scene Running!" << std::endl;
 
 	while(thisSceneState == RUNNING){
-		std::cout << "Pause Scene Running!" << std::endl;
 		
+		SDL_Event e;	//Event handler
+
+
+		//Handle events on queue
+		while (SDL_PollEvent(&e) != 0){
+			if (e.type == SDL_KEYDOWN){
+				if (e.key.keysym.sym == SDLK_SPACE){
+					//Destroy Scene and load Game Scene
+					thisSceneState = DESTROY;
+					bg.cleanup();
+				}
+			}
+		}
 
 		bg.render();
 	}
 
-	Scene* nextScene = new Scene();
+	GameScene* nextScene = new GameScene();
 	SceneManager::getInstance()->runwithscene(nextScene);
 }

@@ -1,17 +1,29 @@
 <?xml version="2.0" encoding="utf-8"?>
-<resources>
-	<backgrounds>
-		<path name = "Splash"> ../SDL_Runner_V1.0/assets/backgrounds/splash.png </path >
-		<path name = "Main" > ../SDL_Runner_V1.0/assets/backgrounds/main.png" </path>
-		<path name = "Pause" > ../SDL_Runner_V1.0/assets/backgrounds/pause.png" </path>
-		<path name = "GameBg" > ../SDL_Runner_V1.0/assets/backgrounds/bg_image.png" </path>
-		<path name = "GameFg" > ../SDL_Runner_V1.0/assets/backgrounds/bg_foreground.png" </path>
-	</backgrounds>
-	
-	<player>
-		<path name = "Player" width = "125" height = "125" offsetX = "0" offsetY = "125" frames = "8">
-			../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png
-		</path>
-	</player>
+<Assets><!--Root -->
+	<ImagePaths>
+			<path name = "splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>	<!--Child Element-->
+			<path name = "menu">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
+			<path name = "pause">../SDL_Runner_V1.0/assets/backgrounds/pause.png</path>
+			<path name = "gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
+			<path name = "gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
+		
+			<path 	name = "player" 
+					width = "125" 
+					height = "125"
+					offsetX = "125" 
+					offsetY = "0" 
+					frames = "8">../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png</path>					
+		
+			<path name = "crate">../SDL_Runner_V1.0/assets/crate.png</path>
+	</ImagePaths>
+</Assets>
 
-</resources>
+<!--
+<Story>
+    <StoryPoint>
+        <StoryText>You Open on a courtyard, it is dark. You see a Door</StoryText>
+        <StoryChoice>1. Open Door</StoryChoice>
+        <StoryChoice>2. Run Away</StoryChoice>
+    </StoryPoint>
+</Story>
+-->

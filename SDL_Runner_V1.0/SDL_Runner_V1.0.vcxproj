@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dao\AssetsDao.cpp" />
     <ClCompile Include="gameStructure\Background.cpp" />
     <ClCompile Include="gameStructure\Character.cpp" />
     <ClCompile Include="gameStructure\Collectable.cpp" />
@@ -91,8 +92,13 @@
     <ClCompile Include="sceneManagement\Scene.cpp" />
     <ClCompile Include="sceneManagement\SceneManager.cpp" />
     <ClCompile Include="sceneManagement\SplashScene.cpp" />
+    <ClCompile Include="tinyxml\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dao\AssetsDao.h" />
+    <ClInclude Include="dao\Path.h" />
+    <ClInclude Include="dao\ImagePath.h" />
+    <ClInclude Include="dao\TextItem.h" />
     <ClInclude Include="gameStructure\Background.h" />
     <ClInclude Include="gameStructure\Character.h" />
     <ClInclude Include="gameStructure\Collectable.h" />
@@ -107,6 +113,7 @@
     <ClInclude Include="gameStructure\Player.h" />
     <ClInclude Include="gameStructure\ScrollingBackground.h" />
     <ClInclude Include="gameStructure\Sprite.h" />
+    <ClInclude Include="gameStructure\SpriteAnimation.h" />
     <ClInclude Include="gameStructure\WorldManager.h" />
     <ClInclude Include="sceneManagement\GameOverScene.h" />
     <ClInclude Include="sceneManagement\GameScene.h" />
@@ -115,6 +122,7 @@
     <ClInclude Include="sceneManagement\Scene.h" />
     <ClInclude Include="sceneManagement\SceneManager.h" />
     <ClInclude Include="sceneManagement\SplashScene.h" />
+    <ClInclude Include="tinyxml\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
