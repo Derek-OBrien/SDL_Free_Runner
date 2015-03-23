@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
+#include <iostream>
+
 
 #include "LTexture.h"
 #include "GameDefines.h"
@@ -23,9 +25,9 @@ public:
 	virtual bool init();
 
 	//Setters
-	void setPosX(int x){ mPosX = x; };				//Set game object position
-	void setPosY(int y){ mPosY = y; };				//Set game object position
-	void setPos(int x, int y){ mPosX = x; mPosY = y; };	//Set game object position
+	void setPositionX(int x){ mPosX = x; };				//Set game object position
+	void setPositionY(int y){ mPosY = y; };				//Set game object position
+	void setPosition(int x, int y){ mPosX = x; mPosY = y; };	//Set game object position
 
 
 	void setScaleObjectX(float x){ mScaleXBy = x; };		//Scale object by x amount
@@ -53,9 +55,11 @@ public:
 
 	EObjectType getObjectType(){ return eTypeOfObject; };
 
-	SDL_Rect* getObjectBoundingBox(){ return &objectBoundingBox; };
+	SDL_Rect* getObjectBoundingBox() { return &objectBoundingBox; };
 	
 	const char* getName(){ return objectName; };
+
+
 private:	
 
 	EObjectType eTypeOfObject;		//Set default object type
@@ -71,6 +75,9 @@ private:
 	float mRotateYBy;		//Value to rotate object Y by
 
 	const char* objectName;		//Object Name
+
+	bool initCompleted;
+
 };
 
 #endif//_GAME_OBJECT_H_

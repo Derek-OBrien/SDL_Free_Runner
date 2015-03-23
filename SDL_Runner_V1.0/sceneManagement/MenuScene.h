@@ -3,17 +3,22 @@
 
 #include "Scene.h"
 #include "../gameStructure/Background.h"
-class MenuScene : public  Scene
-{
+#include "../gameStructure/Button.h"
+
+class MenuScene : public  Scene{
 public:
 	MenuScene(){init();}
+	~MenuScene(){ cleanup(); }
+
 	virtual void init();
 	virtual void run();
-	~MenuScene(){}
+	virtual void cleanup();
+
 private:
 
 	BackGround bg;
-
+	Button* playbutton;
+	Button* closebutton;
 };
 
 

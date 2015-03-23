@@ -3,8 +3,6 @@
 
 static LWindow *instance = 0;
 
-
-
 LWindow* LWindow::getInstance(){
 	if (instance == 0){
 		instance = new LWindow();
@@ -34,4 +32,12 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 	else{ std::cout << "SDL init fail" << std::endl; return false; }
 
 	return true;
+}
+
+void LWindow::cleanup(){
+
+	SDL_DestroyRenderer(m_pRenderer);	//Move to Game over Scene
+	SDL_DestroyWindow(m_pWindow);		//Move to Game over Scene
+
+	SDL_Quit();
 }

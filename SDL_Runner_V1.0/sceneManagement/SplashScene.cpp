@@ -3,9 +3,12 @@
 #include "SceneManager.h"
 #include "SplashScene.h"
 #include "MenuScene.h"
+#include "../dao/AssetsDao.h"
 
 void SplashScene::init(){
 	Scene::init();
+
+	std::cout << "SplashScene  Init!" << std::endl;
 
 	//Load Game Window on init
 	LWindow::getInstance()->init(
@@ -16,7 +19,8 @@ void SplashScene::init(){
 		GAME_WIDTH,				//Width
 		SDL_WINDOW_SHOWN);		//Flag
 
-	bg.loadMedia("../SDL_Runner_V1.0/assets/backgrounds/splash.png");
+	Path path = AssetsDAO::getInstance()->read("splash");
+	bg.loadMedia(path.getText());
 }
 
 void SplashScene::run(){
@@ -25,22 +29,21 @@ void SplashScene::run(){
 		init();
 	}
 
+	std::cout << "SplashScene  Running!" << std::endl;
 	thisSceneState = RUNNING;
-
 	int lifetimeofscene = 100;
 
 
+	//Scene Run Loop
 	while (thisSceneState == RUNNING){
-		std::cout << "SplashScene  Running!" << std::endl;
+		//Render everything
 		lifetimeofscene--;
-
-
 		if (lifetimeofscene < 1){
 			bg.cleanup();
 			thisSceneState = DESTROY;
 		}
 
-		//Render everything
+
 		bg.render();
 	}
 
@@ -50,3 +53,6 @@ void SplashScene::run(){
 }
 
 
+void SplashScene::cleanup(){
+	bg.cleanup();
+}

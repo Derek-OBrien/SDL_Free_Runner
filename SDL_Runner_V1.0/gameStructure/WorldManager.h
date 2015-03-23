@@ -14,8 +14,8 @@ class WorldManager{
 public:
 	static WorldManager* getInstance();
 
-	Player* getPlayerInstance();
-	Factory*  getFactoryInstance();
+//	Player* getPlayerInstance();
+//	Factory*  getFactoryInstance();
 
 	void populateVector(GameObject *o);
 
@@ -25,7 +25,7 @@ private:
 	~WorldManager(){};
 
 	Factory * factoryInstance;
-	Player * playerInstance;	
+//	Player * playerInstance;	
 
 };
 

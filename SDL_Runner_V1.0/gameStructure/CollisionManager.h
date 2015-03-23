@@ -7,8 +7,8 @@ class CollisionManager{
 public:
 	static CollisionManager* getInstance();		//Singleton 
 
-	void registerPlayer(Player *p);				//register player with collision manager
-	void registerGameObject(GameObject *o);		//register gameObject with collision manager
+//	void registerPlayer(Player *p);				//register player with collision manager
+//	void registerGameObject(GameObject *o);		//register gameObject with collision manager
 	bool checkCollision(SDL_Rect* a, SDL_Rect* b);	//check for collision between player and object
 
 private:

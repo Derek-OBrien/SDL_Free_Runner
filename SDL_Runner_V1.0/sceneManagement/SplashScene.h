@@ -7,11 +7,11 @@
 class SplashScene : public  Scene{
 public:
 	SplashScene(){ init(); }
-	~SplashScene(){}
+	~SplashScene(){ cleanup(); }
 
 	virtual void init();
 	virtual void run();
-
+	virtual void cleanup();
 
 private:
 	BackGround bg;

@@ -1,18 +1,14 @@
 #include "Scene.h"
 
-Scene::Scene(){
-	initCompleted = false;
-	thisSceneState = PAUSED;
-}
-
+//Scene Init
 void Scene::init(){
+	thisSceneState = PAUSED;
 	initCompleted = true;
 }
 
 void Scene::run()
 {
-	if(!initCompleted)
-	{
+	if(!initCompleted){
 		init();
 	}
 	thisSceneState = RUNNING;
@@ -23,13 +19,6 @@ void Scene::run()
 	}
 }
 
-void Scene::cleanup()
-{
+void Scene::cleanup(){
 	std::cout << "Destroying Assets" << std::endl;
-}
-
-
-Scene::~Scene(){
-	cleanup();
-	std::cout << "Shutting down Scene" << std::endl;
 }

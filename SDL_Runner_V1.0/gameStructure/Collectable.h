@@ -6,9 +6,9 @@
 */
 
 #include "Player.h"		//include player
-
+#include "Sprite.h"
 //collectable class is subclass of Character
-class Collectable : public GameObject{
+class Collectable : public Sprite{
 
 public:
 	Collectable(){ this->init(); };		//Constructor

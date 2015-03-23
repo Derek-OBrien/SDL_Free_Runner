@@ -8,6 +8,7 @@ public:
 	BackGround(){ this->init(); };
 	~BackGround(){ this->cleanup(); };
 
+	void create(std::string name);
 	virtual bool init();
 	virtual void cleanup();
 	virtual void render();

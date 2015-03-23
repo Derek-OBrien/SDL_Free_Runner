@@ -1,28 +1,26 @@
 #include "GameOverScene.h"
 #include "SceneManager.h"
+#include "../dao/AssetsDao.h"
 
-void GameOverScene::init()
-{
+void GameOverScene::init(){
 	Scene::init();
+
+	Path path = AssetsDAO::getInstance()->read("gameOver");
+	bg.loadMedia(path.getText());
+
 }
 
 void GameOverScene::run()
 {
-	if(!initCompleted)
+	if (!initCompleted)
 	{
 		init();
 	}
 	thisSceneState = RUNNING;
 
-	int lifetimeofscene = 2000;
+	std::cout << "Game Over Scene Running!" << std::endl;
 
-	while(thisSceneState == RUNNING)
-	{
-		std::cout << "Game Over Scene Running!" << std::endl;
-		lifetimeofscene--;
-		if(lifetimeofscene <1)
-			thisSceneState = DESTROY;
+	while(thisSceneState == RUNNING){
+		bg.render();
 	}
-	//Scene* nextScene = new Scene();
-	//SceneManager::getInstance()->runwithscene(nextScene);
 }

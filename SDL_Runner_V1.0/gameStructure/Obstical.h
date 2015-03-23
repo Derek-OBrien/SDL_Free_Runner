@@ -5,34 +5,32 @@
 -		obstical header file
 */
 
-#include "Player.h"		//include player
+#include "Sprite.h"
 
 //obstical class is subclass of Character
-class Obstical : public GameObject{
+class Obstical : public Sprite{
 
 public:
-	Obstical(){ this->init(); };			//Constructor
-	~Obstical(){ this->cleanup(); };		//DeConstructor
+	Obstical(){ init(); };			//Constructor
+	~Obstical(){ cleanup(); };		//DeConstructor
 
 	virtual bool init();
 	virtual void cleanup();
 
 	//Load, Render, Update
-	bool loadMedia();
 	virtual void render();		//render obstical
 	virtual void update();		//update obstical
 
 	GameObject* getObstical(){ return obstical; };
 
+	SDL_Rect* getObsticalCollisionBox(){ return obsticalBoundingBox; };
 private:
 	
-	GameObject* obstical;
+	Sprite* obstical;
 	SDL_Rect* obsticalBoundingBox;
-	LTexture gObsticalTexture;
 
-	int scrollingOffset;
-	//The X & Y offset of the dot
-	int m_obsticalPosX, m_obsticalPosY;
+	//Position of the Obstical
+	int obsticalPosX, obsticalPosY;
 };
 
 #endif//_OBSTICAL_H_

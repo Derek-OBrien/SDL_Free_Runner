@@ -19,23 +19,18 @@ public:
 	 void cleanup();		//Clean up everything
 
 
-	void GameLoop();	//Gameloop
-	bool running() { return mGameRunning; };
-
-
 private:
 	GameManager(){};	//Constructor
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 	
-	bool mGameRunning;
 
 	ScrollingBackground* bg;
 	Player* player;
 	Obstical* obstical;
 
-	GameObject* ground;
-	GameObject* playerBody;
-	GameObject* obsticalBody;
+//	GameObject* ground;
+//	GameObject* playerBody;
+//	GameObject* obsticalBody;
 
 
 	bool collided;

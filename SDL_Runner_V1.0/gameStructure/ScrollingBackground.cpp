@@ -1,12 +1,13 @@
 
 #include "ScrollingBackground.h"
-#include "GameManager.h"
+//#include "GameManager.h"
 
 //Init menthod
 bool ScrollingBackground::init(){
 	ground = new GameObject();
 	ground->setObjectType(OT_BACKGROUND);
-	groundBoundingBox = ground->getObjectBoundingBox();
+//	groundBoundingBox = ground->getObjectBoundingBox();
+
 
 	loadmedia();
 	frame = 0;
@@ -18,18 +19,25 @@ bool ScrollingBackground::init(){
 bool ScrollingBackground::loadmedia(){
 	bool success = true;
 
+	path = AssetsDAO::getInstance()->read("gameBg");
+	std::string BgimagePath = path.getText();
+
 	//Load texture
-	if (!bg_Texture.loadFromFile("../SDL_Runner_V1.0/assets/backgrounds/bg_image.png")){
+	if (!bg_Texture.loadFromFile(BgimagePath)){
 		printf("SBG: Failed to load Background texture!\n");
 		success = false;
 	}
-	else if (!bg_Texture_ForeGround.loadFromFile("../SDL_Runner_V1.0/assets/backgrounds/smoke2.png")){
-		printf("SBG: Failed to load Forground texture!\n");
-		success = false;
-	}
 	else{
+
+		path = AssetsDAO::getInstance()->read("gameFg");
+		std::string FgimagePath = path.getText();
+
+		if (!bg_Texture_ForeGround.loadFromFile(FgimagePath)){
+			printf("SBG: Failed to load Forground texture!\n");
+			success = false;
+		}
 		printf("SBG: Background Loaded\n");
-		ground->setObjectBoundingBox(0, 560, 50, GAME_WIDTH);
+	//	ground->setObjectBoundingBox(0, 560, 50, GAME_WIDTH);
 	}
 
 	return success;
@@ -46,8 +54,8 @@ void ScrollingBackground::renderBg(){
 	bg_Texture.render(scrollingOffset + bg_Texture.getWidth(), 0);
 
 	//Render Bounding Box
-	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
-	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), groundBoundingBox);
+	//SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
+	//SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), groundBoundingBox);
 }
 
 //Render Background

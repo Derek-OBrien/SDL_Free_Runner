@@ -2,6 +2,8 @@
 #define _SCROLLING_BACKGROUND_H_
 
 #include "Background.h"
+#include "../dao/AssetsDao.h"
+
 class ScrollingBackground : public BackGround{
 public:
 
@@ -23,6 +25,7 @@ public:
 private:
 	LTexture bg_Texture;
 	LTexture bg_Texture_ForeGround;
+	Path path;
 
 	GameObject* ground;
 	SDL_Rect* groundBoundingBox;

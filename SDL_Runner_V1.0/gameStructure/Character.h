@@ -6,26 +6,21 @@
 -		Character header file
 */
 
-#include "GameObject.h"
+#include "Sprite.h"
 
 //Character class inherits from gameObject class
 
-class Character: public GameObject{	
+class Character: public Sprite{	
 public:
-	Character(){ this->init(); };	//Constructor
-	~Character(){ this->cleanup(); };	//DeConstructor
+	Character(){ init(); };	//Constructor
+	~Character(){ cleanup(); };	//DeConstructor
 
 	virtual bool init();
 	virtual void cleanup();
 
-	void setSpriteDimensions(int height, int width){ mSpriteHeight = height; mSpriteWidth = width; };	//Set sprite dimensions
-	int getSpriteWidth(){ return mSpriteWidth; };	//Get Sprite width
-	int getSpriteHeight(){ return mSpriteHeight; };	//Get Sprite Height
 
 private:
 
-	int mSpriteWidth;	//Hold sprite width
-	int mSpriteHeight;	//Hold sprite height
 
 };
 

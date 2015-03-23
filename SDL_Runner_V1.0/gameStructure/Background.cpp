@@ -3,19 +3,28 @@
 #include "LWindow.h"
 
 bool BackGround::init(){
+
+	if (!GameObject::init()){
+		GameObject::init();
+	}
+
 	background = new GameObject();
-	background->setName("background");
 
 	return true;
 }
 
+void BackGround::create(std::string name){
+
+	loadMedia(name);
+}
 
 bool BackGround::loadMedia(std::string path){
 
 	bool success = true;
-	std::string pathToFile = path;
+//	std::string pathToFile = path;
+
 	//Load press texture
-	if (!bg_Texture.loadFromFile(pathToFile)){
+	if (!bg_Texture.loadFromFile(path)){
 		printf("BG: Failed to load Bg texture!\n");
 		success = false;
 	}
@@ -28,12 +37,10 @@ bool BackGround::loadMedia(std::string path){
 }
 
 void BackGround::render(){
-	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
-	SDL_RenderClear(LWindow::getInstance()->getRenderer());
+	//SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+	//SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
 	bg_Texture.render(0, 0);
-	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
-
 }
 
 

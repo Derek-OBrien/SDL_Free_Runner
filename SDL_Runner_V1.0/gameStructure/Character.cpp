@@ -10,10 +10,14 @@
 
 //Character Init
 bool Character::init(){
+	//Call Super init
+	if (!Sprite::init()){
+		Sprite::init();
+	}
 	return true;
 }
 
 //Character Clean Up
 void Character::cleanup(){
-	delete this;
+	&Sprite::cleanup;
 }

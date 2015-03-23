@@ -3,8 +3,6 @@
 
 static SceneManager *instance = 0;
 
-
-
 SceneManager* SceneManager::getInstance(){
 	if(instance == 0){
 		instance = new SceneManager();
@@ -12,25 +10,23 @@ SceneManager* SceneManager::getInstance(){
 	return instance;
 }
 
-SceneManager::SceneManager(){
-	init();
-}
-
 
 void SceneManager::init(){
 	currentRunningScene = 0;
 }
 
-SceneManager::~SceneManager(){
+void SceneManager::cleanup(){
 	delete instance;
 }
 
+
 void SceneManager::runwithscene(Scene* scene){
+
 	if(currentRunningScene != 0 ){
 		delete currentRunningScene;
 	}
+
 	currentRunningScene = scene;
 	currentRunningScene->run();
-
 }
 

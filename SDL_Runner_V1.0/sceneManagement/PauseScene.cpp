@@ -1,16 +1,20 @@
 #include "PauseScene.h"
 #include "SceneManager.h"
 #include "GameScene.h"
+#include "../dao/AssetsDao.h"
 
 void PauseScene::init(){
 	Scene::init();
 
-	bg.loadMedia("../SDL_Runner_V1.0/assets/backgrounds/pause.png");
+	Path path = AssetsDAO::getInstance()->read("pause");
+	std::string imagePath = path.getText();
+	bg.loadMedia(imagePath);
+
 }
 
 void PauseScene::run()
 {
-	if(!initCompleted)
+	if (!initCompleted)
 	{
 		init();
 	}

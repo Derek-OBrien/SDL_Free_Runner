@@ -6,34 +6,46 @@
 	Sprite header file
 */
 
+#include "GameObject.h"
 #include "LTexture.h"
 #include "GameDefines.h"
-#include "GameManager.h"
+
+struct ImageDetails{
+
+	std::string name;
+	std::string pathToFile;
+	int spriteHeight;
+	int spriteWidth;
+	int offsetX;
+	int offsetY;
+	int frames;
+	int posX;
+	int posY;
+
+};
 
 class Sprite : public GameObject{
 public:
-	Sprite(){ this->init(); };
-	~Sprite(){ this->cleanup(); };
+	Sprite(){ init(); };
+	~Sprite(){ cleanup(); };
 
 	virtual bool init();
 	virtual void cleanup();
+	void render(int posX, int posY);
+	void runAnimation(int posX, int posY);
+	bool loadMedia(std::string name);
 
-	//Setters
-	void setPathToFile(std::string path){ pathToFile = path; };
-	void setSpriteHeight(float height){ mSpriteHeight = height; };
-	void setSpriteWidth(float width){ mSpriteWidth = width; };
-
-	//Getters
-	std::string getPathToFile(){ return pathToFile; };
-	float getSpriteHeight(){ return mSpriteHeight; };
-	float getSpriteWidth(){ return mSpriteWidth; };
-
+	int getPosX();
+	int getPosY();
 
 private:
-	std::string pathToFile;
-	float mSpriteHeight;
-	float mSpriteWidth;
-	
+
+	ImageDetails imageDetails;
+	SDL_Rect gSpriteClips[30];
+	SDL_Rect* currentFrame;
+	LTexture spriteTexture;
+
+	int frame = 0;
 
 };
 

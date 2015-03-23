@@ -66,9 +66,6 @@
     <ClCompile Include="gameStructure\Factory.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\ScrollingBackground.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\LTexture.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -104,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="dao\AssetsDao.cpp">
       <Filter>Source Files\dao</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\Button.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\ScrollingBackground.cpp">
+      <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,12 +191,12 @@
     <ClInclude Include="dao\TextItem.h">
       <Filter>Header Files\dao</Filter>
     </ClInclude>
-    <ClInclude Include="gameStructure\SpriteAnimation.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="gameStructure\Button.h">
+      <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram12.cd" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>

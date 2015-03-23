@@ -16,10 +16,10 @@ WorldManager* WorldManager::getInstance(){
 	return worldManagerInstance;						//return the instance
 }
 
-Player* WorldManager::getPlayerInstance(){	
+/*Player* WorldManager::getPlayerInstance(){	
 	return playerInstance = new Player;				//return instance of player
 }
 
 Factory* WorldManager::getFactoryInstance(){
 	return factoryInstance = new Factory;
-}
+}*/

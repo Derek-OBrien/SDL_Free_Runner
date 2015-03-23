@@ -1,29 +1,31 @@
 <?xml version="2.0" encoding="utf-8"?>
 <Assets><!--Root -->
 	<ImagePaths>
+		<!--BACKGROUNDS-->
 			<path name = "splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>	<!--Child Element-->
 			<path name = "menu">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
 			<path name = "pause">../SDL_Runner_V1.0/assets/backgrounds/pause.png</path>
+			<path name = "gameOver">../SDL_Runner_V1.0/assets/backgrounds/gameOver.png</path>
 			<path name = "gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
 			<path name = "gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
+				
+		<!--SPRITE SHEETS-->
+			<path 	name = "player" width = "125" height = "125" offsetX = "125" offsetY = "0" frames = "8" posX = "100" posY = "435"
+			>../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png</path>	
+
+			<path 	name = "blade" width = "75" height = "75" offsetX = "75" offsetY = "0" frames = "5" posX = "900" posY = "435"
+			>../SDL_Runner_V1.0/assets/obstical_sprites/blade.png</path>						
 		
-			<path 	name = "player" 
-					width = "125" 
-					height = "125"
-					offsetX = "125" 
-					offsetY = "0" 
-					frames = "8">../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png</path>					
+		<!--USER INTERFACE ELEMENTS-->
+			<path	name = "playbutton" width = "128" height = "128" offsetX = "128" offsetY = "0" frames = "3" posX = "256" posY = "256" state = "0"
+			>../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
+			
+			<path	name = "closebutton" width = "128" height = "128" offsetX = "128" offsetY = "0" frames = "3" posX = "896" posY = "256" state = "0"
+			>../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
+			
 		
-			<path name = "crate">../SDL_Runner_V1.0/assets/crate.png</path>
+		<!--SOUND FILES-->
+		
+		
 	</ImagePaths>
 </Assets>
-
-<!--
-<Story>
-    <StoryPoint>
-        <StoryText>You Open on a courtyard, it is dark. You see a Door</StoryText>
-        <StoryChoice>1. Open Door</StoryChoice>
-        <StoryChoice>2. Run Away</StoryChoice>
-    </StoryPoint>
-</Story>
--->

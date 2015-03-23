@@ -4,7 +4,8 @@
 #include "ImagePath.h"
 #include "../tinyxml/tinyxml2.h"
 #include "../gameStructure/GameDefines.h"
-#include "../gameStructure/SpriteAnimation.h"
+#include "../gameStructure/Sprite.h"
+#include "../gameStructure/Button.h"
 
 class IAssetsDAO{
 public:
@@ -15,7 +16,8 @@ public:
 
 	//read
 	virtual Path read(std::string name) = 0;
-	virtual SpriteAnimation readSpriteAnimation(std::string name) = 0;
+	virtual ImageDetails readImageDetails(std::string name) = 0;
+	virtual ButtonDetails readButtonDetails(std::string name) = 0;
 	//update
 	//virtual void update(std::shared_ptr<std::vector<StoryPoint>> storyPoints) = 0;
 
@@ -38,7 +40,8 @@ public:
 
 	//read
 	Path read(std::string name);
-	SpriteAnimation readSpriteAnimation(std::string name);
+	ImageDetails readImageDetails(std::string name);
+	ButtonDetails readButtonDetails(std::string name);
 
 	//update
 	//void update(std::shared_ptr<std::vector<StoryPoint>> storyPoints);

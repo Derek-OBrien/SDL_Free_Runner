@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClCompile Include="dao\AssetsDao.cpp" />
     <ClCompile Include="gameStructure\Background.cpp" />
+    <ClCompile Include="gameStructure\Button.cpp" />
     <ClCompile Include="gameStructure\Character.cpp" />
     <ClCompile Include="gameStructure\Collectable.cpp" />
     <ClCompile Include="gameStructure\CollisionManager.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="dao\ImagePath.h" />
     <ClInclude Include="dao\TextItem.h" />
     <ClInclude Include="gameStructure\Background.h" />
+    <ClInclude Include="gameStructure\Button.h" />
     <ClInclude Include="gameStructure\Character.h" />
     <ClInclude Include="gameStructure\Collectable.h" />
     <ClInclude Include="gameStructure\CollisionManager.h" />
@@ -113,7 +115,6 @@
     <ClInclude Include="gameStructure\Player.h" />
     <ClInclude Include="gameStructure\ScrollingBackground.h" />
     <ClInclude Include="gameStructure\Sprite.h" />
-    <ClInclude Include="gameStructure\SpriteAnimation.h" />
     <ClInclude Include="gameStructure\WorldManager.h" />
     <ClInclude Include="sceneManagement\GameOverScene.h" />
     <ClInclude Include="sceneManagement\GameScene.h" />
@@ -126,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
+    <None Include="ClassDiagram12.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

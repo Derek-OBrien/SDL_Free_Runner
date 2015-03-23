@@ -14,7 +14,7 @@ public:
 	virtual void cleanup() = 0;
 
 	virtual std::shared_ptr<Obstical> createObstical() = 0;
-	virtual std::shared_ptr<Collectable> createCollectable() = 0;
+//	virtual std::shared_ptr<Collectable> createCollectable() = 0;
 };
 
 #endif//_I_FACTORY_H_
@@ -26,16 +26,18 @@ public:
 
 class Factory : public IFactory{
 public:
+
 	Factory(){ this->init(); };			// constructor
 	~Factory(){ this->cleanup(); };		// deconstructor
 	virtual bool init();				// initialization	
 	virtual void cleanup();				// delete EnemyFactory	
 
 	virtual std::shared_ptr<Obstical> createObstical();
-	virtual std::shared_ptr<Collectable> createCollectable();
+//	virtual std::shared_ptr<Collectable> createCollectable();
 
 private:
 
+	Obstical* obstical;
 };
 
 #endif//_FACTORY_H_
