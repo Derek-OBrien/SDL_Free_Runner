@@ -33,9 +33,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\Character.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
     <ClCompile Include="sceneManagement\SplashScene.cpp">
       <Filter>Source Files\SceneManagement</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\Background.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\LWindow.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -106,6 +100,18 @@
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\ScrollingBackground.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\HudLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\LTimer.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\Layer.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,9 +179,6 @@
     <ClInclude Include="gameStructure\LWindow.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
-    <ClInclude Include="gameStructure\Background.h">
-      <Filter>Header Files\gameStructure</Filter>
-    </ClInclude>
     <ClInclude Include="tinyxml\tinyxml2.h">
       <Filter>Header Files\dao</Filter>
     </ClInclude>
@@ -194,9 +197,19 @@
     <ClInclude Include="gameStructure\Button.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
+    <ClInclude Include="gameStructure\LTimer.h">
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStructure\HudLayer.h">
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStructure\Layer.h">
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram12.cd" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>

@@ -17,6 +17,7 @@
 //Xml Document
 #define XMLDOC "../SDL_Runner_V1.0/assets/assets.xml"
 
+
 //Animations
 #define PLAYER_ANIMATION_FRAMES 8
 #define BLADE_ANIMATION_FRAMES 5

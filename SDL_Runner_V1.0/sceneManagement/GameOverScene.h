@@ -2,7 +2,7 @@
 #define _GAME_OVER_SCENE_H
 
 #include "Scene.h"
-#include "../gameStructure/Background.h"
+#include "../gameStructure/layer.h"
 
 class GameOverScene : public  Scene
 {
@@ -12,7 +12,7 @@ public:
 	virtual void run();
 	~GameOverScene(){}
 private:
-	BackGround bg;
+	Layer bg;
 };
 
 #endif//_GAME_OVER_SCENE_H

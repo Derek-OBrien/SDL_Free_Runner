@@ -54,7 +54,7 @@ void Sprite::runAnimation(int posX, int posY){
 	currentFrame = &gSpriteClips[frame / 3];
 	spriteTexture.render(posX,posY, currentFrame);
 
-	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
+	//SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 	++frame;
 
 	//Cycle animation

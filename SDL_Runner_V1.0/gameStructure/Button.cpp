@@ -3,7 +3,7 @@
 #include "../dao/AssetsDao.h"
 #include "LWindow.h"
 #include "../sceneManagement/SceneManager.h"
-
+#include "GameManager.h"
 //Button init
 bool Button::init(){
 
@@ -124,6 +124,21 @@ void Button::handleMouseEvent(SDL_Event* e){
 				else if (buttonDetails.name == "pausebutton"){
 					std::cout << "Pause Button Pressed" << std::endl;
 					//Pause Game Scene
+					std::cout << "Space Pressed Pause Game Scene" << std::endl;
+					
+					if (GameManager::getInstance()->getTimer()->Paused()){
+						GameManager::getInstance()->getTimer()->unpause();
+						scene->setSceneState(RUNNING);
+					}
+					else{
+						scene->setSceneState(PAUSED);
+						GameManager::getInstance()->getTimer()->pause();
+						Path path = AssetsDAO::getInstance()->read("pause");
+						//bg->create(path.getText());
+						//bg->render();
+						//SDL_RenderPresent(LWindow::getInstance()->getRenderer());
+
+					}
 				}
 				break;
 

@@ -1,10 +1,10 @@
 #ifndef _SCROLLING_BACKGROUND_H_
 #define _SCROLLING_BACKGROUND_H_
 
-#include "Background.h"
+#include "Layer.h"
 #include "../dao/AssetsDao.h"
 
-class ScrollingBackground : public BackGround{
+class ScrollingBackground : public Layer{
 public:
 
 	ScrollingBackground(){ this->init(); };

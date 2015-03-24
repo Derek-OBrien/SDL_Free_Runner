@@ -1,5 +1,6 @@
 
 #include "ScrollingBackground.h"
+#include "LWindow.h"
 //#include "GameManager.h"
 
 //Init menthod
@@ -37,6 +38,7 @@ bool ScrollingBackground::loadmedia(){
 			success = false;
 		}
 		printf("SBG: Background Loaded\n");
+		bg_Texture_ForeGround.setBlendMode(SDL_BLENDMODE_BLEND);
 	//	ground->setObjectBoundingBox(0, 560, 50, GAME_WIDTH);
 	}
 
@@ -53,9 +55,6 @@ void ScrollingBackground::renderBg(){
 	bg_Texture.render(scrollingOffset, 0);
 	bg_Texture.render(scrollingOffset + bg_Texture.getWidth(), 0);
 
-	//Render Bounding Box
-	//SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
-	//SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), groundBoundingBox);
 }
 
 //Render Background
@@ -66,8 +65,10 @@ void ScrollingBackground::renderFg(){
 	}
 
 	//Render background
+	bg_Texture_ForeGround.setAlpha(127);
 	bg_Texture_ForeGround.render(scrollingOffset, 0);
 	bg_Texture_ForeGround.render(scrollingOffset + bg_Texture_ForeGround.getWidth(), 0);
+
 }
 
 //Update

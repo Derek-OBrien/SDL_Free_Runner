@@ -22,7 +22,7 @@ private:
 	SDL_Renderer* m_pRenderer;
 
 	LWindow(){ };
-	~LWindow(){ this->cleanup(); };
+	~LWindow(){ cleanup(); };
 };
 
 

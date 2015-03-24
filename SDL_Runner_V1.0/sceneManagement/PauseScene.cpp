@@ -2,13 +2,13 @@
 #include "SceneManager.h"
 #include "GameScene.h"
 #include "../dao/AssetsDao.h"
+#include "../gameStructure/LWindow.h"
 
 void PauseScene::init(){
 	Scene::init();
 
 	Path path = AssetsDAO::getInstance()->read("pause");
-	std::string imagePath = path.getText();
-	bg.loadMedia(imagePath);
+	bg.create(path.getText());
 
 }
 
@@ -39,6 +39,8 @@ void PauseScene::run()
 		}
 
 		bg.render();
+		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
+
 	}
 
 	GameScene* nextScene = new GameScene();

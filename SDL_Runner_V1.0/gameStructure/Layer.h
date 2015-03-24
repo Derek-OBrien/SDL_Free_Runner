@@ -1,12 +1,12 @@
-#ifndef _BACKGROUND_H_
-#define _BACKGROUND_H_
+#ifndef _LAYER_H_
+#define _LAYER_H_
 
 #include "GameObject.h"
 
-class BackGround : public GameObject{
+class Layer : public GameObject{
 public:
-	BackGround(){ this->init(); };
-	~BackGround(){ this->cleanup(); };
+	Layer(){ this->init(); };
+	~Layer(){ this->cleanup(); };
 
 	void create(std::string name);
 	virtual bool init();

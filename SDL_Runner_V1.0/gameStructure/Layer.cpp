@@ -1,8 +1,8 @@
 
-#include "Background.h"
+#include "Layer.h"
 #include "LWindow.h"
 
-bool BackGround::init(){
+bool Layer::init(){
 
 	if (!GameObject::init()){
 		GameObject::init();
@@ -13,15 +13,14 @@ bool BackGround::init(){
 	return true;
 }
 
-void BackGround::create(std::string name){
+void Layer::create(std::string name){
 
 	loadMedia(name);
 }
 
-bool BackGround::loadMedia(std::string path){
+bool Layer::loadMedia(std::string path){
 
 	bool success = true;
-//	std::string pathToFile = path;
 
 	//Load press texture
 	if (!bg_Texture.loadFromFile(path)){
@@ -36,14 +35,15 @@ bool BackGround::loadMedia(std::string path){
 	return success;
 }
 
-void BackGround::render(){
-	//SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
-	//SDL_RenderClear(LWindow::getInstance()->getRenderer());
+void Layer::render(){
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 0x00);
+	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
 	bg_Texture.render(0, 0);
+
 }
 
 
-void BackGround::cleanup(){
+void Layer::cleanup(){
 	bg_Texture.cleanup();
 }

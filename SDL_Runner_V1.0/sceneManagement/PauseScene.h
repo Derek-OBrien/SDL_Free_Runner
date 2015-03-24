@@ -2,7 +2,7 @@
 #define _PAUSE_SCENE_H
 
 #include "Scene.h"
-#include "../gameStructure/Background.h"
+#include "../gameStructure/Layer.h"
 
 class PauseScene : public  Scene{
 
@@ -13,6 +13,6 @@ public:
 	~PauseScene(){}
 private:
 	
-	BackGround bg;
+	Layer bg;
 };
 #endif//_PAUSE_SCENE_H

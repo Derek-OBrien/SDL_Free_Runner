@@ -5,7 +5,8 @@
 #include "LWindow.h"
 #include "ScrollingBackground.h"
 #include "CollisionManager.h"
-
+#include "LTimer.h"
+#include "Button.h"
 
 class GameManager{
 public:
@@ -18,21 +19,18 @@ public:
 	 void checkCollision();	//Check collision
 	 void cleanup();		//Clean up everything
 
+	 LTimer* getTimer() { return timer; };
 
 private:
 	GameManager(){};	//Constructor
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 	
-
+	LTimer* timer;
 	ScrollingBackground* bg;
 	Player* player;
 	Obstical* obstical;
 
-//	GameObject* ground;
-//	GameObject* playerBody;
-//	GameObject* obsticalBody;
-
-
+	Button* pauseButton;
 	bool collided;
 };
 

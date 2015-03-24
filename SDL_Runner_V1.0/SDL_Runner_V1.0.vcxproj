@@ -70,11 +70,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dao\AssetsDao.cpp" />
-    <ClCompile Include="gameStructure\Background.cpp" />
+    <ClCompile Include="gameStructure\Layer.cpp" />
     <ClCompile Include="gameStructure\Button.cpp" />
     <ClCompile Include="gameStructure\Character.cpp" />
     <ClCompile Include="gameStructure\Collectable.cpp" />
     <ClCompile Include="gameStructure\CollisionManager.cpp" />
+    <ClCompile Include="gameStructure\HudLayer.cpp" />
+    <ClCompile Include="gameStructure\LTimer.cpp" />
     <ClCompile Include="gameStructure\LWindow.cpp" />
     <ClCompile Include="gameStructure\Obstical.cpp" />
     <ClCompile Include="gameStructure\Factory.cpp" />
@@ -100,12 +102,14 @@
     <ClInclude Include="dao\Path.h" />
     <ClInclude Include="dao\ImagePath.h" />
     <ClInclude Include="dao\TextItem.h" />
-    <ClInclude Include="gameStructure\Background.h" />
+    <ClInclude Include="gameStructure\Layer.h" />
     <ClInclude Include="gameStructure\Button.h" />
     <ClInclude Include="gameStructure\Character.h" />
     <ClInclude Include="gameStructure\Collectable.h" />
     <ClInclude Include="gameStructure\CollisionManager.h" />
     <ClInclude Include="gameStructure\GameDefines.h" />
+    <ClInclude Include="gameStructure\HudLayer.h" />
+    <ClInclude Include="gameStructure\LTimer.h" />
     <ClInclude Include="gameStructure\LWindow.h" />
     <ClInclude Include="gameStructure\Obstical.h" />
     <ClInclude Include="gameStructure\IFactory.h" />
@@ -127,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
     <None Include="ClassDiagram12.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

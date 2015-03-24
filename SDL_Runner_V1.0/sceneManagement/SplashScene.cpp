@@ -20,7 +20,7 @@ void SplashScene::init(){
 		SDL_WINDOW_SHOWN);		//Flag
 
 	Path path = AssetsDAO::getInstance()->read("splash");
-	bg.loadMedia(path.getText());
+	bg.create(path.getText());
 }
 
 void SplashScene::run(){
@@ -45,6 +45,8 @@ void SplashScene::run(){
 
 
 		bg.render();
+		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
+
 	}
 
 	//Next Scene to load

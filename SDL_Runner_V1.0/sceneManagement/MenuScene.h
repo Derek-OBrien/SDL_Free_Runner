@@ -2,7 +2,7 @@
 #define _MENU_SCENE_H
 
 #include "Scene.h"
-#include "../gameStructure/Background.h"
+#include "../gameStructure/Layer.h"
 #include "../gameStructure/Button.h"
 
 class MenuScene : public  Scene{
@@ -16,7 +16,7 @@ public:
 
 private:
 
-	BackGround bg;
+	Layer bg;
 	Button* playbutton;
 	Button* closebutton;
 };

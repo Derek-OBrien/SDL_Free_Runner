@@ -19,26 +19,24 @@ void GameScene::run(){
 	setSceneState(RUNNING);
 
 	while (getSceneState() == RUNNING){
-		//std::cout << "Game Scene Running!" << std::endl;
 
-		GameManager::getInstance()->render();
-		GameManager::getInstance()->update();
-		GameManager::getInstance()->handleInput();
-		GameManager::getInstance()->checkCollision();
-
+			GameManager::getInstance()->render();
+			GameManager::getInstance()->checkCollision();
+			GameManager::getInstance()->update();
+			GameManager::getInstance()->handleInput();
 		
+			//Go To Pause Scene
+			while (getSceneState() == PAUSED){
+			//	std::cout << "Game Scene Paused" << std::endl;
+
+				GameManager::getInstance()->handleInput();
+			}
 	}
 
-	//Go To Pause Scene
-	while (getSceneState()== PAUSED){
-		std::cout << "Game Scene Paused" << std::endl;
 
-		PauseScene* nextScene = new PauseScene();
-		SceneManager::getInstance()->runwithscene(nextScene);
-	}
 
 	//Go to Game Over
-	while (getSceneState() == DESTROY){
+	if (getSceneState() == DESTROY){
 		std::cout << "Game Scene Destroyed" << std::endl;
 
 		GameOverScene* nextScene = new GameOverScene();

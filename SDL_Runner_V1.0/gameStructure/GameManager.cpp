@@ -28,17 +28,17 @@ GameManager* GameManager::getInstance(){
 //init game manager
 bool GameManager::init(){
 
+	timer = new LTimer();
+	timer->create();
+
 	collided = false;
 
 	bg = new ScrollingBackground();
-//	ground = bg->getGround();
-
 	player = new Player();	
-//	playerBody = player->getPlayer();
-
 	obstical = new Obstical();
-//	obsticalBody = obstical->getObstical();
 
+	pauseButton = new Button();
+	pauseButton->create("pausebutton");
 	return true;
 }
 
@@ -49,15 +49,19 @@ bool GameManager::init(){
 	*/
 void GameManager::render(){
 	//Clear Screen 
-	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
 	bg->renderBg();		//Render Background
 
 	obstical->render();	//Render Obstical
+
 	player->render();	//Render Player
 
-	//bg->renderFg();		//Render ForeGround Smoke
+	bg->renderFg();		//Render ForeGround 
+
+	pauseButton->render("pausebutton");	//Render Pause Button
+	
 	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 }
@@ -71,25 +75,29 @@ void GameManager::handleInput(){
 	SDL_Event e;	//Event handler
 
 	Scene* scene = SceneManager::getInstance()->getCurrentScene();
-
 	//Handle events on queue
 	while (SDL_PollEvent(&e) != 0){
-		//User requests quit
-
 		//Handle input for player actions
 		player->handleInput(e);
+		pauseButton->handleMouseEvent(&e);
 
 		//If space pressed Pause Game
 		if (e.type == SDL_KEYDOWN){
 			if (e.key.keysym.sym == SDLK_SPACE){
 				std::cout << "Space Pressed Pause Game Scene" << std::endl;
-				scene->setSceneState(PAUSED);
+				
+				if (timer->Paused()){
+					timer->unpause();
+					scene->setSceneState(RUNNING);
+				}
+				else{
+					scene->setSceneState(PAUSED);
+					timer->pause();
+				}
 			}
 		}
-
 		//Quit 
 		if (e.type == SDL_QUIT){
-			//scene->setSceneState(DESTROY);
 			scene->cleanup();
 			cleanup();
 		}
@@ -105,7 +113,6 @@ void GameManager::checkCollision(){
 		Scene* scene = SceneManager::getInstance()->getCurrentScene();
 		scene->setSceneState(DESTROY);
 
-		//std::cout << " Collide = True" << std::endl;
 		player->setPlayerState(DEAD);
 		player->cleanup();
 
