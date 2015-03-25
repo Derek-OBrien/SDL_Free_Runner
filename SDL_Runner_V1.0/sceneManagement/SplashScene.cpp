@@ -44,7 +44,7 @@ void SplashScene::run(){
 		}
 
 
-		bg.render();
+		bg.render(255);
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 	}

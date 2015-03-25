@@ -102,9 +102,6 @@
     <ClCompile Include="gameStructure\ScrollingBackground.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\HudLayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -112,6 +109,9 @@
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Layer.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\HudLayer.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
   </ItemGroup>
@@ -208,7 +208,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram12.cd" />
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram11.cd" />
   </ItemGroup>

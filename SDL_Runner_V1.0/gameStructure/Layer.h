@@ -2,24 +2,29 @@
 #define _LAYER_H_
 
 #include "GameObject.h"
+#include "../dao/AssetsDao.h"
 
+/*
+	Base class for all background and foreground layers
+*/
 class Layer : public GameObject{
 public:
-	Layer(){ this->init(); };
-	~Layer(){ this->cleanup(); };
+	Layer(){ init(); };
+	~Layer(){ cleanup(); };
 
-	void create(std::string name);
+	virtual void create(std::string name);
 	virtual bool init();
 	virtual void cleanup();
-	virtual void render();
+	virtual void render(int alpha);
+	virtual void scrollingRender(int alpha);
 
 	bool loadMedia(std::string path);
 
 private:
-
-	GameObject* background;
+	GameObject* layer;
 	LTexture bg_Texture;
 
+	int scrollingOffset;
 };
 
 #endif//_BACKGROUND_H_

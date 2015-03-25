@@ -28,17 +28,21 @@ GameManager* GameManager::getInstance(){
 //init game manager
 bool GameManager::init(){
 
+	player = new Player();
+	obstical = new Obstical();
+
+	bg = new ScrollingBackground();
+	bg->create("gameBg");
+	fg = new ScrollingBackground();
+	fg->create("gameFg");
+
 	timer = new LTimer();
 	timer->create();
 
+	hud = new HudLayer();
+	hud->create("hud");
+
 	collided = false;
-
-	bg = new ScrollingBackground();
-	player = new Player();	
-	obstical = new Obstical();
-
-	pauseButton = new Button();
-	pauseButton->create("pausebutton");
 	return true;
 }
 
@@ -52,22 +56,21 @@ void GameManager::render(){
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
-	bg->renderBg();		//Render Background
-
+	bg->render("gameBg");		//Render Background
 	obstical->render();	//Render Obstical
-
 	player->render();	//Render Player
+	fg->render("gameFg");		//Render ForeGround 
+	hud->render();		//Render Hud Layer
 
-	bg->renderFg();		//Render ForeGround 
-
-	pauseButton->render("pausebutton");	//Render Pause Button
-	
 	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 }
 
 void GameManager::update(){
+	bg->update();
+	fg->update();
 	obstical->update();
+	hud->update();
 }
 
 void GameManager::handleInput(){
@@ -77,9 +80,10 @@ void GameManager::handleInput(){
 	Scene* scene = SceneManager::getInstance()->getCurrentScene();
 	//Handle events on queue
 	while (SDL_PollEvent(&e) != 0){
+
 		//Handle input for player actions
 		player->handleInput(e);
-		pauseButton->handleMouseEvent(&e);
+		hud->handleInput(e);
 
 		//If space pressed Pause Game
 		if (e.type == SDL_KEYDOWN){
@@ -126,7 +130,8 @@ void GameManager::cleanup(){
 	player->cleanup();
 	obstical->cleanup();
 	bg->cleanup();
-	
+	fg->cleanup();
+
 	LWindow::getInstance()->cleanup();
 	SDL_Quit();
 }

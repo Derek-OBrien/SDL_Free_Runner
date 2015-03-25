@@ -15,16 +15,17 @@ AssetsDAO* AssetsDAO::getInstance(){
 //create
 void AssetsDAO::create(){
 	tinyxml2::XMLDocument doc;
-	tinyxml2::XMLNode* node = doc.NewElement("Assets");
+	tinyxml2::XMLNode* node = doc.NewElement("assets");
 	doc.InsertEndChild(node);
 	doc.SaveFile(XMLDOC);
 }
 
+
+//Read in Single Text Value
 Path AssetsDAO::read( std::string name){
 
 	Path temp;			//temp variable
 	Path elementName;	//temp name 
-
 
 	//Load Document
 	tinyxml2::XMLDocument doc;
@@ -158,6 +159,43 @@ ButtonDetails AssetsDAO::readButtonDetails(std::string name){
 	else
 		std::cout << "Could Not Load XML Document : %s" << XMLDOC << std::endl;
 	return temp;
+}
+
+
+//update
+void AssetsDAO::update(std::string choice){
+
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile(XMLDOC);
+
+	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
+		//Get Root Node
+		tinyxml2::XMLElement* rootNode = doc.FirstChildElement();//Assets
+		//Get Next Node
+		tinyxml2::XMLElement* childNode = rootNode->FirstChildElement();//imagePaths
+		//Temp Element 
+		tinyxml2::XMLElement* temp = nullptr;
+		tinyxml2::XMLElement* temp2 = childNode->FirstChildElement();//path
+
+		while (temp2 != nullptr){
+			temp = temp2;
+			temp2 = temp2->NextSiblingElement("path");
+		}
+		if (temp != nullptr){
+			//write the text
+			tinyxml2::XMLComment* newComment = doc.NewComment("Selected Player");
+			tinyxml2::XMLElement* newElement = doc.NewElement("path");
+			newElement->SetText(choice.c_str());
+			newElement->SetAttribute("name", "selected_player");
+			childNode->InsertAfterChild(temp, newComment);
+			childNode->InsertAfterChild(newComment, newElement);
+		}
+		//doc.Print();
+		doc.SaveFile(XMLDOC);
+	}
+	else{
+		std::cout << "Could Not Load XML Document : %s" << XMLDOC << std::endl;
+	}
 }
 
 //Delete

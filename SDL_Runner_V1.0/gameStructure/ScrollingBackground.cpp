@@ -1,74 +1,35 @@
 
 #include "ScrollingBackground.h"
-#include "LWindow.h"
-//#include "GameManager.h"
+
 
 //Init menthod
 bool ScrollingBackground::init(){
-	ground = new GameObject();
-	ground->setObjectType(OT_BACKGROUND);
-//	groundBoundingBox = ground->getObjectBoundingBox();
 
+	if (!Layer::init()){
+		Layer::init();
+	}
 
-	loadmedia();
-	frame = 0;
-
+	bg = new Layer();
 	return true;
 }
 
-//Load Background Image
-bool ScrollingBackground::loadmedia(){
-	bool success = true;
+//Create Background
+void ScrollingBackground::create(std::string name){
+	if (!init()){
+		init();
+	}
+	path = AssetsDAO::getInstance()->read(name);
+	bg->loadMedia(path.getText());
+}
 
-	path = AssetsDAO::getInstance()->read("gameBg");
-	std::string BgimagePath = path.getText();
-
-	//Load texture
-	if (!bg_Texture.loadFromFile(BgimagePath)){
-		printf("SBG: Failed to load Background texture!\n");
-		success = false;
+//Render Background
+void ScrollingBackground::render(std::string name){
+	if (name == "gameBg"){
+		bg->scrollingRender(255);
 	}
 	else{
-
-		path = AssetsDAO::getInstance()->read("gameFg");
-		std::string FgimagePath = path.getText();
-
-		if (!bg_Texture_ForeGround.loadFromFile(FgimagePath)){
-			printf("SBG: Failed to load Forground texture!\n");
-			success = false;
-		}
-		printf("SBG: Background Loaded\n");
-		bg_Texture_ForeGround.setBlendMode(SDL_BLENDMODE_BLEND);
-	//	ground->setObjectBoundingBox(0, 560, 50, GAME_WIDTH);
+		bg->scrollingRender(127);
 	}
-
-	return success;
-}
-
-//Render Background
-void ScrollingBackground::renderBg(){
-	--scrollingOffset;
-	if (scrollingOffset < -bg_Texture.getWidth()){
-		scrollingOffset = 0;
-	}
-	//Render background
-	bg_Texture.render(scrollingOffset, 0);
-	bg_Texture.render(scrollingOffset + bg_Texture.getWidth(), 0);
-
-}
-
-//Render Background
-void ScrollingBackground::renderFg(){
-	--scrollingOffset;
-	if (scrollingOffset < -bg_Texture_ForeGround.getWidth()){
-		scrollingOffset = 0;
-	}
-
-	//Render background
-	bg_Texture_ForeGround.setAlpha(127);
-	bg_Texture_ForeGround.render(scrollingOffset, 0);
-	bg_Texture_ForeGround.render(scrollingOffset + bg_Texture_ForeGround.getWidth(), 0);
-
 }
 
 //Update
@@ -78,5 +39,5 @@ void ScrollingBackground::update(){
 
 //Clean Up Method
 void ScrollingBackground::cleanup(){
-	bg_Texture.cleanup();
+	bg->cleanup();
 }

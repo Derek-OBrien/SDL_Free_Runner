@@ -17,14 +17,9 @@ bool GameObject::init(){
 	return true;
 }
 
-//Clean Up method
-void GameObject::cleanup(){
-	delete this;
-}
 
 //Set up Object Bounding box
 void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
-	SDL_Rect rect;
 
 	objectBoundingBox.h = height;		//set height of bounding box
 	objectBoundingBox.w = width;			//set width of bounding box
@@ -32,4 +27,10 @@ void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
 	objectBoundingBox.y = y;	//set Y position of bounding box
 
 	//objectBoundingBox = rect;
+}
+
+
+//Clean Up method
+void GameObject::cleanup(){
+	delete this;
 }

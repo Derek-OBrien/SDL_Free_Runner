@@ -1,34 +1,27 @@
 <?xml version="2.0" encoding="utf-8"?>
-<Assets><!--Root -->
-	<ImagePaths>
-		<!--BACKGROUNDS-->
-			<path name = "splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>	<!--Child Element-->
-			<path name = "menu">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
-			<path name = "pause">../SDL_Runner_V1.0/assets/backgrounds/pause.png</path>
-			<path name = "gameOver">../SDL_Runner_V1.0/assets/backgrounds/gameOver.png</path>
-			<path name = "gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
-			<path name = "gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
-			<path name = "hud">../SDL_Runner_V1.0/assets/backgrounds/hud.png</path>
-
-		<!--SPRITE SHEETS-->
-			<path 	name = "player" width = "125" height = "125" offsetX = "125" offsetY = "0" frames = "8" posX = "100" posY = "435"
-			>../SDL_Runner_V1.0/assets/player_sprites/playerSprites.png</path>	
-
-			<path 	name = "blade" width = "75" height = "75" offsetX = "75" offsetY = "0" frames = "5" posX = "1280" posY = "500"
-			>../SDL_Runner_V1.0/assets/obstical_sprites/blade.png</path>						
-		
-		<!--USER INTERFACE ELEMENTS-->
-			<path	name = "playbutton" width = "128" height = "128" offsetX = "128" offsetY = "0" frames = "3" posX = "256" posY = "256" state = "0"
-			>../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
-			
-			<path	name = "closebutton" width = "128" height = "128" offsetX = "128" offsetY = "0" frames = "3" posX = "896" posY = "256" state = "0"
-			>../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
-			
-			<path	name = "pausebutton" width = "64" height = "64" offsetX = "64" offsetY = "0" frames = "3" posX = "1200" posY = "10" state = "0"
-			>../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
-		
-		<!--SOUND FILES-->
-		
-		
-	</ImagePaths>
-</Assets>
+    <!--Root -->
+<assets>
+        <!--Child Element-->
+    <imagePaths>
+        <!--BACKGROUNDS-->
+        <path name="splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>
+        <path name="menu">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
+        <path name="pause">../SDL_Runner_V1.0/assets/backgrounds/pause.png</path>
+        <path name="gameOver">../SDL_Runner_V1.0/assets/backgrounds/gameOver.png</path>
+        <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
+        <path name="gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
+        <path name="hud">../SDL_Runner_V1.0/assets/backgrounds/hud.png</path>
+        <!--SPRITE SHEETS-->
+        <path name="player1" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player1.png</path>
+        <path name="player2" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player2.png</path>
+        <path name="blade" width="75" height="75" offsetX="75" offsetY="0" frames="5" posX="1280" posY="500">../SDL_Runner_V1.0/assets/obstical_sprites/blade.png</path>
+        <!--USER INTERFACE ELEMENTS-->
+        <path name="player1btn" width="180" height="250" offsetX="180" offsetY="0" frames="3" posX="256" posY="256" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
+        <path name="player2btn" width="180" height="250" offsetX="180" offsetY="0" frames="3" posX="896" posY="256" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
+        <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posY="566" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
+        <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posy="20" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--SOUND FILES-->
+    </imagePaths>
+</assets>

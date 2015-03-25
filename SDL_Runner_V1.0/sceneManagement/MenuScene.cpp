@@ -12,8 +12,8 @@ void MenuScene::init(){
 	Path path = AssetsDAO::getInstance()->read("menu");
 	bg.create(path.getText());
 
-	playbutton = new Button();
-	closebutton = new Button();
+	player1btn = new Button();
+	player2btn = new Button();
 }
 
 void MenuScene::run(){
@@ -23,8 +23,8 @@ void MenuScene::run(){
 	}
 	std::cout << "Menu Scene Running!" << std::endl;
 
-	playbutton->create("playbutton");
-	closebutton->create("closebutton");
+	player1btn->create("player1btn");
+	player2btn->create("player2btn");
 
 	thisSceneState = RUNNING;
 	bool quit = false;
@@ -35,8 +35,8 @@ void MenuScene::run(){
 		//Handle events on queue
 		while (SDL_PollEvent(&e) != 0){
 			//Handle mouse in put for buttons
-			playbutton->handleMouseEvent(&e);
-			closebutton->handleMouseEvent(&e);
+			player1btn->handleMouseEvent(&e);
+			player2btn->handleMouseEvent(&e);
 			
 			//User requests quit
 			if (e.type == SDL_QUIT){
@@ -50,9 +50,9 @@ void MenuScene::run(){
 		SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
-		bg.render();
-		playbutton->render("playbutton");
-		closebutton->render("closebutton");
+		bg.render(255);
+		player1btn->render("player1btn");
+		player2btn->render("player2btn");
 
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 	}
@@ -67,7 +67,7 @@ void MenuScene::run(){
 
 
 void MenuScene::cleanup(){
-	closebutton->cleanup();
-	playbutton->cleanup();
+	player2btn->cleanup();
+	player1btn->cleanup();
 	bg.cleanup();
 }

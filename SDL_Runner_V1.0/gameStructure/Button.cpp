@@ -4,6 +4,8 @@
 #include "LWindow.h"
 #include "../sceneManagement/SceneManager.h"
 #include "GameManager.h"
+
+
 //Button init
 bool Button::init(){
 
@@ -12,7 +14,7 @@ bool Button::init(){
 	return true;
 }
 
-
+//Create button
 void Button::create(std::string name){
 
 	if (!init()){
@@ -34,7 +36,7 @@ bool Button::loadmedia(std::string name){
 
 	//Load texture
 	if (!buttonTexture.loadFromFile(imagepath)){
-		std::cout << "S: Failed to load Button for : " << name << std::endl;
+		std::cout << "B: Failed to load Button for : " << name << std::endl;
 		success = false;
 	}
 	else{
@@ -108,24 +110,23 @@ void Button::handleMouseEvent(SDL_Event* e){
 
 			case SDL_MOUSEBUTTONDOWN:
 				currentButtonState = PRESSED;
-				if (buttonDetails.name == "playbutton"){
-					std::cout << "Play Button Pressed" << std::endl;
-					//Load Game Scene
+
+				if (buttonDetails.name == "player1btn"){
+
+					//Save selected Player & Destroy scene
+					AssetsDAO::getInstance()->update("player1");
 					scene->setSceneState(DESTROY);
 				}
 
-				else if (buttonDetails.name == "closebutton"){
-					std::cout << "Close Button Pressed" << std::endl;
-					//Close Window
-					SDL_Quit();
-					LWindow::getInstance()->cleanup();
-				}
+				else if (buttonDetails.name == "player2btn"){
 
+					//Save selected Player & Destroy scene
+					AssetsDAO::getInstance()->update("player2");
+					scene->setSceneState(DESTROY);
+				}
+				//Pause Button 
 				else if (buttonDetails.name == "pausebutton"){
-					std::cout << "Pause Button Pressed" << std::endl;
-					//Pause Game Scene
-					std::cout << "Space Pressed Pause Game Scene" << std::endl;
-					
+					std::cout << "Pause Button Pressed" << std::endl;					
 					if (GameManager::getInstance()->getTimer()->Paused()){
 						GameManager::getInstance()->getTimer()->unpause();
 						scene->setSceneState(RUNNING);
@@ -137,8 +138,13 @@ void Button::handleMouseEvent(SDL_Event* e){
 						//bg->create(path.getText());
 						//bg->render();
 						//SDL_RenderPresent(LWindow::getInstance()->getRenderer());
-
 					}
+				}
+				//Close Button
+				else if (buttonDetails.name == "closebutton"){
+					cleanup();
+					SDL_Quit();
+					LWindow::getInstance()->cleanup();
 				}
 				break;
 

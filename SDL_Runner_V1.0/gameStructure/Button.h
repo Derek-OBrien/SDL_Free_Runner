@@ -39,6 +39,7 @@ public:
 	void setButtonState(ButtonState state) { currentButtonState = state; };
 	ButtonState getButtonState(){ return currentButtonState; };
 
+	std::string playerSelected(){ return selectedPlayer; };
 
 private:
 	
@@ -49,6 +50,7 @@ private:
 	SDL_Rect gSpriteClips[30];
 	SDL_Rect* currentFrame;
 
+	std::string selectedPlayer;
 };
 
 

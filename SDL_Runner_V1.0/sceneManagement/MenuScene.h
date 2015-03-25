@@ -17,8 +17,8 @@ public:
 private:
 
 	Layer bg;
-	Button* playbutton;
-	Button* closebutton;
+	Button* player1btn;
+	Button* player2btn;
 };
 
 

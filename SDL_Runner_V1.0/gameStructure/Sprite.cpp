@@ -51,14 +51,12 @@ bool Sprite::loadMedia(std::string name){
 
 //Run animation 
 void Sprite::runAnimation(int posX, int posY){
-	currentFrame = &gSpriteClips[frame / 3];
+	currentFrame = &gSpriteClips[frame / 5];
 	spriteTexture.render(posX,posY, currentFrame);
 
-	//SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 	++frame;
-
 	//Cycle animation
-	if (frame / 3 >= imageDetails.frames){
+	if (frame / 5 >= imageDetails.frames){
 		frame = 0;
 	}
 }

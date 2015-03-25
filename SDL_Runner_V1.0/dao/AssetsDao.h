@@ -18,8 +18,9 @@ public:
 	virtual Path read(std::string name) = 0;
 	virtual ImageDetails readImageDetails(std::string name) = 0;
 	virtual ButtonDetails readButtonDetails(std::string name) = 0;
+	
 	//update
-	//virtual void update(std::shared_ptr<std::vector<StoryPoint>> storyPoints) = 0;
+	virtual void update(std::string choice) = 0;
 
 	//delete
 	virtual void del() = 0;
@@ -44,7 +45,7 @@ public:
 	ButtonDetails readButtonDetails(std::string name);
 
 	//update
-	//void update(std::shared_ptr<std::vector<StoryPoint>> storyPoints);
+	void update(std::string choice);
 
 	//delete
 	void del();

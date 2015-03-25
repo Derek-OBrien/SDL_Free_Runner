@@ -6,7 +6,7 @@
 #include "ScrollingBackground.h"
 #include "CollisionManager.h"
 #include "LTimer.h"
-#include "Button.h"
+#include "HudLayer.h"
 
 class GameManager{
 public:
@@ -27,10 +27,11 @@ private:
 	
 	LTimer* timer;
 	ScrollingBackground* bg;
+	ScrollingBackground* fg;
 	Player* player;
 	Obstical* obstical;
 
-	Button* pauseButton;
+	HudLayer* hud;
 	bool collided;
 };
 

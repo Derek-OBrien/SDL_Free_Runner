@@ -17,8 +17,11 @@ bool Player::init(){
 	//Create Player Character
 	player = new Character();
 	player->setObjectType(OT_PLAYER);
-	player->setName("player");
 	setPlayerState(ALIVE);			//Set state to ALIVE
+	
+	Path selectedPlayer = AssetsDAO::getInstance()->read("selected_player");
+
+	player->setName(selectedPlayer.getText());
 
 	//Read Player media from xml document
 	player->loadMedia(player->getName());
@@ -35,9 +38,7 @@ bool Player::init(){
 
 //Render Player
 void Player::render(){
-
 	player->render(playerPosX, playerPosY);
-
 }
 
 
@@ -46,20 +47,15 @@ void Player::render(){
 //Jump function sets player state to JUMP
 void Player::jump(){
 	setPlayerState(JUMPING);					//Set player State to JUMP
-
 	playerPosY-= FORCE_UP * 10;
-
 	player->setPositionY(playerPosY);
-
 	player->getObjectBoundingBox()->y = playerPosY;
 }
 
 void Player::fallDown(){
 	setPlayerState(FALLING);
-	
 	playerPosY+= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
-
 	player->getObjectBoundingBox()->y = playerPosY;
 }
 

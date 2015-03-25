@@ -15,14 +15,14 @@
 #include "LTexture.h"
 #include "GameDefines.h"
 
-typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_BACKGROUND, OT_BUTTON };	//enum to hold object type
+typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_LAYER, OT_BUTTON };	//enum to hold object type
 
 //Base class for all game objects
 class GameObject{
 public:
 
-	GameObject(){ this->init(); };	//Constructor
-	~GameObject(){ this->cleanup(); };	//DeConstructor
+	GameObject(){ init(); };	//Constructor
+	~GameObject(){ cleanup(); };	//DeConstructor
 
 	virtual void cleanup();
 	virtual bool init();
@@ -31,7 +31,6 @@ public:
 	void setPositionX(int x){ mPosX = x; };				//Set game object position
 	void setPositionY(int y){ mPosY = y; };				//Set game object position
 	void setPosition(int x, int y){ mPosX = x; mPosY = y; };	//Set game object position
-
 
 	void setScaleObjectX(float x){ mScaleXBy = x; };		//Scale object by x amount
 	void setScaleObjectY(float y){ mScaleYBy = y; };		//Scale object by x amount
@@ -44,7 +43,7 @@ public:
 	void setObjectType(EObjectType type){ eTypeOfObject = type; };
 	void setObjectBoundingBox(int x, int y, int height, int width);
 	
-	void setName(const char* name) { objectName = name; };
+	void setName(std::string name) { objectName = name; };
 
 	//Getters
 	int getPositionX(){ return mPosX; };				//Get objects X position
@@ -60,11 +59,10 @@ public:
 
 	SDL_Rect* getObjectBoundingBox() { return &objectBoundingBox; };
 	
-	const char* getName(){ return objectName; };
+	std::string getName(){ return objectName; };
 
 
 private:	
-
 	EObjectType eTypeOfObject;		//Set default object type
 	SDL_Rect objectBoundingBox;		//Object Bounding box
 
@@ -77,7 +75,7 @@ private:
 	float mRotateXBy;		//Value to rotate object X by
 	float mRotateYBy;		//Value to rotate object Y by
 
-	const char* objectName;		//Object Name
+	std::string objectName;		//Object Name
 
 	bool initCompleted;
 
