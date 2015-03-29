@@ -7,6 +7,8 @@
 #include "CollisionManager.h"
 #include "LTimer.h"
 #include "HudLayer.h"
+//#include "NPC.h"
+#include "IFactory.h"
 
 class GameManager{
 public:
@@ -29,7 +31,12 @@ private:
 	ScrollingBackground* bg;
 	ScrollingBackground* fg;
 	Player* player;
-	Obstical* obstical;
+	//Obstical* obstical;
+	Npc* bird;
+	Npc* bug;
+
+	IFactory* factory;
+	std::shared_ptr < Npc > npcVector;
 
 	HudLayer* hud;
 	bool collided;

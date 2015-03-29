@@ -18,7 +18,7 @@ struct ButtonDetails{
 	int state;
 };
 
-typedef enum ButtonState{ NORMAL, PRESSED, HOVER };	//enum to hold button state
+typedef enum ButtonState{ NORMAL, HOVER, PRESSED };	//enum to hold button state
 
 class Button : public GameObject{
 public:

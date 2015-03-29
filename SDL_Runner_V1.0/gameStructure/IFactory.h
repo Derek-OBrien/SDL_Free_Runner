@@ -1,8 +1,9 @@
 #ifndef _I_FACTORY_H_
 #define _I_FACTORY_H_
 
-#include "Obstical.h"
 #include "Collectable.h"
+#include "NPC.h"
+#include <iostream>
 #include <memory>
 
 
@@ -13,7 +14,7 @@ public:
 	virtual bool init() = 0;
 	virtual void cleanup() = 0;
 
-	virtual std::shared_ptr<Obstical> createObstical() = 0;
+	virtual std::shared_ptr<Npc> createNpc() = 0;
 //	virtual std::shared_ptr<Collectable> createCollectable() = 0;
 };
 
@@ -32,12 +33,12 @@ public:
 	virtual bool init();				// initialization	
 	virtual void cleanup();				// delete EnemyFactory	
 
-	virtual std::shared_ptr<Obstical> createObstical();
+	virtual std::shared_ptr<Npc> createNpc();
 //	virtual std::shared_ptr<Collectable> createCollectable();
 
 private:
 
-	Obstical* obstical;
+	Npc* npcObject;
 };
 
 #endif//_FACTORY_H_

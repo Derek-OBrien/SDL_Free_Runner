@@ -19,11 +19,11 @@ void GameScene::run(){
 	setSceneState(RUNNING);
 
 	while (getSceneState() == RUNNING){
+		GameManager::getInstance()->handleInput();
 
 			GameManager::getInstance()->render();
 			GameManager::getInstance()->checkCollision();
 			GameManager::getInstance()->update();
-			GameManager::getInstance()->handleInput();
 		
 			//Go To Pause Scene
 			while (getSceneState() == PAUSED){

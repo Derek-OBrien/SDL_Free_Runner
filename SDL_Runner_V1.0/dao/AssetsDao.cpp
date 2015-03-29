@@ -201,4 +201,27 @@ void AssetsDAO::update(std::string choice){
 //Delete
 void AssetsDAO::del(){
 	
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile(XMLDOC);
+
+	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
+		
+		tinyxml2::XMLElement* rootElement = doc.FirstChildElement();
+
+		//If root null print error
+		if (rootElement == NULL)
+			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
+
+		//Loop Through 2nd Elememt <ImagePaths>
+		for (tinyxml2::XMLElement* child = rootElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement()){
+
+			//Loop through Child Element of <ImagePaths> looking for <path> element
+			for (tinyxml2::XMLElement* pathElement = child->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
+
+				tinyxml2::XMLElement* element = doc.NewElement("selected_player");
+
+				child->DeleteChild(element);
+			}
+		}
+	}
 }

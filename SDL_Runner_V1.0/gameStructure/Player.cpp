@@ -5,7 +5,6 @@
 
 #include "Player.h"	//Include player header
 #include "GameManager.h"
-#include "../dao/AssetsDao.h"
 
 //Player Init
 bool Player::init(){
@@ -19,7 +18,7 @@ bool Player::init(){
 	player->setObjectType(OT_PLAYER);
 	setPlayerState(ALIVE);			//Set state to ALIVE
 	
-	Path selectedPlayer = AssetsDAO::getInstance()->read("selected_player");
+	selectedPlayer = AssetsDAO::getInstance()->read("selected_player");
 
 	player->setName(selectedPlayer.getText());
 
@@ -47,6 +46,8 @@ void Player::render(){
 //Jump function sets player state to JUMP
 void Player::jump(){
 	setPlayerState(JUMPING);					//Set player State to JUMP
+	player->setName("player2jump");
+	player->loadMedia(player->getName());
 	playerPosY-= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;
@@ -56,7 +57,14 @@ void Player::fallDown(){
 	setPlayerState(FALLING);
 	playerPosY+= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
-	player->getObjectBoundingBox()->y = playerPosY;
+	player->getObjectBoundingBox()->y = playerPosY;	
+}
+
+void Player::slide(){
+	player->setPositionY(485);
+
+	player->setName("player2slide");
+	player->loadMedia(player->getName());
 }
 
 
@@ -77,19 +85,31 @@ void Player::update(){
 
 //Handle Player movement
 void Player::handleInput(SDL_Event& e){
+	//UP KEY
 	//If a key was pressed
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0){
 		switch (e.key.keysym.sym){
-		case SDLK_UP:
+		case SDLK_UP:	//Up key pressed
 			jump();
+			break;
+
+		case SDLK_DOWN:	//Down Key Pressed
+			slide();
 			break;
 		}
 	}
 	//If a key was released
 	else if (e.type == SDL_KEYUP && e.key.repeat == 0){
 		switch (e.key.keysym.sym){
-		case SDLK_UP: 
+		case SDLK_UP:		//Up key Released
 			fallDown();
+			player->setName(selectedPlayer.getText());
+			player->loadMedia(player->getName());
+			break;
+
+		case SDLK_DOWN:		//Down key Released
+			player->setName(selectedPlayer.getText());
+			player->loadMedia(player->getName());
 			break;
 		}
 	}

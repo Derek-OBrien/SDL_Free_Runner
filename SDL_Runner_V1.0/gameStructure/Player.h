@@ -2,9 +2,10 @@
 #define _PLAYER_H_
 
 #include "Character.h"	//Include Character header file
+#include "../dao/AssetsDao.h"
 
 //Enum for player state
-typedef enum { ALIVE, DEAD, SUPERSIZE, JUMPING, FALLING, SLIDING } EPlayerState;
+typedef enum EPlayerState{ ALIVE, DEAD, SUPERSIZE, JUMPING, FALLING, SLIDING };
 
 //player is subclass of character
 class Player : public Character{
@@ -22,6 +23,7 @@ public:
 	//Player Movements
 	void jump();	//Jump up
 	void fallDown();//Fall back down
+	void slide();
 	void superSize();	//Player boost method
 
 	
@@ -40,6 +42,8 @@ private:
 	Character* player;
 	SDL_Rect* playerBoundingBox;
 
+	Path selectedPlayer;
+
 	int playerPosX, playerPosY;
 	// player can be SuperSize for a time
 	int m_SuperSize;
@@ -47,5 +51,4 @@ private:
 
 	EPlayerState currentState;	//Holds players current state
 };
-
 #endif//_PLAYER_H_

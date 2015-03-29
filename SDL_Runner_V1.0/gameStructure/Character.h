@@ -16,6 +16,7 @@ public:
 	~Character(){ cleanup(); };	//DeConstructor
 
 	virtual bool init();
+	virtual void create(){};
 	virtual void cleanup();
 
 

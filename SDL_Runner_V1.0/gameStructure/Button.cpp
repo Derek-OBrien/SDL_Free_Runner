@@ -145,6 +145,8 @@ void Button::handleMouseEvent(SDL_Event* e){
 					cleanup();
 					SDL_Quit();
 					LWindow::getInstance()->cleanup();
+					
+					//AssetsDAO::getInstance()->del();
 				}
 				break;
 

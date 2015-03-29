@@ -29,13 +29,16 @@ GameManager* GameManager::getInstance(){
 bool GameManager::init(){
 
 	player = new Player();
-	obstical = new Obstical();
+	//obstical = new Obstical();
 
 	bg = new ScrollingBackground();
 	bg->create("gameBg");
 	fg = new ScrollingBackground();
 	fg->create("gameFg");
-
+	bird = new Npc();
+	bird->create("bird");
+	bug = new Npc();
+	bug->create("bug");
 	timer = new LTimer();
 	timer->create();
 
@@ -57,8 +60,10 @@ void GameManager::render(){
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
 	bg->render("gameBg");		//Render Background
-	obstical->render();	//Render Obstical
+	//obstical->render();	//Render Obstical
 	player->render();	//Render Player
+	bird->render();
+	bug->render();
 	fg->render("gameFg");		//Render ForeGround 
 	hud->render();		//Render Hud Layer
 
@@ -69,8 +74,10 @@ void GameManager::render(){
 void GameManager::update(){
 	bg->update();
 	fg->update();
-	obstical->update();
+	//obstical->update();
 	hud->update();
+	bird->update();
+	bug->update();
 }
 
 void GameManager::handleInput(){
@@ -112,7 +119,7 @@ void GameManager::handleInput(){
 //Check Collision
 void GameManager::checkCollision(){
 	
-	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), obstical->getObsticalCollisionBox() )){
+	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bug->getNpcCollisionBox() )){
 
 		Scene* scene = SceneManager::getInstance()->getCurrentScene();
 		scene->setSceneState(DESTROY);
@@ -128,7 +135,7 @@ void GameManager::checkCollision(){
 //Clean up Everything 
 void GameManager::cleanup(){
 	player->cleanup();
-	obstical->cleanup();
+	//obstical->cleanup();
 	bg->cleanup();
 	fg->cleanup();
 

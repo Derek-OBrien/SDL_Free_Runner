@@ -1,7 +1,7 @@
 <?xml version="2.0" encoding="utf-8"?>
-    <!--Root -->
+<!--Root -->
 <assets>
-        <!--Child Element-->
+    <!--Child Element-->
     <imagePaths>
         <!--BACKGROUNDS-->
         <path name="splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>
@@ -12,14 +12,33 @@
         <path name="gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
         <path name="hud">../SDL_Runner_V1.0/assets/backgrounds/hud.png</path>
         <!--SPRITE SHEETS-->
+        <!--PLAYER-->
         <path name="player1" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player1.png</path>
         <path name="player2" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player2.png</path>
+        <path name="player2slide" width="130" height="75" offsetX="130" offsetY="0" frames="1" posX="100" posY="485">../SDL_Runner_V1.0/assets/player_sprites/player2slide.png</path>
+        <path name="player2jump" width="122" height="112" offsetX="0" offsetY="0" frames="1" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player2jump.png</path>
+        <!--NPCS-->
         <path name="blade" width="75" height="75" offsetX="75" offsetY="0" frames="5" posX="1280" posY="500">../SDL_Runner_V1.0/assets/obstical_sprites/blade.png</path>
+        <path name="bird" width="63" height="33" offsetX="63" offsetY="0" frames="6" posX="1280" posY="300">../SDL_Runner_V1.0/assets/obstical_sprites/bird.png</path>
+        <path name="bug" width="63" height="60" offsetX="63" offsetY="0" frames="8" posX="1280" posY="500">../SDL_Runner_V1.0/assets/obstical_sprites/bug.png</path>
+        <path name="zombie" width="64" height="81" offsetX="64" offsetY="0" frames="5" posX="1280" posY="435">../SDL_Runner_V1.0/assets/obstical_sprites/zombie.png</path>
         <!--USER INTERFACE ELEMENTS-->
-        <path name="player1btn" width="180" height="250" offsetX="180" offsetY="0" frames="3" posX="256" posY="256" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
-        <path name="player2btn" width="180" height="250" offsetX="180" offsetY="0" frames="3" posX="896" posY="256" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
+        <path name="player1btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="356" posY="200" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
+        <path name="player2btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="796" posY="200" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
         <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posY="566" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
         <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posy="20" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
         <!--Selected Player-->
         <path name="selected_player">player2</path>
         <!--SOUND FILES-->

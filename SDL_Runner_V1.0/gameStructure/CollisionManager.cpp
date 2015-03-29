@@ -50,8 +50,13 @@ bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	B_b = b->y;
 	B_t = b->y + b->h;
 	
-
-	isCollide = SDL_HasIntersection(a, b);
+	if (isCollide = SDL_HasIntersection(a, b) == true){
+		isCollide = true;
+	}
+	else{
+		isCollide = false;
+	}
+	
 	
 
 	return isCollide;
