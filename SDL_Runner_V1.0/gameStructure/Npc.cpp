@@ -10,7 +10,18 @@ bool Npc::init(){
 	if (!Character::init()){
 		Character::init();
 	}
+/*	npc = new Npc(npcName);
 
+	npcBoundingBox = new SDL_Rect();
+	npc->setObjectType(OT_OBSTICAL);
+	ImageDetails npcDetails = AssetsDAO::getInstance()->readImageDetails(npcName);
+	npc->setName(npcDetails.name);
+
+	npc->loadMedia(npc->getName());
+	npcPosX = npc->getPosX();
+	npcPosY = npc->getPosY();
+	npcBoundingBox = npc->getObjectBoundingBox();
+*/
 	return true;
 }
 
@@ -19,20 +30,15 @@ bool Npc::init(){
 	Create Npc Game Object
 */
 void Npc::create(std::string npcName){
-	if (!init()){
-		init();
-	}
 
 	npc = new Npc();
+
 	npcBoundingBox = new SDL_Rect();
 	npc->setObjectType(OT_OBSTICAL);
-
 	ImageDetails npcDetails = AssetsDAO::getInstance()->readImageDetails(npcName);
 	npc->setName(npcDetails.name);
 
 	npc->loadMedia(npc->getName());
-	
-
 	npcPosX = npc->getPosX();
 	npcPosY = npc->getPosY();
 	npcBoundingBox = npc->getObjectBoundingBox();

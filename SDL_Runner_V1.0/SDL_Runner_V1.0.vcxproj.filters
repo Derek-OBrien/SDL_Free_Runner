@@ -117,6 +117,9 @@
     <ClCompile Include="gameStructure\Npc.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
+    <ClCompile Include="gameStructure\PopulateEnemies.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameStructure\Character.h">
@@ -212,8 +215,13 @@
     <ClInclude Include="gameStructure\NPC.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
+    <ClInclude Include="gameStructure\PopulateEnemies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram11.cd" />
+    <None Include="ClassDiagram12.cd" />
   </ItemGroup>
 </Project>

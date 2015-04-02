@@ -6,9 +6,8 @@
 
 //Factory init
 bool Factory::init(){
-	if (!npcObject->init()){
-		npcObject->init();
-	}
+
+
 	return true;
 }
 
@@ -19,9 +18,12 @@ void Factory::cleanup(){
 
 
 //Create Obstical
-std::shared_ptr<Npc> Factory::createNpc(){
-	init();
-	return std::shared_ptr<Npc>(new Npc());
+Npc*Factory::createNpc(){
+	npcObject = new Npc();
+
+	/**/
+	return npcObject;
+	
 }
 
 /*//Create Collectable

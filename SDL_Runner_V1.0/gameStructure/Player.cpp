@@ -61,10 +61,11 @@ void Player::fallDown(){
 }
 
 void Player::slide(){
-	player->setPositionY(485);
 
 	player->setName("player2slide");
 	player->loadMedia(player->getName());
+	playerPosY = player->getPosY();
+
 }
 
 
@@ -110,6 +111,8 @@ void Player::handleInput(SDL_Event& e){
 		case SDLK_DOWN:		//Down key Released
 			player->setName(selectedPlayer.getText());
 			player->loadMedia(player->getName());
+			playerPosY = player->getPosY();
+
 			break;
 		}
 	}

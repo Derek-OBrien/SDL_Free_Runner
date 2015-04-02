@@ -8,7 +8,7 @@
 #include "LTimer.h"
 #include "HudLayer.h"
 //#include "NPC.h"
-#include "IFactory.h"
+#include "PopulateEnemies.h"
 
 class GameManager{
 public:
@@ -31,12 +31,11 @@ private:
 	ScrollingBackground* bg;
 	ScrollingBackground* fg;
 	Player* player;
-	//Obstical* obstical;
-	Npc* bird;
-	Npc* bug;
 
-	IFactory* factory;
-	std::shared_ptr < Npc > npcVector;
+
+	PopulateEnemies* popEnemies;
+	std::vector<Npc*> birdVector;
+	std::vector<Npc*> bugVector;
 
 	HudLayer* hud;
 	bool collided;

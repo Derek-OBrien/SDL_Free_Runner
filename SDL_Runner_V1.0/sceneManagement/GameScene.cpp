@@ -15,6 +15,7 @@ void GameScene::run(){
 	if (!initCompleted){
 		init();
 	}
+	
 	//thisSceneState = RUNNING;
 	setSceneState(RUNNING);
 

@@ -29,21 +29,27 @@ GameManager* GameManager::getInstance(){
 bool GameManager::init(){
 
 	player = new Player();
-	//obstical = new Obstical();
 
 	bg = new ScrollingBackground();
 	bg->create("gameBg");
 	fg = new ScrollingBackground();
 	fg->create("gameFg");
-	bird = new Npc();
-	bird->create("bird");
-	bug = new Npc();
-	bug->create("bug");
+
 	timer = new LTimer();
 	timer->create();
-
 	hud = new HudLayer();
 	hud->create("hud");
+
+	popEnemies = new PopulateEnemies();
+	birdVector = popEnemies->populateVector();
+	bugVector = popEnemies->populateVector();
+
+	for (int i = 0; i < birdVector.size(); i++){
+		birdVector.at(i)->create("bird");
+	}
+	for (int i = 0; i < bugVector.size(); i++){
+		bugVector.at(i)->create("bug");
+	}
 
 	collided = false;
 	return true;
@@ -60,13 +66,22 @@ void GameManager::render(){
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
 	bg->render("gameBg");		//Render Background
-	//obstical->render();	//Render Obstical
 	player->render();	//Render Player
-	bird->render();
-	bug->render();
+	
+
+
+	for (int i = 0; i < birdVector.size(); i++){
+		birdVector.at(i)->render();
+	}
+
+	for (int i = 0; i < bugVector.size(); i++){
+		bugVector.at(i)->render();
+	}
+
+
+
 	fg->render("gameFg");		//Render ForeGround 
 	hud->render();		//Render Hud Layer
-
 	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 }
@@ -74,10 +89,14 @@ void GameManager::render(){
 void GameManager::update(){
 	bg->update();
 	fg->update();
-	//obstical->update();
 	hud->update();
-	bird->update();
-	bug->update();
+
+	for (int i = 0; i < birdVector.size(); i++){
+		birdVector.at(i)->update();
+	}
+	for (int i = 0; i < bugVector.size(); i++){
+		bugVector.at(i)->update();
+	}
 }
 
 void GameManager::handleInput(){
@@ -119,7 +138,7 @@ void GameManager::handleInput(){
 //Check Collision
 void GameManager::checkCollision(){
 	
-	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bug->getNpcCollisionBox() )){
+	/*if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bug->getNpcCollisionBox() )){
 
 		Scene* scene = SceneManager::getInstance()->getCurrentScene();
 		scene->setSceneState(DESTROY);
@@ -128,7 +147,7 @@ void GameManager::checkCollision(){
 		player->cleanup();
 
 
-	}
+	}*/
 }
 
 

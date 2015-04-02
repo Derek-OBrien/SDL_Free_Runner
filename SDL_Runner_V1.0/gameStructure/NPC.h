@@ -2,7 +2,7 @@
 #ifndef _NPC_H_
 #define _NPC_H_
 
-#include "Character.h"
+#include "Collectable.h"
 
 class Npc : public Character{
 public:
