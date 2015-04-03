@@ -1,11 +1,9 @@
 
-
 #include "LTexture.h"
 #include "GameManager.h"
 
-TTF_Font* myFont = NULL;
 
-
+//Init Texture
 bool LTexture::init(){
 	mTexture = NULL;
 	mWidth = 0;
@@ -14,8 +12,8 @@ bool LTexture::init(){
 	return true;
 }
 
+//Load Texture media
 LTexture LTexture::loadmedia(std::string path){
-
 	//Loading success flag
 	bool success = true;
 	LTexture texture;
@@ -28,29 +26,7 @@ LTexture LTexture::loadmedia(std::string path){
 	return texture;
 }
 
-LTexture LTexture::loadTTFMedia(std::string displayText, int size, SDL_Color color){
-
-	bool success = true;
-	LTexture textTexture;
-	myFont = TTF_OpenFont("../SDL_Runner_V1.0/assets/fonts/lazy.ttf", size);
-	if ( myFont == NULL){
-		std::cout << "Failed to load font : baveuse3 " << "\nTTF_Error :" << TTF_GetError() << std::endl;
-	}
-	else{
-		//SDL_Color textColor = color;
-
-		if (!textTexture.loadFromRenderedText(displayText, color)){
-			std::cout << "Unable to render Text " << std::endl;
-			success = false;
-		}
-	}
-
-	return textTexture;
-}
-
-
-
-
+//Load Texture From File
 bool LTexture::loadFromFile(std::string path){
 	//Get rid of preexisting texture
 	cleanup();
@@ -93,32 +69,39 @@ bool LTexture::loadFromFile(std::string path){
 
 
 //Load Rendered text for TTF fonts
-#ifdef _SDL_TTF_H
-bool LTexture::loadFromRenderedText(std::string text, SDL_Color color){
+//Creates image from font string
 
+bool LTexture::loadFromRenderedText(std::string text, SDL_Color color, TTF_Font* myFont)
+{
+	//Get rid of preexisting texture
 	cleanup();
-	SDL_Surface* textSurface = TTF_RenderText_Solid(myFont, text.c_str(), color);
 
-	if (textSurface != NULL){
+	//Render text surface
 
+	SDL_Surface* textSurface = TTF_RenderText_Blended(myFont, text.c_str(), color);
+
+	if (textSurface == NULL){
+		std::cout << "Unable to render text surface! SDL_ttf Error: %s\n" << TTF_GetError() << std::endl;
+	}
+	else{
+		//Create texture from surface pixels
 		mTexture = SDL_CreateTextureFromSurface(LWindow::getInstance()->getRenderer(), textSurface);
 		if (mTexture == NULL){
-			std::cout << "Unable create text texture \n SDL Error :" << SDL_GetError() << std::endl;
+			std::cout << "Unable to create texture from rendered text! SDL Error: %s\n"<<SDL_GetError()<<std::endl;
 		}
 		else{
+			//Get image dimensions
 			mWidth = textSurface->w;
 			mHeight = textSurface->h;
 		}
+
+		//Get rid of old surface
 		SDL_FreeSurface(textSurface);
 	}
-	else{
-		std::cout << "Unable Render Text surface \n TTF_Error :" << TTF_GetError() << std::endl;
-	}
 
-
+	//Return success
 	return mTexture != NULL;
 }
-#endif
 
 //Basic render
 void LTexture::render(int x, int y, SDL_Rect* clip){
@@ -155,4 +138,3 @@ void LTexture::cleanup(){
 		mHeight = 0;
 	}
 }
-

@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "../gameStructure/Layer.h"
+#include "../gameStructure/Label.h"
 
 class SplashScene : public  Scene{
 public:
@@ -15,6 +16,8 @@ public:
 
 private:
 	Layer bg;
+	Label* label;
+
 };
 
 #endif//_SPLASH_SCENE_H

@@ -52,7 +52,7 @@ bool Sprite::loadMedia(std::string name){
 //Run animation 
 void Sprite::runAnimation(int posX, int posY){
 	currentFrame = &gSpriteClips[frame / 5];
-	spriteTexture.render(posX,posY, currentFrame);
+	spriteTexture.render(posX, posY, currentFrame);
 
 	++frame;
 	//Cycle animation

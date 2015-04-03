@@ -70,6 +70,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dao\AssetsDao.cpp" />
+    <ClCompile Include="gameStructure\Label.cpp" />
     <ClCompile Include="gameStructure\Layer.cpp" />
     <ClCompile Include="gameStructure\Button.cpp" />
     <ClCompile Include="gameStructure\Character.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="dao\Path.h" />
     <ClInclude Include="dao\ImagePath.h" />
     <ClInclude Include="dao\TextItem.h" />
+    <ClInclude Include="gameStructure\Label.h" />
     <ClInclude Include="gameStructure\Layer.h" />
     <ClInclude Include="gameStructure\Button.h" />
     <ClInclude Include="gameStructure\Character.h" />

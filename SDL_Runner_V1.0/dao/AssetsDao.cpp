@@ -185,10 +185,14 @@ void AssetsDAO::update(std::string choice){
 			//write the text
 			tinyxml2::XMLComment* newComment = doc.NewComment("Selected Player");
 			tinyxml2::XMLElement* newElement = doc.NewElement("path");
-			newElement->SetText(choice.c_str());
-			newElement->SetAttribute("name", "selected_player");
-			childNode->InsertAfterChild(temp, newComment);
-			childNode->InsertAfterChild(newComment, newElement);
+			
+				//get text passed in 
+				newElement->SetText(choice.c_str());
+
+				newElement->SetAttribute("name", "selected_player");
+				childNode->InsertAfterChild(temp, newComment);
+				childNode->InsertAfterChild(newComment, newElement);
+		
 		}
 		//doc.Print();
 		doc.SaveFile(XMLDOC);

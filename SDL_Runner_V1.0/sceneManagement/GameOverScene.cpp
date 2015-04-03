@@ -6,9 +6,12 @@
 void GameOverScene::init(){
 	Scene::init();
 
-	Path path = AssetsDAO::getInstance()->read("gameOver");
+	Path path = AssetsDAO::getInstance()->read("sceneBg");
 	bg.loadMedia(path.getText());
 
+	label = new Label();
+	closebutton = new Button();
+	restart = new Button();
 }
 
 void GameOverScene::run()
@@ -19,7 +22,10 @@ void GameOverScene::run()
 	}
 	thisSceneState = RUNNING;
 
-	std::cout << "Game Over Scene Running!" << std::endl;
+	label->create("-[Game Over]-", 50, { 0, 0, 0 });
+	closebutton->create("closebutton");
+	restart->create("restart");
+
 	bool quit = false;
 	SDL_Event e;	//Event handler
 
@@ -27,16 +33,29 @@ void GameOverScene::run()
 
 		//Handle events on queue
 		while (SDL_PollEvent(&e) != 0){
+			closebutton->handleMouseEvent(&e);
+			restart->handleMouseEvent(&e);
 			//User requests quit
 			if (e.type == SDL_QUIT){
 				quit = true;
 				SDL_Quit();
 				LWindow::getInstance()->cleanup();
+				cleanup();
 			}
 		}
 
 		bg.render(255);
+		label->render((GAME_WIDTH / 2), 80);
+		closebutton->render("closebutton");
+		restart->render("restart");
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 	}
+}
+
+void GameOverScene::cleanup(){
+	label->cleanup();
+	closebutton->cleanup();
+	restart->cleanup();
+	bg.cleanup();
 }

@@ -9,12 +9,15 @@ public:
 	~PopulateEnemies(){};
 
 	//virtual bool init();
-	std::vector<Npc*> populateVector();
+	std::vector<Npc*> populateBirdVector();
+	std::vector<Npc*> populateBugVector();
 
 private:
 
 	Factory* factory;
-	std::vector<Npc*> npcVector;
+	std::vector<Npc*> birdVector;
+	std::vector<Npc*> bugVector;
+
 };
 
 

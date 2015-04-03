@@ -16,6 +16,9 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 	if (SDL_Init(SDL_INIT_VIDEO) == 0){
 		std::cout << "SDL init success" << std::endl;
 		m_pWindow = SDL_CreateWindow(title, posX, posY, width, height, flag);
+		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")){
+			printf("Warning: Linear texture filtering not enabled!");
+		}
 		//Initialize SDL_ttf
 		if (TTF_Init() == 0){
 			std::cout << "TTF init complete" << std::endl;
@@ -27,6 +30,11 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 				if (m_pRenderer != 0){
 					std::cout << "Renderer creation success" << std::endl;
 					SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
+					int imgFlags = IMG_INIT_PNG;
+					if (!(IMG_Init(imgFlags) & imgFlags))
+					{
+						printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+					}
 				}
 				else { std::cout << "Renderer create fail" << std::endl; return false; }
 			}

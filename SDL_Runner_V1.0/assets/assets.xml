@@ -4,15 +4,12 @@
     <!--Child Element-->
     <imagePaths>
         <!--BACKGROUNDS-->
-        <path name="splash">../SDL_Runner_V1.0/assets/backgrounds/splash.png</path>
-        <path name="menu">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
-        <path name="pause">../SDL_Runner_V1.0/assets/backgrounds/pause.png</path>
-        <path name="gameOver">../SDL_Runner_V1.0/assets/backgrounds/gameOver.png</path>
+        <path name="sceneBg">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
         <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
         <path name="gameFg">../SDL_Runner_V1.0/assets/backgrounds/smoke2.png</path>
-        <path name="hud">../SDL_Runner_V1.0/assets/backgrounds/hud.png</path>
+        <!--FONTS-->
+        <path name="font">../SDL_Runner_V1.0/assets/fonts/baveuse3.ttf</path>
         <!--SPRITE SHEETS-->
-        <!--PLAYER-->
         <path name="player1" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player1.png</path>
         <path name="player2" width="90" height="125" offsetX="90" offsetY="0" frames="14" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player2.png</path>
         <path name="player2slide" width="130" height="75" offsetX="130" offsetY="0" frames="1" posX="100" posY="485">../SDL_Runner_V1.0/assets/player_sprites/player2slide.png</path>
@@ -27,80 +24,7 @@
         <path name="player2btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="796" posY="200" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
         <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posY="566" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
         <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posy="20" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player1</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
-        <!--Selected Player-->
-        <path name="selected_player">player2</path>
+        <path name="restart" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1100" posy="20" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
         <!--Selected Player-->
         <path name="selected_player">player1</path>
         <!--Selected Player-->
@@ -110,7 +34,9 @@
         <!--Selected Player-->
         <path name="selected_player">player1</path>
         <!--Selected Player-->
-        <path name="selected_player">player1</path>
+        <path name="selected_player">player2</path>
+        <!--Selected Player-->
+        <path name="selected_player">player2</path>
         <!--Selected Player-->
         <path name="selected_player">player1</path>
         <!--Selected Player-->

@@ -9,11 +9,11 @@ public:
 	Npc(){ init(); };
 	~Npc(){ cleanup(); };
 
-	bool init();
-	void create(std::string npcName);
-	void cleanup(){};
-	void render();
-	void update();
+	virtual bool init();
+	virtual void create(std::string npcName);
+	virtual void cleanup(){};
+	virtual void render();
+	virtual void update();
 
 	SDL_Rect* getNpcCollisionBox(){ return npcBoundingBox; };
 

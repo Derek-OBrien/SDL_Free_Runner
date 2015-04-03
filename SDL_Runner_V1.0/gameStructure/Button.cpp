@@ -3,6 +3,7 @@
 #include "../dao/AssetsDao.h"
 #include "LWindow.h"
 #include "../sceneManagement/SceneManager.h"
+#include "../sceneManagement/MenuScene.h"
 #include "GameManager.h"
 
 
@@ -134,10 +135,6 @@ void Button::handleMouseEvent(SDL_Event* e){
 					else{
 						scene->setSceneState(PAUSED);
 						GameManager::getInstance()->getTimer()->pause();
-						Path path = AssetsDAO::getInstance()->read("pause");
-						//bg->create(path.getText());
-						//bg->render();
-						//SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 					}
 				}
 				//Close Button
@@ -147,6 +144,11 @@ void Button::handleMouseEvent(SDL_Event* e){
 					LWindow::getInstance()->cleanup();
 					
 					//AssetsDAO::getInstance()->del();
+				}
+
+				else if (buttonDetails.name == "restart"){
+					MenuScene* nextScene = new MenuScene();
+					SceneManager::getInstance()->runwithscene(nextScene);
 				}
 				break;
 

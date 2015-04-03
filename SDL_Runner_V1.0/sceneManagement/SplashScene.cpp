@@ -9,18 +9,21 @@ void SplashScene::init(){
 	Scene::init();
 
 	std::cout << "SplashScene  Init!" << std::endl;
-
+	int height = SDL_DisplayMode().h;
+	int width = SDL_DisplayMode().w;
 	//Load Game Window on init
 	LWindow::getInstance()->init(
-		"SDL Free Runner",		//Name
+		"In The Smoke",		//Name
 		SDL_WINDOWPOS_UNDEFINED,//Position
 		SDL_WINDOWPOS_UNDEFINED,//Position
 		GAME_HEIGHT,			//Height
 		GAME_WIDTH,				//Width
-		SDL_WINDOW_SHOWN);		//Flag
+		SDL_WINDOW_SHOWN );		//Flag
 
-	Path path = AssetsDAO::getInstance()->read("splash");
+	Path path = AssetsDAO::getInstance()->read("sceneBg");
 	bg.create(path.getText());
+
+	label = new Label();
 }
 
 void SplashScene::run(){
@@ -32,6 +35,7 @@ void SplashScene::run(){
 	std::cout << "SplashScene  Running!" << std::endl;
 	thisSceneState = RUNNING;
 	int lifetimeofscene = 100;
+	label->create("-[In The Smoke]-", 70, { 0, 0, 0 });
 
 
 	//Scene Run Loop
@@ -45,6 +49,8 @@ void SplashScene::run(){
 
 
 		bg.render(255);
+		label->render((GAME_WIDTH / 2), (GAME_HEIGHT /2));
+
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 	}
@@ -57,4 +63,5 @@ void SplashScene::run(){
 
 void SplashScene::cleanup(){
 	bg.cleanup();
+	label->cleanup();
 }

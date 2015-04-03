@@ -8,18 +8,15 @@
 class LTexture{
 public:
 
-	LTexture(){ this->init(); };			//Initializes variables
-	~LTexture(){ this->cleanup(); };		//Deallocates memory
+	LTexture(){ init(); };			//Initializes variables
+	~LTexture(){ cleanup(); };		//Deallocates memory
 
 	virtual bool init();
 	virtual void cleanup();		//Deallocates texture
-	
 	LTexture loadmedia(std::string path);
-	LTexture loadTTFMedia(std::string displayText, int size, SDL_Color color);
 	bool loadFromFile(std::string path);
-#ifdef _SDL_TTF_H
-	bool loadFromRenderedText(std::string text, SDL_Color color);
-#endif
+
+	bool loadFromRenderedText(std::string text, SDL_Color color, TTF_Font* myFont);
 
 	void render(int x, int y, SDL_Rect* clip = NULL);
 
@@ -33,7 +30,6 @@ public:
 private:
 
 	SDL_Texture* mTexture;
-
 
 	//Image dimensions
 	int mWidth;

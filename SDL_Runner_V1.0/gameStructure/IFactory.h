@@ -1,7 +1,7 @@
 #ifndef _I_FACTORY_H_
 #define _I_FACTORY_H_
 
-#include "NPC.h"
+#include "Npc.h"
 #include <iostream>
 #include <memory>
 
@@ -13,7 +13,9 @@ public:
 	virtual bool init() = 0;
 	virtual void cleanup() = 0;
 
-	virtual Npc* createNpc() = 0;
+	virtual Npc* createBirdNpc() = 0;
+	virtual Npc* createBugNpc() = 0;
+
 //	virtual std::shared_ptr<Collectable> createCollectable() = 0;
 };
 
@@ -32,7 +34,8 @@ public:
 	virtual bool init();				// initialization	
 	virtual void cleanup();				// delete EnemyFactory	
 
-	virtual Npc* createNpc();
+	virtual Npc* createBirdNpc();
+	virtual Npc* createBugNpc();
 //	virtual std::shared_ptr<Collectable> createCollectable();
 
 private:

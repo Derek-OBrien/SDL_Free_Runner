@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "../gameStructure/Layer.h"
 #include "../gameStructure/Button.h"
+#include "../gameStructure/Label.h"
 
 class MenuScene : public  Scene{
 public:
@@ -19,6 +20,8 @@ private:
 	Layer bg;
 	Button* player1btn;
 	Button* player2btn;
+	Button* closeButton;
+	Label* label;
 };
 
 

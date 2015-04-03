@@ -16,6 +16,8 @@ Print statement (“render”)
 #include "../sceneManagement/PauseScene.h"
 #include "../sceneManagement/GameOverScene.h"
 
+#include <Windows.h>
+
 GameManager* GameManagerInstance = 0;//instance of the object to be used
 GameManager* GameManager::getInstance(){
 	if (GameManagerInstance == 0){						//if the instance is null
@@ -41,8 +43,8 @@ bool GameManager::init(){
 	hud->create("hud");
 
 	popEnemies = new PopulateEnemies();
-	birdVector = popEnemies->populateVector();
-	bugVector = popEnemies->populateVector();
+	birdVector = popEnemies->populateBirdVector();
+	bugVector = popEnemies->populateBugVector();
 
 	for (int i = 0; i < birdVector.size(); i++){
 		birdVector.at(i)->create("bird");
@@ -138,16 +140,20 @@ void GameManager::handleInput(){
 //Check Collision
 void GameManager::checkCollision(){
 	
-	/*if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bug->getNpcCollisionBox() )){
+	for (int i = 0; i < bugVector.size(); i++){
+	
 
-		Scene* scene = SceneManager::getInstance()->getCurrentScene();
-		scene->setSceneState(DESTROY);
+		if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bugVector.at(i)->getNpcCollisionBox())){
 
-		player->setPlayerState(DEAD);
-		player->cleanup();
+			Scene* scene = SceneManager::getInstance()->getCurrentScene();
+			scene->setSceneState(DESTROY);
+
+			player->setPlayerState(DEAD);
+			player->cleanup();
 
 
-	}*/
+		}
+	}
 }
 
 
@@ -157,7 +163,7 @@ void GameManager::cleanup(){
 	//obstical->cleanup();
 	bg->cleanup();
 	fg->cleanup();
-
+	hud->cleanup();
 	LWindow::getInstance()->cleanup();
 	SDL_Quit();
 }

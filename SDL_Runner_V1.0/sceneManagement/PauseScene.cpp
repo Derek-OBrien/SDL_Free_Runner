@@ -7,9 +7,10 @@
 void PauseScene::init(){
 	Scene::init();
 
-	Path path = AssetsDAO::getInstance()->read("pause");
+	Path path = AssetsDAO::getInstance()->read("sceneBg");
 	bg.create(path.getText());
 
+	label = new Label();
 }
 
 void PauseScene::run()
@@ -21,7 +22,7 @@ void PauseScene::run()
 	thisSceneState = RUNNING;
 
 	std::cout << "Pause Scene Running!" << std::endl;
-
+	label->create("-[Pause]-", 50, { 0, 0, 0 });
 	while(thisSceneState == RUNNING){
 		
 		SDL_Event e;	//Event handler
@@ -34,11 +35,14 @@ void PauseScene::run()
 					//Destroy Scene and load Game Scene
 					thisSceneState = DESTROY;
 					bg.cleanup();
+					label->cleanup();
 				}
 			}
 		}
 
 		bg.render(255);
+
+		label->render(500,500);
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
 	}

@@ -118,7 +118,10 @@
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\PopulateEnemies.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStructure\Label.cpp">
+      <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,7 +219,10 @@
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\PopulateEnemies.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStructure\Label.h">
+      <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

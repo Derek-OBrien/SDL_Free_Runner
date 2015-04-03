@@ -18,12 +18,14 @@ void Factory::cleanup(){
 
 
 //Create Obstical
-Npc*Factory::createNpc(){
+Npc*Factory::createBirdNpc(){
 	npcObject = new Npc();
-
-	/**/
 	return npcObject;
-	
+}
+
+Npc*Factory::createBugNpc(){
+	npcObject = new Npc();
+	return npcObject;
 }
 
 /*//Create Collectable

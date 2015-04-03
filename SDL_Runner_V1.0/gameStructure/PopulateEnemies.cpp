@@ -12,15 +12,29 @@ return true;
 }*/
 
 
-std::vector<Npc*> PopulateEnemies::populateVector(){
+std::vector<Npc*> PopulateEnemies::populateBirdVector(){
 
 	factory = new Factory();
 
-	npcVector.push_back(factory->createNpc());
-	npcVector.push_back(factory->createNpc());
-	npcVector.push_back(factory->createNpc());
-	npcVector.push_back(factory->createNpc());
-	npcVector.push_back(factory->createNpc());
+	birdVector.push_back(factory->createBirdNpc());
+	birdVector.push_back(factory->createBirdNpc());
+	birdVector.push_back(factory->createBirdNpc());
+	birdVector.push_back(factory->createBirdNpc());
+	birdVector.push_back(factory->createBirdNpc());
 
-	return npcVector;
+	return birdVector;
+}
+
+
+std::vector<Npc*> PopulateEnemies::populateBugVector(){
+
+	factory = new Factory();
+
+	bugVector.push_back(factory->createBugNpc());
+	bugVector.push_back(factory->createBugNpc());
+	bugVector.push_back(factory->createBugNpc());
+	bugVector.push_back(factory->createBugNpc());
+	bugVector.push_back(factory->createBugNpc());
+
+	return bugVector;
 }

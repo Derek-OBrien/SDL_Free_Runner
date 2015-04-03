@@ -10,18 +10,6 @@ bool Npc::init(){
 	if (!Character::init()){
 		Character::init();
 	}
-/*	npc = new Npc(npcName);
-
-	npcBoundingBox = new SDL_Rect();
-	npc->setObjectType(OT_OBSTICAL);
-	ImageDetails npcDetails = AssetsDAO::getInstance()->readImageDetails(npcName);
-	npc->setName(npcDetails.name);
-
-	npc->loadMedia(npc->getName());
-	npcPosX = npc->getPosX();
-	npcPosY = npc->getPosY();
-	npcBoundingBox = npc->getObjectBoundingBox();
-*/
 	return true;
 }
 
@@ -51,6 +39,7 @@ void Npc::create(std::string npcName){
 	Renders npc to the game scene
 */
 void Npc::render(){
+
 	npc->render(npcPosX, npcPosY);
 }
 
@@ -67,7 +56,7 @@ void Npc::update(){
 		npc->getObjectBoundingBox()->x = npcPosX;
 		
 		//if it goes off screen reset to orignal position
-		if (npcPosX < -GAME_WIDTH){
+		if (npcPosX < 0){
 			npcPosX = GAME_WIDTH;
 			npc->setPositionX(npcPosX);
 			npc->getObjectBoundingBox()->x = npcPosX;
@@ -79,7 +68,7 @@ void Npc::update(){
 		npc->getObjectBoundingBox()->x = npcPosX;
 
 		//if it goes off screen reset to orignal position
-		if (npcPosX < -GAME_WIDTH){
+		if (npcPosX < 0){
 			npcPosX = GAME_WIDTH;
 			npc->setPositionX(npcPosX);
 			npc->getObjectBoundingBox()->x = npcPosX;

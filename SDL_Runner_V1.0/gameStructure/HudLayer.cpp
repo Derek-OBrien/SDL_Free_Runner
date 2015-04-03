@@ -1,6 +1,7 @@
 
 #include "HudLayer.h"
 
+
 //Hud Layer init
 bool HudLayer::init(){
 
@@ -8,9 +9,9 @@ bool HudLayer::init(){
 		Layer::init();
 	}
 	
-	hud = new Layer();
 	pauseButton = new Button();
 	closeButton = new Button();
+	scoreLabel = new Label();
 	return true;
 }
 
@@ -20,15 +21,17 @@ void HudLayer::create(std::string name){
 	if (!init()){
 		init();
 	}
-	Path path = AssetsDAO::getInstance()->read(name);
-	hud->loadMedia(path.getText());
 	pauseButton->create("pausebutton");
 	closeButton->create("closebutton");
+
+	textColor = { 255, 0, 0, 255 };
+	scoreText = "0";
+	scoreLabel->create(scoreText.c_str(), 50, textColor);
 }
 
 //Render Layer
 void HudLayer::render(){
-	hud->render(255);
+	scoreLabel->render((GAME_WIDTH / 2), 10);
 	pauseButton->render("pausebutton");	//Render Pause Button
 	closeButton->render("closebutton");
 }
@@ -42,11 +45,13 @@ void HudLayer::handleInput(SDL_Event &e){
 //update
 void HudLayer::update(){
 	//update Score + coin count
+
+	scoreLabel->updateScore(scoreText, 50, textColor);
 }
 
 //Clean Up
 void HudLayer::cleanup(){
-	hud->cleanup();
 	pauseButton->cleanup();
 	closeButton->cleanup();
+	scoreLabel->cleanup();
 }

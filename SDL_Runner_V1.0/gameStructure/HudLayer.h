@@ -3,6 +3,7 @@
 
 #include "Layer.h"
 #include "Button.h"
+#include "Label.h"
 
 class HudLayer : public Layer{
 public:
@@ -16,12 +17,17 @@ public:
 	void render();
 	void cleanup();
 
+	Label* getScore(){ return scoreLabel; };
 
 private:
-	Layer* hud;
 	Button* pauseButton;
 	Button* closeButton;
 
+	Label* scoreLabel;
+	SDL_Color textColor;
+	std::string scoreText;
+
+	
 };
 
 #endif//_HUDLAYER_H_

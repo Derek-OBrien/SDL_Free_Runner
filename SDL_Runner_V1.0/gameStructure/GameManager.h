@@ -7,7 +7,6 @@
 #include "CollisionManager.h"
 #include "LTimer.h"
 #include "HudLayer.h"
-//#include "NPC.h"
 #include "PopulateEnemies.h"
 
 class GameManager{
