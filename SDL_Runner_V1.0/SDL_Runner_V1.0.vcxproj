@@ -88,8 +88,8 @@
     <ClCompile Include="gameStructure\Player.cpp" />
     <ClCompile Include="gameStructure\PopulateEnemies.cpp" />
     <ClCompile Include="gameStructure\ScrollingBackground.cpp" />
+    <ClCompile Include="gameStructure\SoundManager.cpp" />
     <ClCompile Include="gameStructure\Sprite.cpp" />
-    <ClCompile Include="gameStructure\WorldManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="sceneManagement\GameOverScene.cpp" />
     <ClCompile Include="sceneManagement\GameScene.cpp" />
@@ -124,8 +124,8 @@
     <ClInclude Include="gameStructure\Player.h" />
     <ClInclude Include="gameStructure\PopulateEnemies.h" />
     <ClInclude Include="gameStructure\ScrollingBackground.h" />
+    <ClInclude Include="gameStructure\SoundManager.h" />
     <ClInclude Include="gameStructure\Sprite.h" />
-    <ClInclude Include="gameStructure\WorldManager.h" />
     <ClInclude Include="sceneManagement\GameOverScene.h" />
     <ClInclude Include="sceneManagement\GameScene.h" />
     <ClInclude Include="sceneManagement\MenuScene.h" />
@@ -137,8 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
-    <None Include="ClassDiagram12.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

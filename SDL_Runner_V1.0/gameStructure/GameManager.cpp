@@ -12,6 +12,7 @@ Print statement (“render”)
 */
 
 #include "GameManager.h"	//Include game manager header
+#include "SoundManager.h"
 #include "../sceneManagement/SceneManager.h"
 #include "../sceneManagement/PauseScene.h"
 #include "../sceneManagement/GameOverScene.h"
@@ -30,8 +31,11 @@ GameManager* GameManager::getInstance(){
 //init game manager
 bool GameManager::init(){
 
+	//	SoundManager::getInstance()->loadAudio("bgmusic");
 	player = new Player();
 
+	bg_city = new ScrollingBackground();
+	bg_city->create("cityBg");
 	bg = new ScrollingBackground();
 	bg->create("gameBg");
 	fg = new ScrollingBackground();
@@ -47,10 +51,39 @@ bool GameManager::init(){
 	bugVector = popEnemies->populateBugVector();
 
 	for (int i = 0; i < birdVector.size(); i++){
-		birdVector.at(i)->create("bird");
+		switch (i){
+		case 0:
+			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
+			npcY = 250;
+			birdVector.at(i)->create("bird", npcX, npcY);
+			break;
+		case 1:
+			npcX = GAME_WIDTH + (GAME_WIDTH *0.4);
+			npcY = 300;
+			birdVector.at(i)->create("bird", npcX, npcY);
+			break;
+		case 2:
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);
+			npcY = 370;
+			birdVector.at(i)->create("bird", npcX, npcY);
+			break;
+		case 3:
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.1);///slideunder
+			npcY = 450;
+			birdVector.at(i)->create("bird", npcX, npcY);
+			break;
+		case 4:
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.7);///slide under
+			npcY = 450;
+			birdVector.at(i)->create("bird", npcX, npcY);
+			break;
+		default:
+			break;
+		}
 	}
+
 	for (int i = 0; i < bugVector.size(); i++){
-		bugVector.at(i)->create("bug");
+		bugVector.at(i)->create("bug", GAME_WIDTH, 500);
 	}
 
 	collided = false;
@@ -67,13 +100,16 @@ void GameManager::render(){
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
+	bg_city->render("cityBg");
 	bg->render("gameBg");		//Render Background
 	player->render();	//Render Player
-	
+
 
 
 	for (int i = 0; i < birdVector.size(); i++){
+
 		birdVector.at(i)->render();
+
 	}
 
 	for (int i = 0; i < bugVector.size(); i++){
@@ -89,6 +125,8 @@ void GameManager::render(){
 }
 
 void GameManager::update(){
+	//SoundManager::getInstance()->playMusic();
+	bg_city->update();
 	bg->update();
 	fg->update();
 	hud->update();
@@ -117,14 +155,16 @@ void GameManager::handleInput(){
 		if (e.type == SDL_KEYDOWN){
 			if (e.key.keysym.sym == SDLK_SPACE){
 				std::cout << "Space Pressed Pause Game Scene" << std::endl;
-				
+
 				if (timer->Paused()){
 					timer->unpause();
 					scene->setSceneState(RUNNING);
+					SoundManager::getInstance()->resumeMusic();
 				}
 				else{
 					scene->setSceneState(PAUSED);
 					timer->pause();
+					SoundManager::getInstance()->pauseMusic();
 				}
 			}
 		}
@@ -139,9 +179,9 @@ void GameManager::handleInput(){
 
 //Check Collision
 void GameManager::checkCollision(){
-	
-	for (int i = 0; i < bugVector.size(); i++){
-	
+
+	for (unsigned int i = 0; i < bugVector.size(); i++){
+
 
 		if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bugVector.at(i)->getNpcCollisionBox())){
 
@@ -150,8 +190,14 @@ void GameManager::checkCollision(){
 
 			player->setPlayerState(DEAD);
 			player->cleanup();
+		}
+		if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
+			Scene* scene = SceneManager::getInstance()->getCurrentScene();
+			scene->setSceneState(DESTROY);
 
+			player->setPlayerState(DEAD);
+			player->cleanup();
 		}
 	}
 }
@@ -160,10 +206,17 @@ void GameManager::checkCollision(){
 //Clean up Everything 
 void GameManager::cleanup(){
 	player->cleanup();
-	//obstical->cleanup();
+
+	bg_city->cleanup();
 	bg->cleanup();
 	fg->cleanup();
 	hud->cleanup();
+	for (int i = 0; i < birdVector.size(); i++){
+		birdVector.at(i)->cleanup();
+	}
+	for (int i = 0; i < bugVector.size(); i++){
+		bugVector.at(i)->cleanup();
+	}
 	LWindow::getInstance()->cleanup();
 	SDL_Quit();
 }

@@ -25,10 +25,13 @@ void ScrollingBackground::create(std::string name){
 //Render Background
 void ScrollingBackground::render(std::string name){
 	if (name == "gameBg"){
-		bg->scrollingRender(255);
+		bg->scrollingRender(255, name);
+	}
+	else if (name == "cityBg"){
+		bg->scrollingRender(255, name);
 	}
 	else{
-		bg->scrollingRender(127);
+		bg->scrollingRender(127, name);
 	}
 }
 

@@ -46,7 +46,11 @@ void Layer::render(int alpha){
 }
 
 //Render Scrolling Layer
-void Layer::scrollingRender(int alpha){
+void Layer::scrollingRender(int alpha, std::string name){
+
+	if(name == "cityBg"){
+		scrollingOffset -=3;
+	}
 	--scrollingOffset;
 	if (scrollingOffset < -bg_Texture.getWidth()){
 		scrollingOffset = 0;

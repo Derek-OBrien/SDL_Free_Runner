@@ -21,7 +21,7 @@ public:
 	
 	//update
 	virtual void update(std::string choice) = 0;
-
+	virtual void updateScore(std::string score) = 0;
 	//delete
 	virtual void del() = 0;
 private:
@@ -46,6 +46,7 @@ public:
 
 	//update
 	void update(std::string choice);
+	void updateScore(std::string score);
 
 	//delete
 	void del();

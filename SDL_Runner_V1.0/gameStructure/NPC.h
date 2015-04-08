@@ -10,7 +10,7 @@ public:
 	~Npc(){ cleanup(); };
 
 	virtual bool init();
-	virtual void create(std::string npcName);
+	virtual void create(std::string npcName, int posX, int posY);
 	virtual void cleanup(){};
 	virtual void render();
 	virtual void update();

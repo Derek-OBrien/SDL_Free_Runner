@@ -5,6 +5,7 @@
 #include "../gameStructure/layer.h"
 #include "../gameStructure/Label.h"
 #include "../gameStructure/Button.h"
+#include "../gameStructure/HudLayer.h"
 
 class GameOverScene : public  Scene
 {
@@ -17,6 +18,8 @@ public:
 private:
 	Layer bg;
 	Label* label;
+	HudLayer* hud;
+	Label* scoreLabel;
 	Button* closebutton;
 	Button* restart;
 };

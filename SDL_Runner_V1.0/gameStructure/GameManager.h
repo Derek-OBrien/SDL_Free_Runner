@@ -27,6 +27,7 @@ private:
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 	
 	LTimer* timer;
+	ScrollingBackground* bg_city;
 	ScrollingBackground* bg;
 	ScrollingBackground* fg;
 	Player* player;
@@ -38,6 +39,8 @@ private:
 
 	HudLayer* hud;
 	bool collided;
+
+	int npcX, npcY;
 };
 
 #endif//_GAME_MANAGER_H_

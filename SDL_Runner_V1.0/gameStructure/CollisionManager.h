@@ -1,14 +1,12 @@
 #ifndef _COLLISION_MANAGER_H_
 #define _COLLISION_MANAGER_H_
 
-#include "WorldManager.h"
+#include <SDL.h>
 
 class CollisionManager{
 public:
 	static CollisionManager* getInstance();		//Singleton 
 
-//	void registerPlayer(Player *p);				//register player with collision manager
-//	void registerGameObject(GameObject *o);		//register gameObject with collision manager
 	bool checkCollision(SDL_Rect* a, SDL_Rect* b);	//check for collision between player and object
 
 private:

@@ -51,9 +51,6 @@
     <ClCompile Include="gameStructure\Sprite.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\WorldManager.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\Obstical.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -123,6 +120,9 @@
     <ClCompile Include="gameStructure\Label.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
+    <ClCompile Include="gameStructure\SoundManager.cpp">
+      <Filter>Source Files\gameStructure</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameStructure\Character.h">
@@ -141,9 +141,6 @@
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Sprite.h">
-      <Filter>Header Files\gameStructure</Filter>
-    </ClInclude>
-    <ClInclude Include="gameStructure\WorldManager.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\LTexture.h">
@@ -224,10 +221,11 @@
     <ClInclude Include="gameStructure\Label.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
+    <ClInclude Include="gameStructure\SoundManager.h">
+      <Filter>Header Files\gameStructure</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
-    <None Include="ClassDiagram12.cd" />
   </ItemGroup>
 </Project>

@@ -45,7 +45,6 @@ void HudLayer::handleInput(SDL_Event &e){
 //update
 void HudLayer::update(){
 	//update Score + coin count
-
 	scoreLabel->updateScore(scoreText, 50, textColor);
 }
 

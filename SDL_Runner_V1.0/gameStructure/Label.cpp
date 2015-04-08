@@ -8,6 +8,10 @@ bool Label::init(){
 	if (!GameObject::init()){
 		GameObject::init();
 	}
+	//Checkif TTf Was init
+	if (!TTF_WasInit()){
+		TTF_Init();
+	}
 	return true;
 }
 

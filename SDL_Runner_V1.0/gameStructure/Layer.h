@@ -16,7 +16,7 @@ public:
 	virtual bool init();
 	virtual void cleanup();
 	virtual void render(int alpha);
-	virtual void scrollingRender(int alpha);
+	virtual void scrollingRender(int alpha, std::string name);
 
 	bool loadMedia(std::string path);
 

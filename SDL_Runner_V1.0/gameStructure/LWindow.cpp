@@ -1,6 +1,8 @@
 
 # include "LWindow.h"
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
+
 static LWindow *instance = 0;
 
 LWindow* LWindow::getInstance(){
@@ -13,7 +15,7 @@ LWindow* LWindow::getInstance(){
 
 bool LWindow::init(const char* title, int posX, int posY, int height, int width, int flag){
 	//Init SDL Video
-	if (SDL_Init(SDL_INIT_VIDEO) == 0){
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == 0){
 		std::cout << "SDL init success" << std::endl;
 		m_pWindow = SDL_CreateWindow(title, posX, posY, width, height, flag);
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")){
@@ -34,6 +36,10 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 					if (!(IMG_Init(imgFlags) & imgFlags))
 					{
 						printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
+					}
+					if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+					{
+						printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
 					}
 				}
 				else { std::cout << "Renderer create fail" << std::endl; return false; }

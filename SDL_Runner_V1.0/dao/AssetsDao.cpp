@@ -202,6 +202,35 @@ void AssetsDAO::update(std::string choice){
 	}
 }
 
+
+//Update Score 
+void AssetsDAO::updateScore(std::string score){
+
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile(XMLDOC);
+
+	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
+		//Get Root Node
+		tinyxml2::XMLElement* rootNode = doc.FirstChildElement("score");//Assets
+		//Temp Element 
+		tinyxml2::XMLElement* temp = nullptr;
+		tinyxml2::XMLElement* temp2 = rootNode->FirstChildElement();//path
+
+		while (temp2 != nullptr){
+			temp = temp2;
+			temp2 = temp2->NextSiblingElement("path");
+		}
+		if (temp != nullptr){
+			//write the text
+
+
+		}
+		//doc.Print();
+		doc.SaveFile(XMLDOC);
+
+	}
+}
+
 //Delete
 void AssetsDAO::del(){
 	

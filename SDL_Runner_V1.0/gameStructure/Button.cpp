@@ -5,13 +5,14 @@
 #include "../sceneManagement/SceneManager.h"
 #include "../sceneManagement/MenuScene.h"
 #include "GameManager.h"
+#include "SoundManager.h"
 
 
 //Button init
 bool Button::init(){
 
 	GameObject::init();
-
+	SoundManager::getInstance()->init();
 	return true;
 }
 
@@ -113,13 +114,14 @@ void Button::handleMouseEvent(SDL_Event* e){
 				currentButtonState = PRESSED;
 
 				if (buttonDetails.name == "player1btn"){
-
+					SoundManager::getInstance()->playSfx("sfx");
 					//Save selected Player & Destroy scene
 					AssetsDAO::getInstance()->update("player1");
 					scene->setSceneState(DESTROY);
 				}
 
 				else if (buttonDetails.name == "player2btn"){
+					SoundManager::getInstance()->playSfx("sfx");
 
 					//Save selected Player & Destroy scene
 					AssetsDAO::getInstance()->update("player2");
@@ -127,18 +129,25 @@ void Button::handleMouseEvent(SDL_Event* e){
 				}
 				//Pause Button 
 				else if (buttonDetails.name == "pausebutton"){
-					std::cout << "Pause Button Pressed" << std::endl;					
+					SoundManager::getInstance()->playSfx("sfx");
+					
 					if (GameManager::getInstance()->getTimer()->Paused()){
 						GameManager::getInstance()->getTimer()->unpause();
+						SoundManager::getInstance()->resumeMusic();
+
 						scene->setSceneState(RUNNING);
 					}
 					else{
+						SoundManager::getInstance()->pauseMusic();
+
 						scene->setSceneState(PAUSED);
 						GameManager::getInstance()->getTimer()->pause();
 					}
 				}
 				//Close Button
 				else if (buttonDetails.name == "closebutton"){
+					SoundManager::getInstance()->playSfx("sfx");
+
 					cleanup();
 					SDL_Quit();
 					LWindow::getInstance()->cleanup();
@@ -147,6 +156,8 @@ void Button::handleMouseEvent(SDL_Event* e){
 				}
 
 				else if (buttonDetails.name == "restart"){
+					SoundManager::getInstance()->playSfx("sfx");
+
 					MenuScene* nextScene = new MenuScene();
 					SceneManager::getInstance()->runwithscene(nextScene);
 				}

@@ -49,7 +49,7 @@ void SplashScene::run(){
 
 
 		bg.render(255);
-		label->render((GAME_WIDTH / 2), (GAME_HEIGHT /2));
+		label->render((GAME_WIDTH / 2), (GAME_HEIGHT /5));
 
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 

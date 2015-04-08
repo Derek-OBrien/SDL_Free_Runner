@@ -20,37 +20,13 @@ CollisionManager *CollisionManager::getInstance(){
 	return collisionManagerInstance;						//return instance
 }
 
-//Register game object with collision manager
-/*void CollisionManager::registerGameObject(GameObject *o){
-
-}
-
-//Register player with collision manager
-void CollisionManager::registerPlayer(Player *p){
-
-}*/
-
 
 //Check for collision between player and object 
 //first check state of player
 bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	
-	int A_l, A_r, A_t, A_b;
-	int B_l, B_r, B_t, B_b;
 	
-	//Calculate the sides of rect A
-	A_l = a->x;
-	A_r = a->x + a->w;
-	A_t = a->y;
-	A_b = a->y + a->h;
-
-	//Calculate the sides of rect B
-	B_l = b->x;
-	B_r = b->x + b->w;
-	B_b = b->y;
-	B_t = b->y + b->h;
-	
-	if (isCollide = SDL_HasIntersection(a, b) == true){
+	if (SDL_HasIntersection(a, b) == true){
 		isCollide = true;
 	}
 	else{

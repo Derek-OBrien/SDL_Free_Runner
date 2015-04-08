@@ -17,7 +17,7 @@ bool Npc::init(){
 	Npc create()
 	Create Npc Game Object
 */
-void Npc::create(std::string npcName){
+void Npc::create(std::string npcName, int posX, int posY){
 
 	npc = new Npc();
 
@@ -27,8 +27,12 @@ void Npc::create(std::string npcName){
 	npc->setName(npcDetails.name);
 
 	npc->loadMedia(npc->getName());
-	npcPosX = npc->getPosX();
-	npcPosY = npc->getPosY();
+	npcPosX = posX;//npc->getPosX();
+	npcPosY = posY;// npc->getPosY();
+
+	//Set Object bounding Box
+	npc->setObjectBoundingBox(npcPosX, npcPosY, npcDetails.spriteHeight, npcDetails.spriteWidth);
+
 	npcBoundingBox = npc->getObjectBoundingBox();
 
 }
@@ -39,7 +43,6 @@ void Npc::create(std::string npcName){
 	Renders npc to the game scene
 */
 void Npc::render(){
-
 	npc->render(npcPosX, npcPosY);
 }
 
@@ -57,19 +60,19 @@ void Npc::update(){
 		
 		//if it goes off screen reset to orignal position
 		if (npcPosX < 0){
-			npcPosX = GAME_WIDTH;
+			npcPosX = GAME_WIDTH + 100;
 			npc->setPositionX(npcPosX);
 			npc->getObjectBoundingBox()->x = npcPosX;
 		}
 	}
 	else if (npc->getName() == "bug"){
-		npcPosX -= FORCE_X * 0.4;
+		npcPosX -= FORCE_X * 1.5;
 		npc->setPositionX(npcPosX);
 		npc->getObjectBoundingBox()->x = npcPosX;
 
 		//if it goes off screen reset to orignal position
 		if (npcPosX < 0){
-			npcPosX = GAME_WIDTH;
+			npcPosX = GAME_WIDTH + 1000;
 			npc->setPositionX(npcPosX);
 			npc->getObjectBoundingBox()->x = npcPosX;
 		}
