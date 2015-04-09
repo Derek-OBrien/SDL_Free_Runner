@@ -15,13 +15,18 @@ public:
 	virtual void run();
 	virtual void cleanup();
 	~GameOverScene(){ cleanup(); }
+
 private:
+	AssetsDAO* dao;
 	Layer bg;
 	Label* label;
-	HudLayer* hud;
 	Label* scoreLabel;
+	Label* highScoreLabel;
 	Button* closebutton;
 	Button* restart;
+
+	std::string currentScore;
+	std::string highScore;
 };
 
 #endif//_GAME_OVER_SCENE_H

@@ -8,6 +8,7 @@
 #include "LTimer.h"
 #include "HudLayer.h"
 #include "PopulateEnemies.h"
+#include "Collectable.h"
 
 class GameManager{
 public:
@@ -32,7 +33,7 @@ private:
 	ScrollingBackground* fg;
 	Player* player;
 
-
+	Collectable* shield;
 	PopulateEnemies* popEnemies;
 	std::vector<Npc*> birdVector;
 	std::vector<Npc*> bugVector;

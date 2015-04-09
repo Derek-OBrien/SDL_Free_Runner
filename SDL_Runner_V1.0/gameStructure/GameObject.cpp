@@ -32,5 +32,5 @@ void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
 
 //Clean Up method
 void GameObject::cleanup(){
-	delete this;
+	//delete this;
 }

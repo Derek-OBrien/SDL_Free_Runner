@@ -35,7 +35,7 @@ bool SoundManager::init(){
 bool SoundManager::loadAudio(std::string audio, audio_type type){
 
 	bool success = true;
-	Path audioPath = AssetsDAO::getInstance()->read(audio);
+	Path audioPath = AssetsDAO::getInstance()->read(audio, "path", "assets");
 	//Load bg Audio
 	if (type == BG_MUSIC){
 		bgMusic = Mix_LoadMUS(audioPath.getText().c_str());

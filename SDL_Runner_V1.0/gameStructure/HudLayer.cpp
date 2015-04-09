@@ -9,24 +9,31 @@ bool HudLayer::init(){
 		Layer::init();
 	}
 	
+	dao = new AssetsDAO();
+
 	pauseButton = new Button();
 	closeButton = new Button();
 	scoreLabel = new Label();
+	
+	textTexture = new LTexture();
 	return true;
 }
 
-//Create Layer
+//Create Hud Layer
 void HudLayer::create(std::string name){
 
+	//init
 	if (!init()){
 		init();
 	}
+
+	//Create buttons
 	pauseButton->create("pausebutton");
 	closeButton->create("closebutton");
 
-	textColor = { 255, 0, 0, 255 };
+	//set defaults
 	scoreText = "0";
-	scoreLabel->create(scoreText.c_str(), 50, textColor);
+	scoreLabel->create(scoreText.c_str(), 50, RED);
 }
 
 //Render Layer
@@ -45,9 +52,54 @@ void HudLayer::handleInput(SDL_Event &e){
 //update
 void HudLayer::update(){
 	//update Score + coin count
-	scoreLabel->updateScore(scoreText, 50, textColor);
+	score += 1;
+	display.str("");
+	display << score;
+	textTexture = scoreLabel->loadTTFMedia(display.str().c_str(), 50, RED);
 }
 
+//Get Score
+std::string HudLayer::getScore(){ 
+	return display.str(); 
+};
+
+//Get HighScore
+std::string HudLayer::getHighScore(){
+	//read current high score
+	highScore = dao->getInstance()->read("highScore", "highScore", "score").getText();
+	return highScore;
+}
+
+bool HudLayer::checkIfHighScore(){
+	int high, current;
+	std::string temp1 = getHighScore();
+	std::string temp2 = getScore();
+	bool check = false;
+
+
+	//Convert Strings to Integers
+	high = std::stoi(temp1);
+	current = std::stoi(temp2);
+
+	//std::cout << "High Score : " << high << " Current Score : " << current << std::endl;
+
+	if (high < current){
+		check = true;
+		saveHighScore();
+	}
+	return check;
+}
+
+
+//Save Score
+void HudLayer::saveScore(){
+	dao->getInstance()->update(getScore(), "currentScore", "score");
+}
+
+//Save High Score
+void HudLayer::saveHighScore(){
+	dao->getInstance()->update(getScore(), "highScore", "score");
+}
 //Clean Up
 void HudLayer::cleanup(){
 	pauseButton->cleanup();

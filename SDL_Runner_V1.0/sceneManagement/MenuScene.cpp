@@ -9,8 +9,8 @@ void MenuScene::init(){
 	Scene::init();
 	std::cout << "MenuScene  Init!" << std::endl;
 
-	Path path = AssetsDAO::getInstance()->read("sceneBg");
-	bg.create(path.getText());
+	AssetsDAO *dao = AssetsDAO::getInstance();
+	bg.create(dao->read("sceneBg", "path", "assets").getText());
 
 	player1btn = new Button();
 	player2btn = new Button();
@@ -25,10 +25,11 @@ void MenuScene::run(){
 	}
 	std::cout << "Menu Scene Running!" << std::endl;
 
+	//Create Buttons & Label
 	player1btn->create("player1btn");
 	player2btn->create("player2btn");
 	closeButton->create("closebutton");
-	label->create("-[Select Player]-", 50, { 0, 0, 0 });
+	label->create("-[Select Player]-", 50, GREEN);
 	
 	thisSceneState = RUNNING;
 	bool quit = false;
@@ -75,6 +76,7 @@ void MenuScene::run(){
 void MenuScene::cleanup(){
 	player2btn->cleanup();
 	player1btn->cleanup();
+	closeButton->cleanup();
 	bg.cleanup();
 	label->cleanup();
 }

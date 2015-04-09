@@ -18,7 +18,7 @@ bool Player::init(){
 	player->setObjectType(OT_PLAYER);
 	setPlayerState(ALIVE);			//Set state to ALIVE
 	
-	selectedPlayer = AssetsDAO::getInstance()->read("selected_player");
+	selectedPlayer = AssetsDAO::getInstance()->read("selected_player", "path", "assets");
 
 	player->setName(selectedPlayer.getText());
 

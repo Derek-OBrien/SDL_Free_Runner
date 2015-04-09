@@ -81,13 +81,13 @@ bool LTexture::loadFromRenderedText(std::string text, SDL_Color color, TTF_Font*
 	SDL_Surface* textSurface = TTF_RenderText_Blended(myFont, text.c_str(), color);
 
 	if (textSurface == NULL){
-		std::cout << "Unable to render text surface! SDL_ttf Error: %s\n" << TTF_GetError() << std::endl;
+		std::cout << "Unable to render text surface! SDL_ttf Error: \n" << TTF_GetError() << std::endl;
 	}
 	else{
 		//Create texture from surface pixels
 		mTexture = SDL_CreateTextureFromSurface(LWindow::getInstance()->getRenderer(), textSurface);
 		if (mTexture == NULL){
-			std::cout << "Unable to create texture from rendered text! SDL Error: %s\n"<<SDL_GetError()<<std::endl;
+			std::cout << "Unable to create texture from rendered text! SDL Error: \n" << SDL_GetError()<<std::endl;
 		}
 		else{
 			//Get image dimensions

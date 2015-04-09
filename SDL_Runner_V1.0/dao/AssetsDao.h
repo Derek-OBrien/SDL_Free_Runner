@@ -15,13 +15,13 @@ public:
 	virtual void create() = 0;
 
 	//read
-	virtual Path read(std::string name) = 0;
+	virtual Path read(std::string name, std::string elementType, std::string root) = 0;
 	virtual ImageDetails readImageDetails(std::string name) = 0;
-	virtual ButtonDetails readButtonDetails(std::string name) = 0;
+//	virtual ButtonDetails readButtonDetails(std::string name) = 0;
 	
 	//update
-	virtual void update(std::string choice) = 0;
-	virtual void updateScore(std::string score) = 0;
+	virtual void update(std::string choice, std::string type, std::string root) = 0;
+
 	//delete
 	virtual void del() = 0;
 private:
@@ -37,20 +37,20 @@ public:
 	virtual ~AssetsDAO(){};
 
 	//create
-	void create();
+	void create(){}
 
 	//read
-	Path read(std::string name);
+	Path read(std::string name, std::string elementType, std::string root);
 	ImageDetails readImageDetails(std::string name);
-	ButtonDetails readButtonDetails(std::string name);
 
 	//update
-	void update(std::string choice);
-	void updateScore(std::string score);
+	void update(std::string choice, std::string type, std::string root);
 
 	//delete
 	void del();
 private:
+
+	tinyxml2::XMLDocument doc;
 
 };
 

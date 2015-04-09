@@ -22,8 +22,7 @@ void Button::create(std::string name){
 	if (!init()){
 		init();
 	}
-
-	currentButtonState = (ButtonState)buttonDetails.state;
+	currentButtonState = NORMAL;
 	setButtonState(currentButtonState);
 
 	loadmedia(name);
@@ -33,7 +32,7 @@ void Button::create(std::string name){
 bool Button::loadmedia(std::string name){
 	bool success = true;
 
-	buttonDetails = AssetsDAO::getInstance()->readButtonDetails(name);
+	buttonDetails = AssetsDAO::getInstance()->readImageDetails(name);
 	std::string imagepath = buttonDetails.pathToFile;
 
 	//Load texture
@@ -53,8 +52,8 @@ bool Button::loadmedia(std::string name){
 
 			gSpriteClips[i].x = offsetX;
 			gSpriteClips[i].y = buttonDetails.offsetY;
-			gSpriteClips[i].w = buttonDetails.width;
-			gSpriteClips[i].h = buttonDetails.height;
+			gSpriteClips[i].w = buttonDetails.spriteWidth;
+			gSpriteClips[i].h = buttonDetails.spriteHeight;
 
 			offsetX += temp;
 		}
@@ -89,13 +88,13 @@ void Button::handleMouseEvent(SDL_Event* e){
 		if (x < buttonDetails.posX){
 			inside = false;
 		}
-		else if (x > buttonDetails.posX + buttonDetails.width){
+		else if (x > buttonDetails.posX + buttonDetails.spriteWidth){
 			inside = false;
 		}
 		else if (y < buttonDetails.posY){
 			inside = false;
 		}
-		else if (y > buttonDetails.posY + buttonDetails.height){
+		else if (y > buttonDetails.posY + buttonDetails.spriteHeight){
 			inside = false;
 		}
 
@@ -116,7 +115,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				if (buttonDetails.name == "player1btn"){
 					SoundManager::getInstance()->playSfx("sfx");
 					//Save selected Player & Destroy scene
-					AssetsDAO::getInstance()->update("player1");
+					AssetsDAO::getInstance()->update("player1", "path", "assets");
 					scene->setSceneState(DESTROY);
 				}
 
@@ -124,7 +123,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 					SoundManager::getInstance()->playSfx("sfx");
 
 					//Save selected Player & Destroy scene
-					AssetsDAO::getInstance()->update("player2");
+					AssetsDAO::getInstance()->update("player2", "path", "assets");
 					scene->setSceneState(DESTROY);
 				}
 				//Pause Button 
@@ -151,8 +150,6 @@ void Button::handleMouseEvent(SDL_Event* e){
 					cleanup();
 					SDL_Quit();
 					LWindow::getInstance()->cleanup();
-					
-					//AssetsDAO::getInstance()->del();
 				}
 
 				else if (buttonDetails.name == "restart"){

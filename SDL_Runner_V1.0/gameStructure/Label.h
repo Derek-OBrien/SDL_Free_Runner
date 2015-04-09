@@ -12,16 +12,12 @@ public:
 	virtual bool init();
 	virtual void create(std::string displayText, int size, SDL_Color color);
 	virtual void render(int x, int y);
-	virtual void updateScore(std::string displayText, int size, SDL_Color color);
 	virtual void cleanup();
 
 	virtual LTexture* loadTTFMedia(std::string displayText, int size, SDL_Color color);
 
-	LTexture* getScore(){ return textTexture; };
 private:
 	LTexture* textTexture;
-	int score;
-	std::stringstream display;
 };
 
 #endif//_LABEL_H_

@@ -7,7 +7,7 @@
 void PauseScene::init(){
 	Scene::init();
 
-	Path path = AssetsDAO::getInstance()->read("sceneBg");
+	Path path = AssetsDAO::getInstance()->read("sceneBg","path", "assets");
 	bg.create(path.getText());
 
 	label = new Label();
@@ -22,7 +22,7 @@ void PauseScene::run()
 	thisSceneState = RUNNING;
 
 	std::cout << "Pause Scene Running!" << std::endl;
-	label->create("-[Pause]-", 50, { 0, 0, 0 });
+	label->create("-[Pause]-", 50, GREEN);
 	while(thisSceneState == RUNNING){
 		
 		SDL_Event e;	//Event handler

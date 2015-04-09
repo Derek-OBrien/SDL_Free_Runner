@@ -17,9 +17,16 @@
 //Xml Document
 #define XMLDOC "../SDL_Runner_V1.0/assets/assets.xml"
 
-
 //Animations
 #define PLAYER_ANIMATION_FRAMES 8
 #define BLADE_ANIMATION_FRAMES 5
 #define BUTTON_ANIMATION_FRAMES 2
+
+//Text Colours
+#define RED SDL_Color{255,0,0}
+#define GREEN SDL_Color{0,255,0}
+#define BLUE SDL_Color{0,0, 255}
+#define BLACK SDL_Color{0,0,0}
+
+
 #endif//_GAMEDEFINES_H_

@@ -16,10 +16,18 @@ public:
 
 	virtual bool init();
 	virtual void cleanup();
+	virtual void create(std::string name);
+	virtual void update();
+	virtual void render();
+
+	SDL_Rect* getCollectableCollisionBox(){ return collectableBB; };
 
 private:
 	
+	Sprite* collectable;
+	SDL_Rect* collectableBB;
 
+	int collPosX, collPosY;
 };
 
 #endif//_COLLECTABLE_H_

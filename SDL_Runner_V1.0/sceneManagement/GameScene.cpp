@@ -26,15 +26,15 @@ void GameScene::run(){
 	while (getSceneState() == RUNNING){
 		GameManager::getInstance()->handleInput();
 
-			GameManager::getInstance()->render();
-			GameManager::getInstance()->checkCollision();
-			GameManager::getInstance()->update();
-		
-			//Go To Pause Scene
-			while (getSceneState() == PAUSED){
+		GameManager::getInstance()->render();
+		GameManager::getInstance()->checkCollision();
+		GameManager::getInstance()->update();
+
+		//Go To Pause Scene
+		while (getSceneState() == PAUSED){
 			//	std::cout << "Game Scene Paused" << std::endl;
-				GameManager::getInstance()->handleInput();
-			}
+			GameManager::getInstance()->handleInput();
+		}
 	}
 
 
@@ -43,6 +43,7 @@ void GameScene::run(){
 	if (getSceneState() == DESTROY){
 		std::cout << "Game Scene Destroyed" << std::endl;
 		SoundManager::getInstance()->stopMusic();
+
 		GameOverScene* nextScene = new GameOverScene();
 		SceneManager::getInstance()->runwithscene(nextScene);
 	}

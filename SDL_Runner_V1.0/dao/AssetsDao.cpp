@@ -12,47 +12,30 @@ AssetsDAO* AssetsDAO::getInstance(){
 }
 
 
-//create
-void AssetsDAO::create(){
-	tinyxml2::XMLDocument doc;
-	tinyxml2::XMLNode* node = doc.NewElement("assets");
-	doc.InsertEndChild(node);
-	doc.SaveFile(XMLDOC);
-}
-
 
 //Read in Single Text Value
-Path AssetsDAO::read( std::string name){
+Path AssetsDAO::read(std::string name, std::string elementType, std::string root){
 
 	Path temp;			//temp variable
 	Path elementName;	//temp name 
 
 	//Load Document
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
 	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
 
 		//get first element <Assets>
-		tinyxml2::XMLElement* rootElement = doc.FirstChildElement();
+		tinyxml2::XMLElement* rootElement = doc.FirstChildElement(root.c_str());
 
-		if (rootElement == nullptr)//If root null print error
-			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
+		//Loop through Child Element looking for <path> element
+		for (tinyxml2::XMLElement* pathElement = rootElement->FirstChildElement(elementType.c_str()); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
 
-		//Loop Through 2nd Elememt <ImagePaths>
-		for (tinyxml2::XMLElement* child = rootElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement()){
+			//Get Element Name Attribute 
+			elementName.setText(pathElement->Attribute("name"));
 
-			//Loop through Child Element of <ImagePaths> looking for <path> element
-			for (tinyxml2::XMLElement* pathElement = child->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
-
-				//Get Element Name Attribute 
-				elementName.setText(pathElement->Attribute("name"));
-
-				//If Element name == Name passed in get text of Element
-				if (elementName.getText() == name){
-					temp.setText(pathElement->GetText());
-				}		
+			//If Element name == Name passed in get text of Element
+			if (elementName.getText() == name){
+				temp.setText(pathElement->GetText());
 			}
+			//	}
 		}
 		return temp;
 	}
@@ -69,58 +52,7 @@ ImageDetails AssetsDAO::readImageDetails(std::string name){
 	ImageDetails temp;			//temp variable
 	Path elementName;	//temp name 
 
-	//Load Document
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
-	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
-
-		//get first element <Assets>
-		tinyxml2::XMLElement* rootElement = doc.FirstChildElement();
-		
-		//If root null print error
-		if (rootElement == NULL)
-			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
-
-		//Loop Through 2nd Elememt <ImagePaths>
-		for (tinyxml2::XMLElement* child = rootElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement()){
-
-			//Loop through Child Element of <ImagePaths> looking for <path> element
-			for (tinyxml2::XMLElement* pathElement = child->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
-
-				//Get Element Name Attribute 
-				elementName.setText(pathElement->Attribute("name"));
-
-				//Get Sprite Sheet Details
-				if (elementName.getText() == name){
-					temp.name = elementName.getText();						//Name
-					temp.pathToFile = pathElement->GetText();				//Path to files
-					temp.spriteHeight = pathElement->IntAttribute("height");//Height
-					temp.spriteWidth = pathElement->IntAttribute("width");	//Width
-					temp.offsetX = pathElement->IntAttribute("offsetX");	//OffsetX
-					temp.offsetY = pathElement->IntAttribute("offsetY");	//OffsetY
-					temp.frames = pathElement->IntAttribute("frames");		//Number of Frames
-					temp.posX = pathElement->IntAttribute("posX");
-					temp.posY = pathElement->IntAttribute("posY");
-				}
-			}
-		}
-		return temp;
-	}
-	else
-		std::cout << "Could Not Load XML Document : %s" << XMLDOC << std::endl;
-	return temp;
-}
-
-ButtonDetails AssetsDAO::readButtonDetails(std::string name){
-	
-	ButtonDetails temp;			//temp variable
-	Path elementName;	//temp name 
-
-	//Load Document
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
+	//Load Doc
 	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
 
 		//get first element <Assets>
@@ -130,28 +62,24 @@ ButtonDetails AssetsDAO::readButtonDetails(std::string name){
 		if (rootElement == NULL)
 			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
 
-		//Loop Through 2nd Elememt <ImagePaths>
-		for (tinyxml2::XMLElement* child = rootElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement()){
 
-			//Loop through Child Element of <ImagePaths> looking for <path> element
-			for (tinyxml2::XMLElement* pathElement = child->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
+		//Loop through Child Element looking for <path> element
+		for (tinyxml2::XMLElement* pathElement = rootElement->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
 
-				//Get Element Name Attribute 
-				elementName.setText(pathElement->Attribute("name"));
+			//Get Element Name Attribute 
+			elementName.setText(pathElement->Attribute("name"));
 
-				//Get Sprite Sheet Details
-				if (elementName.getText() == name){
-					temp.name = elementName.getText();						//Name
-					temp.pathToFile = pathElement->GetText();				//Path to files
-					temp.height = pathElement->IntAttribute("height");//Height
-					temp.width = pathElement->IntAttribute("width");	//Width
-					temp.offsetX = pathElement->IntAttribute("offsetX");
-					temp.offsetY = pathElement->IntAttribute("offsetY");
-					temp.frames = pathElement->IntAttribute("frames");
-					temp.posX = pathElement->IntAttribute("posX");
-					temp.posY = pathElement->IntAttribute("posY");
-					temp.state = pathElement->IntAttribute("state");
-				}
+			//Get Sprite Sheet Details
+			if (elementName.getText() == name){
+				temp.name = elementName.getText();						//Name
+				temp.pathToFile = pathElement->GetText();				//Path to files
+				temp.spriteHeight = pathElement->IntAttribute("height");//Height
+				temp.spriteWidth = pathElement->IntAttribute("width");	//Width
+				temp.offsetX = pathElement->IntAttribute("offsetX");	//OffsetX
+				temp.offsetY = pathElement->IntAttribute("offsetY");	//OffsetY
+				temp.frames = pathElement->IntAttribute("frames");		//Number of Frames
+				temp.posX = pathElement->IntAttribute("posX");
+				temp.posY = pathElement->IntAttribute("posY");
 			}
 		}
 		return temp;
@@ -160,41 +88,21 @@ ButtonDetails AssetsDAO::readButtonDetails(std::string name){
 		std::cout << "Could Not Load XML Document : %s" << XMLDOC << std::endl;
 	return temp;
 }
+
 
 
 //update
-void AssetsDAO::update(std::string choice){
+void AssetsDAO::update(std::string choice, std::string type, std::string root){
 
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
+	//Load File
 	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
 		//Get Root Node
-		tinyxml2::XMLElement* rootNode = doc.FirstChildElement();//Assets
-		//Get Next Node
-		tinyxml2::XMLElement* childNode = rootNode->FirstChildElement();//imagePaths
-		//Temp Element 
-		tinyxml2::XMLElement* temp = nullptr;
-		tinyxml2::XMLElement* temp2 = childNode->FirstChildElement();//path
-
-		while (temp2 != nullptr){
-			temp = temp2;
-			temp2 = temp2->NextSiblingElement("path");
-		}
-		if (temp != nullptr){
-			//write the text
-			tinyxml2::XMLComment* newComment = doc.NewComment("Selected Player");
-			tinyxml2::XMLElement* newElement = doc.NewElement("path");
-			
-				//get text passed in 
-				newElement->SetText(choice.c_str());
-
-				newElement->SetAttribute("name", "selected_player");
-				childNode->InsertAfterChild(temp, newComment);
-				childNode->InsertAfterChild(newComment, newElement);
-		
-		}
-		//doc.Print();
+		tinyxml2::XMLElement* rootNode = doc.FirstChildElement(root.c_str());//Assets
+		//Child Node
+		tinyxml2::XMLElement* pathNode = rootNode->FirstChildElement(type.c_str());//path
+		//Write text to element
+		pathNode->SetText(choice.c_str());
+		//Same Xml document
 		doc.SaveFile(XMLDOC);
 	}
 	else{
@@ -203,58 +111,6 @@ void AssetsDAO::update(std::string choice){
 }
 
 
-//Update Score 
-void AssetsDAO::updateScore(std::string score){
-
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
-	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
-		//Get Root Node
-		tinyxml2::XMLElement* rootNode = doc.FirstChildElement("score");//Assets
-		//Temp Element 
-		tinyxml2::XMLElement* temp = nullptr;
-		tinyxml2::XMLElement* temp2 = rootNode->FirstChildElement();//path
-
-		while (temp2 != nullptr){
-			temp = temp2;
-			temp2 = temp2->NextSiblingElement("path");
-		}
-		if (temp != nullptr){
-			//write the text
-
-
-		}
-		//doc.Print();
-		doc.SaveFile(XMLDOC);
-
-	}
-}
-
-//Delete
 void AssetsDAO::del(){
-	
-	tinyxml2::XMLDocument doc;
-	doc.LoadFile(XMLDOC);
-
-	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
-		
-		tinyxml2::XMLElement* rootElement = doc.FirstChildElement();
-
-		//If root null print error
-		if (rootElement == NULL)
-			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
-
-		//Loop Through 2nd Elememt <ImagePaths>
-		for (tinyxml2::XMLElement* child = rootElement->FirstChildElement(); child != NULL; child = child->NextSiblingElement()){
-
-			//Loop through Child Element of <ImagePaths> looking for <path> element
-			for (tinyxml2::XMLElement* pathElement = child->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
-
-				tinyxml2::XMLElement* element = doc.NewElement("selected_player");
-
-				child->DeleteChild(element);
-			}
-		}
-	}
+	delete AssetsDAOInstance;
 }

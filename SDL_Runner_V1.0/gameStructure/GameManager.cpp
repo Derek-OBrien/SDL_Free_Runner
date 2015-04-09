@@ -46,6 +46,9 @@ bool GameManager::init(){
 	hud = new HudLayer();
 	hud->create("hud");
 
+	shield = new Collectable();
+	shield->create("shield");
+
 	popEnemies = new PopulateEnemies();
 	birdVector = popEnemies->populateBirdVector();
 	bugVector = popEnemies->populateBugVector();
@@ -103,13 +106,11 @@ void GameManager::render(){
 	bg_city->render("cityBg");
 	bg->render("gameBg");		//Render Background
 	player->render();	//Render Player
-
+	shield->render();
 
 
 	for (int i = 0; i < birdVector.size(); i++){
-
 		birdVector.at(i)->render();
-
 	}
 
 	for (int i = 0; i < bugVector.size(); i++){
@@ -121,7 +122,6 @@ void GameManager::render(){
 	fg->render("gameFg");		//Render ForeGround 
 	hud->render();		//Render Hud Layer
 	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
-
 }
 
 void GameManager::update(){
@@ -130,6 +130,7 @@ void GameManager::update(){
 	bg->update();
 	fg->update();
 	hud->update();
+	shield->update();
 
 	for (int i = 0; i < birdVector.size(); i++){
 		birdVector.at(i)->update();
@@ -154,7 +155,7 @@ void GameManager::handleInput(){
 		//If space pressed Pause Game
 		if (e.type == SDL_KEYDOWN){
 			if (e.key.keysym.sym == SDLK_SPACE){
-				std::cout << "Space Pressed Pause Game Scene" << std::endl;
+			//	std::cout << "Space Pressed Pause Game Scene" << std::endl;
 
 				if (timer->Paused()){
 					timer->unpause();
@@ -180,25 +181,44 @@ void GameManager::handleInput(){
 //Check Collision
 void GameManager::checkCollision(){
 
-	for (unsigned int i = 0; i < bugVector.size(); i++){
+	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), shield->getCollectableCollisionBox())){
+		
+		shield->cleanup();
+		player->setPlayerState(SUPERSIZE);
+	}
+	else{
+			for (unsigned int i = 0; i < bugVector.size(); i++){
+				if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bugVector.at(i)->getNpcCollisionBox())){
 
+					Scene* scene = SceneManager::getInstance()->getCurrentScene();
+					scene->setSceneState(DESTROY);
+					if (player->getPlayerState() != SUPERSIZE){
+						player->setPlayerState(DEAD);
+						player->cleanup();
+					}
+					else{
+						bugVector.at(i)->cleanup();
+					}
 
-		if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bugVector.at(i)->getNpcCollisionBox())){
+					//Save current score
+					hud->saveScore();
+					hud->checkIfHighScore();
+				}
 
-			Scene* scene = SceneManager::getInstance()->getCurrentScene();
-			scene->setSceneState(DESTROY);
+				if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
-			player->setPlayerState(DEAD);
-			player->cleanup();
-		}
-		if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
+					Scene* scene = SceneManager::getInstance()->getCurrentScene();
+					scene->setSceneState(DESTROY);
 
-			Scene* scene = SceneManager::getInstance()->getCurrentScene();
-			scene->setSceneState(DESTROY);
+					player->setPlayerState(DEAD);
+					player->cleanup();
 
-			player->setPlayerState(DEAD);
-			player->cleanup();
-		}
+					//Save current score
+					hud->saveScore();
+					hud->checkIfHighScore();
+				}
+			}
+		
 	}
 }
 
@@ -210,7 +230,9 @@ void GameManager::cleanup(){
 	bg_city->cleanup();
 	bg->cleanup();
 	fg->cleanup();
-	hud->cleanup();
+	shield->cleanup();
+	//hud->cleanup();
+	
 	for (int i = 0; i < birdVector.size(); i++){
 		birdVector.at(i)->cleanup();
 	}

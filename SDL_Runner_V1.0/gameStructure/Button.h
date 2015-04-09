@@ -1,26 +1,12 @@
 #ifndef _BUTTON_H_
 #define _BUTTON_H_
 
-#include "GameObject.h"
 #include "LTexture.h"
-
-//Struct for button deatils from xml file
-struct ButtonDetails{
-	std::string name;
-	std::string pathToFile;
-	int height;
-	int width;
-	int offsetX;
-	int offsetY;
-	int frames;
-	int posX;
-	int posY;
-	int state;
-};
+#include "Sprite.h"
 
 typedef enum ButtonState{ NORMAL, HOVER, PRESSED };	//enum to hold button state
 
-class Button : public GameObject{
+class Button : public Sprite{
 public:
 	Button(){ init(); };
 	~Button(){ cleanup(); };
@@ -44,7 +30,7 @@ public:
 private:
 	
 	ButtonState currentButtonState;
-	ButtonDetails buttonDetails;
+	ImageDetails buttonDetails;
 	LTexture buttonTexture;
 
 	SDL_Rect gSpriteClips[30];

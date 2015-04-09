@@ -87,6 +87,6 @@ int Sprite::getPosY(){
 
 //Sprite cleanup
 void Sprite::cleanup(){
-//	spriteTexture.cleanup();
+	spriteTexture.cleanup();
 }
 

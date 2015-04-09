@@ -18,7 +18,7 @@ void ScrollingBackground::create(std::string name){
 	if (!init()){
 		init();
 	}
-	path = AssetsDAO::getInstance()->read(name);
+	path = AssetsDAO::getInstance()->read(name, "path", "assets");
 	bg->loadMedia(path.getText());
 }
 

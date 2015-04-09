@@ -20,8 +20,8 @@ void SplashScene::init(){
 		GAME_WIDTH,				//Width
 		SDL_WINDOW_SHOWN );		//Flag
 
-	Path path = AssetsDAO::getInstance()->read("sceneBg");
-	bg.create(path.getText());
+	AssetsDAO* dao = AssetsDAO::getInstance();
+	bg.create(dao->read("sceneBg", "path", "assets").getText());
 
 	label = new Label();
 }
@@ -35,7 +35,7 @@ void SplashScene::run(){
 	std::cout << "SplashScene  Running!" << std::endl;
 	thisSceneState = RUNNING;
 	int lifetimeofscene = 100;
-	label->create("-[In The Smoke]-", 70, { 0, 0, 0 });
+	label->create("-[In The Smoke]-", 70, GREEN);
 
 
 	//Scene Run Loop

@@ -17,16 +17,27 @@ public:
 	void render();
 	void cleanup();
 
-	Label* getScore(){ return scoreLabel; };
+	std::string getScore();
+	std::string getHighScore();
+	bool checkIfHighScore();
 
+	void saveScore();
+	void saveHighScore();
+
+	
 private:
+	AssetsDAO* dao;
+
 	Button* pauseButton;
 	Button* closeButton;
 
 	Label* scoreLabel;
-	SDL_Color textColor;
 	std::string scoreText;
 
+	LTexture* textTexture;
+	int score;
+	std::stringstream display;
+	std::string highScore;
 	
 };
 

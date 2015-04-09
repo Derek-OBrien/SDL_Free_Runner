@@ -6,29 +6,43 @@
 void GameOverScene::init(){
 	Scene::init();
 
-	Path path = AssetsDAO::getInstance()->read("sceneBg");
-	bg.loadMedia(path.getText());
+	dao = AssetsDAO::getInstance();
 
+	bg.loadMedia(dao->getInstance()->read("sceneBg", "path", "assets").getText());
+
+	//Init labels
 	label = new Label();
+	scoreLabel = new Label();
+	highScoreLabel = new Label();
+
+	//init buttons
 	closebutton = new Button();
 	restart = new Button();
-
-	hud = new HudLayer();
-	scoreLabel = new Label();
 }
 
 void GameOverScene::run()
 {
-	if (!initCompleted)
-	{
+	if (!initCompleted){
 		init();
 	}
 	thisSceneState = RUNNING;
 
-	label->create("-[Game Over]-", 50, { 0, 0, 0 });
+
+	//Read Scores from XML 
+	currentScore = dao->getInstance()->read("currentScore", "currentScore", "score").getText();
+	highScore = dao->getInstance()->read("highScore", "highScore", "score").getText();
+
+
+	//Create Labels
+	label->create("-[Game Over]-", 50, BLACK);
+	scoreLabel->create(("-[Your Score : " + currentScore + "]-"), 50, RED);
+	highScoreLabel->create(("-[High Score : " + highScore + "]-"), 50, RED);
+
+
+	//Create Buttons
 	closebutton->create("closebutton");
 	restart->create("restart");
-	scoreLabel = hud->getScore();
+
 
 	bool quit = false;
 	SDL_Event e;	//Event handler
@@ -48,8 +62,12 @@ void GameOverScene::run()
 			}
 		}
 
+		//Render Everything
 		bg.render(255);
 		label->render((GAME_WIDTH / 2), 80);
+		scoreLabel->render((GAME_WIDTH / 2), 200);
+		highScoreLabel->render((GAME_WIDTH / 2), 300);
+
 		closebutton->render("closebutton");
 		restart->render("restart");
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
@@ -59,6 +77,9 @@ void GameOverScene::run()
 
 void GameOverScene::cleanup(){
 	label->cleanup();
+	scoreLabel->cleanup();
+	highScoreLabel->cleanup();
+
 	closebutton->cleanup();
 	restart->cleanup();
 	bg.cleanup();
