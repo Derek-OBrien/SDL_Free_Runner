@@ -14,7 +14,6 @@ public:
 	virtual void cleanup() = 0;
 
 	virtual Npc* createBirdNpc() = 0;
-	virtual Npc* createBugNpc() = 0;
 
 	virtual Collectable* createCollectable() = 0;
 };
@@ -35,7 +34,7 @@ public:
 	virtual void cleanup();				// delete EnemyFactory	
 
 	virtual Npc* createBirdNpc();
-	virtual Npc* createBugNpc();
+
 	virtual Collectable* createCollectable();
 
 private:

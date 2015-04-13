@@ -119,11 +119,11 @@ void Button::handleMouseEvent(SDL_Event* e){
 		//if mouse is inside button
 		else{
 			switch (e->type){
-			case SDL_MOUSEMOTION:
+			case SDL_MOUSEMOTION:	//If mouse is over button
 				currentButtonState = HOVER;
 				break;
 
-			case SDL_MOUSEBUTTONDOWN:
+			case SDL_MOUSEBUTTONDOWN:	//If mouse button porssed
 				currentButtonState = PRESSED;
 				
 				//Select Player Button 1
@@ -170,6 +170,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 					SDL_Quit();
 					LWindow::getInstance()->cleanup();
 					GameManager::getInstance()->cleanup();
+					
 				}
 
 				//Restart Button (Return to Player Select)
@@ -181,7 +182,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				}
 				break;
 
-			case SDL_MOUSEBUTTONUP:
+			case SDL_MOUSEBUTTONUP:	//If mouse button not pressed
 				currentButtonState = NORMAL;
 				break;
 			}

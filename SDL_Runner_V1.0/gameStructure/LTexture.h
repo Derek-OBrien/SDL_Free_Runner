@@ -2,7 +2,11 @@
 #define _L_TEXTURE_H_
 
 //Texture wrapper class
-
+/*
+	Author		: Derek O' Brien
+	File		: LTexture.h
+	Description	: Base texture class for all in game textures
+*/
 #include "GameObject.h"
 
 class LTexture{
@@ -11,13 +15,15 @@ public:
 	LTexture(){ init(); };			//Initializes variables
 	~LTexture(){ cleanup(); };		//Deallocates memory
 
-	virtual bool init();
+	virtual bool init();		//Initializes variables
 	virtual void cleanup();		//Deallocates texture
-	LTexture loadmedia(std::string path);
-	bool loadFromFile(std::string path);
+	LTexture loadmedia(std::string path);	//load texture media
+	bool loadFromFile(std::string path);	//get media from file
 
+	//load TTF media
 	bool loadFromRenderedText(std::string text, SDL_Color color, TTF_Font* myFont);
 
+	//render texture
 	void render(int x, int y, SDL_Rect* clip = NULL);
 
 	void setBlendMode(SDL_BlendMode blending);

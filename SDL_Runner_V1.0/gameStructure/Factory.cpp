@@ -7,7 +7,6 @@
 //Factory init
 bool Factory::init(){
 
-
 	return true;
 }
 
@@ -25,10 +24,6 @@ Npc*Factory::createBirdNpc(){
 	return npcObject;
 }
 
-Npc*Factory::createBugNpc(){
-	npcObject = new Npc();
-	return npcObject;
-}
 
 //Create Collectable
 Collectable* Factory::createCollectable(){

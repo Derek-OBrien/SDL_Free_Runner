@@ -25,7 +25,7 @@ CollisionManager *CollisionManager::getInstance(){
 //first check state of player
 bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	
-	
+	//Check if bounding box's intersect
 	if (SDL_HasIntersection(a, b) == true){
 		isCollide = true;
 	}

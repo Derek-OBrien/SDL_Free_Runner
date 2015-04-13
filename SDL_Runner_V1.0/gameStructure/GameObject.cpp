@@ -26,7 +26,6 @@ void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
 	objectBoundingBox.x = x;	//set X position of bounding box
 	objectBoundingBox.y = y;	//set Y position of bounding box
 
-	//objectBoundingBox = rect;
 }
 
 

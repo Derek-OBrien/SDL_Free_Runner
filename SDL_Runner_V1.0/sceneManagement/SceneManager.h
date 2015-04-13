@@ -5,12 +5,12 @@
 //Sceen Manager Class manages which scene is called
 class SceneManager{
 public:
-	//get instance
-	static SceneManager* getInstance();
-	void init();
-	void cleanup();
-	//runwithscene
-	void runwithscene(Scene* Scene);
+
+	static SceneManager* getInstance(); 	//get instance
+	void init();	//init
+	void cleanup();	//Cleanup
+	void runwithscene(Scene* Scene); 	//runwithscene
+
 
 	//get current running scene
 	Scene* getCurrentScene(){ return currentRunningScene; };

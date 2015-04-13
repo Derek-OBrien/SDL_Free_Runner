@@ -79,7 +79,7 @@ std::vector<Collectable*> PopulateEnemies::populateCollectVector(){
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 3:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.1);///slideunder
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.8);///slideunder
 			npcY = 50;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
@@ -102,10 +102,6 @@ void PopulateEnemies::update(){
 	for (int i = 0; i < (int)coinVector.size(); i++){
 		coinVector.at(i)->update();
 	}
-
-	if ((int)coinVector.size() == 0){
-		coinVector = populateCollectVector();
-	}
 }
 
 void PopulateEnemies::cleanup(){
@@ -113,4 +109,10 @@ void PopulateEnemies::cleanup(){
 	for (int i = 0; i <(int) birdVector.size(); i++){
 		birdVector.at(i)->cleanup();
 	}
+
+	for (int i = 0; i < (int)coinVector.size(); i++){
+		coinVector.at(i)->cleanup();
+	}
+	birdVector.clear();
+	coinVector.clear();
 }

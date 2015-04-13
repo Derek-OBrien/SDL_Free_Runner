@@ -7,27 +7,29 @@
 
 #include "Player.h"		//include player
 #include "Sprite.h"
-//collectable class is subclass of Character
+
+//collectable class is subclass of Sprite
 class Collectable : public Sprite{
 
 public:
-	Collectable(){ this->init(); };		//Constructor
-	~Collectable(){ this->cleanup(); };		//DeConstructor
+	Collectable(){ init(); };		//Constructor
+	~Collectable(){ cleanup(); };		//DeConstructor
 
-	virtual bool init();
-	virtual void cleanup();
-	virtual void create(std::string name, int posX, int posY);
-	virtual void update();
-	virtual void render();
+	virtual bool init();		//Init
+	virtual void create(std::string name, int posX, int posY);	//Creat
+	virtual void update();		//Update
+	void resetPosition();		//resetPosition
+	virtual void render();		//Render
+	virtual void cleanup();		//cleanup
 
-	void resetPosition();
+	//Get objects boungin box
 	SDL_Rect* getCollectableCollisionBox(){ return collectableBB; };
 
 private:
 	
 	Sprite* collectable;
 	SDL_Rect* collectableBB;
-
+	//Position
 	int collPosX, collPosY;
 };
 

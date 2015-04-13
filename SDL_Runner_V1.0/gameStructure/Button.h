@@ -21,11 +21,11 @@ public:
 	
 	virtual bool init();	// Button Init
 	virtual void create(std::string name);	//Create button
-	virtual void render(std::string name);
-	bool loadmedia(std::string name);
-	virtual void cleanup();
+	virtual void render(std::string name);	//render button
+	bool loadmedia(std::string name);		//load button
+	virtual void cleanup();					//cleanup
 
-	void handleMouseEvent(SDL_Event* e);
+	void handleMouseEvent(SDL_Event* e);	//handle events on button
 
 
 	//Set and Get Button State
@@ -35,13 +35,13 @@ public:
 	std::string playerSelected(){ return selectedPlayer; };
 
 private:
-	ButtonState currentButtonState;
-	ImageDetails buttonDetails;
-	LTexture buttonTexture;
+	ButtonState currentButtonState;	//Button state
+	ImageDetails buttonDetails;		//Button details
+	LTexture buttonTexture;			//Button texture
 
-	SDL_Rect gSpriteClips[30];
-	SDL_Rect* currentFrame;
+	SDL_Rect gSpriteClips[30];		//button animation 
+	SDL_Rect* currentFrame;			//current animation frame
 
-	std::string selectedPlayer;
+	std::string selectedPlayer;		//string for selected player
 };
 #endif//_BUTTON_H_

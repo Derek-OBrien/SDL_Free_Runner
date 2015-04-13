@@ -36,9 +36,7 @@ void ScrollingBackground::render(std::string name){
 }
 
 //Update
-void ScrollingBackground::update(){
-
-}
+void ScrollingBackground::update(){}
 
 //Clean Up Method
 void ScrollingBackground::cleanup(){

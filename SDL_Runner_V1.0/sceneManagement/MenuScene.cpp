@@ -6,12 +6,16 @@
 #include "../dao/AssetsDao.h"
 
 void MenuScene::init(){
-	Scene::init();
-	std::cout << "MenuScene  Init!" << std::endl;
 
+	if (!initCompleted){
+		Scene::init();
+	}
+
+	//Load Background
 	AssetsDAO *dao = AssetsDAO::getInstance();
 	bg.create(dao->read("sceneBg", "path", "assets").getText());
 
+	//init all elements
 	player1btn = new Button();
 	player2btn = new Button();
 	closeButton = new Button();
@@ -20,10 +24,10 @@ void MenuScene::init(){
 
 void MenuScene::run(){
 
+	//Check init
 	if (!initCompleted){
 		init();
 	}
-	std::cout << "Menu Scene Running!" << std::endl;
 
 	//Create Buttons & Label
 	player1btn->create("player1btn");
@@ -43,12 +47,6 @@ void MenuScene::run(){
 			player1btn->handleMouseEvent(&e);
 			player2btn->handleMouseEvent(&e);
 			closeButton->handleMouseEvent(&e);
-			//User requests quit
-			if (e.type == SDL_QUIT){
-				quit = true;
-				SDL_Quit();
-				LWindow::getInstance()->cleanup();
-			}
 		}
 
 		//Render Background and Buttons
@@ -72,7 +70,7 @@ void MenuScene::run(){
 	}
 }
 
-
+//Clean up all elements
 void MenuScene::cleanup(){
 	player2btn->cleanup();
 	player1btn->cleanup();

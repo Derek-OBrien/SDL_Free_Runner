@@ -1,27 +1,30 @@
 #ifndef _LTIMER_H_
 #define _LTIMER_H_
 
+/*
+Author		: Derek O' Brien
+File		: Ltimer.h
+Description	: In game timer
+*/
 #include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <stdio.h>
 #include <string>
 #include <sstream>
 
 class LTimer{
 public:
-	LTimer() { init(); };
+	LTimer() { init(); };	//timer constructor
 	~LTimer();
 
 	
-	bool init();
-	void create();
-	void start();
-	void stop();
-	void pause();
-	void unpause();
+	bool init();	//init timere
+	void create();	//create timer
+	void start();	//start timer
+	void stop();	//stop timer
+	void pause();	//pause timer
+	void unpause(); //unpause timer
 
-	Uint32 getTime();
+	Uint32 getTime();	//get timer
 
 
 	bool Started() { return isStarted; };

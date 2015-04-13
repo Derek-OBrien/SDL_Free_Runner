@@ -15,33 +15,34 @@ public:
 	static GameManager* getInstance();
 
 	 bool init();			//Init 
+	 void create();			//Create
 	 void render();			//Render
 	 void update();			//Update 
 	 void handleInput();	//Handle input
 	 void checkCollision();	//Check collision
 	 void cleanup();		//Clean up everything
 
+	 //Get timer
 	 LTimer* getTimer() { return timer; };
 
 private:
 	GameManager(){};	//Constructor
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
+
+	bool collided;
 	
 	LTimer* timer;
 	ScrollingBackground* bg_city;
 	ScrollingBackground* bg;
 	ScrollingBackground* fg;
 	Player* player;
+	HudLayer* hud;
 
 	Collectable* shield;
 	PopulateEnemies* popEnemies;
 	std::vector<Npc*> birdVector;
-	///std::vector<Npc*> bugVector;
 	std::vector<Collectable*> coinVector;
-	HudLayer* hud;
-	bool collided;
 
-	int npcX, npcY;
 };
 
 #endif//_GAME_MANAGER_H_

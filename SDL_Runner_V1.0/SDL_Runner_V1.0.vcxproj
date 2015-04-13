@@ -80,7 +80,6 @@
     <ClCompile Include="gameStructure\LTimer.cpp" />
     <ClCompile Include="gameStructure\LWindow.cpp" />
     <ClCompile Include="gameStructure\Npc.cpp" />
-    <ClCompile Include="gameStructure\Obstical.cpp" />
     <ClCompile Include="gameStructure\Factory.cpp" />
     <ClCompile Include="gameStructure\GameManager.cpp" />
     <ClCompile Include="gameStructure\GameObject.cpp" />
@@ -94,7 +93,6 @@
     <ClCompile Include="sceneManagement\GameOverScene.cpp" />
     <ClCompile Include="sceneManagement\GameScene.cpp" />
     <ClCompile Include="sceneManagement\MenuScene.cpp" />
-    <ClCompile Include="sceneManagement\PauseScene.cpp" />
     <ClCompile Include="sceneManagement\Scene.cpp" />
     <ClCompile Include="sceneManagement\SceneManager.cpp" />
     <ClCompile Include="sceneManagement\SplashScene.cpp" />
@@ -115,7 +113,6 @@
     <ClInclude Include="gameStructure\LTimer.h" />
     <ClInclude Include="gameStructure\LWindow.h" />
     <ClInclude Include="gameStructure\NPC.h" />
-    <ClInclude Include="gameStructure\Obstical.h" />
     <ClInclude Include="gameStructure\IFactory.h" />
     <ClInclude Include="gameStructure\GameManager.h" />
     <ClInclude Include="gameStructure\GameObject.h" />
@@ -128,15 +125,10 @@
     <ClInclude Include="sceneManagement\GameOverScene.h" />
     <ClInclude Include="sceneManagement\GameScene.h" />
     <ClInclude Include="sceneManagement\MenuScene.h" />
-    <ClInclude Include="sceneManagement\PauseScene.h" />
     <ClInclude Include="sceneManagement\Scene.h" />
     <ClInclude Include="sceneManagement\SceneManager.h" />
     <ClInclude Include="sceneManagement\SplashScene.h" />
     <ClInclude Include="tinyxml\tinyxml2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

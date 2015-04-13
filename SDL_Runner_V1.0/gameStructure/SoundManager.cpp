@@ -1,10 +1,3 @@
-//
-//  SoundManager.cpp
-//  SDL Game Programming Book
-//
-//  Created by shaun mitchell on 26/03/2013.
-//  Copyright (c) 2013 shaun mitchell. All rights reserved.
-//
 
 #include "SoundManager.h"
 #include "../dao/AssetsDao.h"

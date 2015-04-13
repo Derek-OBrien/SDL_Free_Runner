@@ -1,6 +1,8 @@
 
 #include "Label.h"
 #include "../dao/AssetsDao.h"
+
+//Global Font
 TTF_Font* myFont = NULL;
 
 //Label Init 

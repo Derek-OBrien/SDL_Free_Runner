@@ -5,10 +5,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\gameStructure">
       <UniqueIdentifier>{6d724bab-6f8d-45b6-81e9-4bdec04a16b5}</UniqueIdentifier>
     </Filter>
@@ -31,6 +27,10 @@
     <Filter Include="Header Files\SceneManagement">
       <UniqueIdentifier>{c070793c-1106-4fcc-8fd0-b1cc0b6c1a8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameStructure\Character.cpp">
@@ -51,9 +51,6 @@
     <ClCompile Include="gameStructure\Sprite.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="gameStructure\Obstical.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\Collectable.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -64,9 +61,6 @@
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\MenuScene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
-    </ClCompile>
-    <ClCompile Include="sceneManagement\PauseScene.cpp">
       <Filter>Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\Scene.cpp">
@@ -146,9 +140,6 @@
     <ClInclude Include="gameStructure\LTexture.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
-    <ClInclude Include="gameStructure\Obstical.h">
-      <Filter>Header Files\gameStructure</Filter>
-    </ClInclude>
     <ClInclude Include="gameStructure\Collectable.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
@@ -168,9 +159,6 @@
       <Filter>Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\MenuScene.h">
-      <Filter>Header Files\SceneManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="sceneManagement\PauseScene.h">
       <Filter>Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\Scene.h">
@@ -221,9 +209,5 @@
     <ClInclude Include="gameStructure\SoundManager.h">
       <Filter>Header Files\gameStructure</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram11.cd" />
   </ItemGroup>
 </Project>

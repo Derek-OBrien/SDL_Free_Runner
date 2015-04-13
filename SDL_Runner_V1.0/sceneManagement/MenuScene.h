@@ -11,12 +11,12 @@ public:
 	MenuScene(){init();}
 	~MenuScene(){ cleanup(); }
 
-	virtual void init();
-	virtual void run();
-	virtual void cleanup();
+	virtual void init();		//init
+	virtual void run();			//run scene
+	virtual void cleanup();		//cleaup scene
 
 private:
-
+	//Scene Elements
 	Layer bg;
 	Button* player1btn;
 	Button* player2btn;

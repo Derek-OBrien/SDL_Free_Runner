@@ -4,7 +4,6 @@
 #include <SDL_mixer.h>
 
 static LWindow *instance = 0;
-
 LWindow* LWindow::getInstance(){
 	if (instance == 0){
 		instance = new LWindow();
@@ -12,11 +11,14 @@ LWindow* LWindow::getInstance(){
 	return instance;
 }
 
-
+/*
+		Create window and inti sdl Elemnts
+*/
 bool LWindow::init(const char* title, int posX, int posY, int height, int width, int flag){
 	//Init SDL Video
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == 0){
 		std::cout << "SDL init success" << std::endl;
+		//create window
 		m_pWindow = SDL_CreateWindow(title, posX, posY, width, height, flag);
 		if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")){
 			printf("Warning: Linear texture filtering not enabled!");
@@ -24,11 +26,10 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 		//Initialize SDL_ttf
 		if (TTF_Init() == 0){
 			std::cout << "TTF init complete" << std::endl;
-			//Create SDL Window
 			if (m_pWindow != 0) {
 				std::cout << "Window created success" << std::endl;
-				m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 				//Create SDL Renderer
+				m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 				if (m_pRenderer != 0){
 					std::cout << "Renderer creation success" << std::endl;
 					SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
@@ -53,9 +54,10 @@ bool LWindow::init(const char* title, int posX, int posY, int height, int width,
 	return true;
 }
 
+//Clean up Window
 void LWindow::cleanup(){
-
 	SDL_DestroyRenderer(m_pRenderer);	//Move to Game over Scene
 	SDL_DestroyWindow(m_pWindow);		//Move to Game over Scene
+	TTF_Quit();
 	SDL_Quit();
 }

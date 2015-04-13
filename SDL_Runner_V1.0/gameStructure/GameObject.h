@@ -42,26 +42,26 @@ public:
 	void setRotateObjectY(float y){ mRotateYBy = y; };		//Rotate object by x amount
 	void setRotateObject(float x, float y){ mRotateXBy = x; mRotateYBy = y; };		//Rotate object by x amount
 
-	void setObjectType(EObjectType type){ eTypeOfObject = type; };
-	void setObjectBoundingBox(int x, int y, int height, int width);
+	void setObjectType(EObjectType type){ eTypeOfObject = type; };	//set object type
+	void setObjectBoundingBox(int x, int y, int height, int width);	//set object bounding box
 	
-	void setName(std::string name) { objectName = name; };
+	void setName(std::string name) { objectName = name; };		//set object name
 
 	//Getters
 	int getPositionX(){ return mPosX; };				//Get objects X position
 	int getPositionY(){ return mPosY; };				//Get objects Y position
 	
-	float getScaleX(){ return mScaleXBy; };
-	float getScaleY(){ return mScaleYBy; };
+	float getScaleX(){ return mScaleXBy; };		//get object scale X
+	float getScaleY(){ return mScaleYBy; };		//get object scale Y
 
-	float getRotationX(){ return mRotateXBy; };
-	float getRotationY(){ return mRotateYBy; };
+	float getRotationX(){ return mRotateXBy; };	//get object X rotation
+	float getRotationY(){ return mRotateYBy; };	//get object Y rotation
 
-	EObjectType getObjectType(){ return eTypeOfObject; };
+	EObjectType getObjectType(){ return eTypeOfObject; };	//Get type of object
 
-	SDL_Rect* getObjectBoundingBox() { return &objectBoundingBox; };
+	SDL_Rect* getObjectBoundingBox() { return &objectBoundingBox; };	//get object bouning box
 	
-	std::string getName(){ return objectName; };
+	std::string getName(){ return objectName; };	//get object name
 
 
 private:	

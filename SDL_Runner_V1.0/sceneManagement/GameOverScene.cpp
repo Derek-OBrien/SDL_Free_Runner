@@ -5,9 +5,8 @@
 
 void GameOverScene::init(){
 	Scene::init();
-
+	//Load Bg
 	dao = AssetsDAO::getInstance();
-
 	bg.loadMedia(dao->getInstance()->read("sceneBg", "path", "assets").getText());
 
 	//Init labels
@@ -20,12 +19,12 @@ void GameOverScene::init(){
 	restart = new Button();
 }
 
-void GameOverScene::run()
-{
+void GameOverScene::run(){
+	
 	if (!initCompleted){
 		init();
 	}
-	thisSceneState = RUNNING;
+	setSceneState(RUNNING);
 
 
 	//Read Scores from XML 
@@ -53,13 +52,6 @@ void GameOverScene::run()
 		while (SDL_PollEvent(&e) != 0){
 			closebutton->handleMouseEvent(&e);
 			restart->handleMouseEvent(&e);
-			//User requests quit
-			if (e.type == SDL_QUIT){
-				quit = true;
-				SDL_Quit();
-				LWindow::getInstance()->cleanup();
-				cleanup();
-			}
 		}
 
 		//Render Everything

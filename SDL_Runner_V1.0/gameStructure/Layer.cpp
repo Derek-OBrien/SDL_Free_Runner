@@ -4,20 +4,24 @@
 
 //Layer Init
 bool Layer::init(){
+	//Super init
 	if (!GameObject::init()){
 		GameObject::init();
 	}
+
+	layer = new GameObject();
+	layer->setObjectType(OT_LAYER);
 	return true;
 }
 
 //Create Layer
 void Layer::create(std::string name){
+	//check if layer has init
 	if (!init()){
 		init();
 	}
-	layer = new GameObject();
-	layer->setObjectType(OT_LAYER);
-
+	
+	//load layer media
 	loadMedia(name);
 }
 
@@ -40,7 +44,7 @@ bool Layer::loadMedia(std::string path){
 
 //Render Layer
 void Layer::render(int alpha){
-
+	//set alpha transperency of layer
 	bg_Texture.setAlpha(alpha);
 	bg_Texture.render(0, 0);
 }

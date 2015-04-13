@@ -11,9 +11,9 @@ public:
 	~Scene(){ cleanup(); }; //deconstructor
 
 	
-	virtual void init();
-	virtual void run();
-	virtual void cleanup();
+	virtual void init();	//init
+	virtual void run();		//run with scene
+	virtual void cleanup();	//cleanup
 
 	virtual void setSceneState(SceneState state) { thisSceneState = state; };
 	virtual SceneState getSceneState(){ return thisSceneState; };

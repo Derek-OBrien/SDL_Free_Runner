@@ -14,12 +14,11 @@ Print statement (“render”)
 #include "GameManager.h"	//Include game manager header
 #include "SoundManager.h"
 #include "../sceneManagement/SceneManager.h"
-#include "../sceneManagement/PauseScene.h"
 #include "../sceneManagement/GameOverScene.h"
 
 #include <Windows.h>
 
-GameManager* GameManagerInstance = 0;//instance of the object to be used
+GameManager* GameManagerInstance = 0;			//instance of the object to be used
 GameManager* GameManager::getInstance(){
 	if (GameManagerInstance == 0){						//if the instance is null
 		GameManagerInstance = new GameManager();		//create the instance 
@@ -28,36 +27,51 @@ GameManager* GameManager::getInstance(){
 }
 
 
-//init game manager
+/*
+	Game Manager Init()
+	Create all game elements here
+	Each elements constructor calls its own init menthod
+	@return bool
+	*/
 bool GameManager::init(){
 
-	//	SoundManager::getInstance()->loadAudio("bgmusic");
 	player = new Player();
 
 	bg_city = new ScrollingBackground();
-	bg_city->create("cityBg");
 	bg = new ScrollingBackground();
-	bg->create("gameBg");
 	fg = new ScrollingBackground();
-	fg->create("gameFg");
 
 	timer = new LTimer();
-	timer->create();
 	hud = new HudLayer();
-	hud->create("hud");
 
 	shield = new Collectable();
-	shield->create("shield",100,100);
-
 	popEnemies = new PopulateEnemies();
-	birdVector = popEnemies->populateBirdVector();
-	coinVector = popEnemies->populateCollectVector();
-	
+
 
 	collided = false;
 	return true;
 }
 
+/*
+	Game Manager create
+	Call each game elemets create function
+
+	*/
+void GameManager::create(){
+
+	if (!init()){
+		init();
+	}
+	player->create();
+	bg_city->create("cityBg");
+	bg->create("gameBg");
+	fg->create("gameFg");
+	timer->create();
+	hud->create("hud");
+	shield->create("shield", 100, 100);
+	birdVector = popEnemies->populateBirdVector();
+	coinVector = popEnemies->populateCollectVector();
+}
 
 /*
 	call each game objects render
@@ -68,9 +82,12 @@ void GameManager::render(){
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 
+	//Render Backgrounds
 	bg_city->render("cityBg");
-	bg->render("gameBg");		//Render Background
-	player->render();	//Render Player
+	bg->render("gameBg");
+
+	//Render Player & Game Objects
+	player->render();
 	shield->render();
 
 	for (int i = 0; i < (int)birdVector.size(); i++){
@@ -80,118 +97,125 @@ void GameManager::render(){
 	for (int i = 0; i < (int)coinVector.size(); i++){
 		coinVector.at(i)->render();
 	}
-	
 
-	fg->render("gameFg");		//Render ForeGround 
+
+	fg->render("gameFg");//Render ForeGround 
 	hud->render();		//Render Hud Layer
+
+	//Refresh Screen
 	SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 }
 
+/*
+	Game Manager Update Function
+	Calls all game elements update functions
+	*/
 void GameManager::update(){
 	//Scroll Bacckgrounds
 	bg_city->update();
 	bg->update();
 	fg->update();
-	hud->update();
-	shield->update();
 
+	//Update Score Count
+	hud->update();
 
 	//Update Npc & Coins Positions
+	shield->update();
 	popEnemies->update();
-
 }
 
+/*
+	Handle all input in game scene
+	Calls Palyer & Hud input functions
+	*/
 void GameManager::handleInput(){
 	bool quit = false;
 	SDL_Event e;	//Event handler
 
+	//Get current running scene
 	Scene* scene = SceneManager::getInstance()->getCurrentScene();
+
 	//Handle events on queue
 	while (SDL_PollEvent(&e) != 0){
 
 		//Handle input for player actions
 		player->handleInput(e);
+		//Handle input for Hud Elements
 		hud->handleInput(e);
 
-		//If space pressed Pause Game
-		if (e.type == SDL_KEYDOWN){
-			if (e.key.keysym.sym == SDLK_SPACE){
-				//	std::cout << "Space Pressed Pause Game Scene" << std::endl;
-
-				if (timer->Paused()){
-					timer->unpause();
-					scene->setSceneState(RUNNING);
-					SoundManager::getInstance()->resumeMusic();
-				}
-				else{
-					scene->setSceneState(PAUSED);
-					timer->pause();
-					SoundManager::getInstance()->pauseMusic();
-				}
-			}
-		}
-		//Quit 
-		if (e.type == SDL_QUIT){
-			scene->cleanup();
-			cleanup();
-		}
-	}//End of Handle Input
+	}
 }
 
 
-//Check Collision
+/*
+	Check collision between player and game objects
+	Calls CollisionManager singleton and takes in game elements bouding box to check for collision
+	*/
 void GameManager::checkCollision(){
-
+	//Get Player State
 	int stateCheck = player->getPlayerState();
+
+	//Check for Collision with Power Up
 	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), shield->getCollectableCollisionBox())){
 
-		shield->cleanup();
-		player->powerUp();
+		//Reset Shield Position
+		shield->resetPosition();
 
+		//Activate power up
+		player->powerUp();
 		stateCheck = player->getPlayerState();
 	}
 
 	else{
 		for (int i = 0; i < (int)birdVector.size(); i++){
-			
+			//Check For Collision with Collectable
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), coinVector.at(i)->getCollectableCollisionBox())){
+				//Reset Position and update coin count
 				coinVector.at(i)->resetPosition();
 				hud->updateCoinCount();
 			}
-
+			//Check For collision with enemy
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
+				//check player state for power up
 				if (stateCheck == (int)POWERUP){
+					//Remove bird
 					birdVector.at(i)->resetPosition();
+					player->setPlayerState(ALIVE);
+					player->loadMedia(player->getName());
+					
 				}
 				else{
-					Scene* scene = SceneManager::getInstance()->getCurrentScene();
-					scene->setSceneState(DESTROY);
+
+					//change player state and clean up player
 					player->setPlayerState(DEAD);
 					player->cleanup();
 
-					//Save current score
+					//Save current score & check if high score
 					hud->saveScore();
 					hud->checkIfHighScore();
+
+					//Change to game over scene
+					Scene* scene = SceneManager::getInstance()->getCurrentScene();
+					scene->setSceneState(DESTROY);
 				}
 			}
-
 		}
-
 	}
 }
 
 
 //Clean up Everything 
 void GameManager::cleanup(){
+	//Clean up player
 	player->cleanup();
 
+	//Clean up background and Foreground layers
 	bg_city->cleanup();
 	bg->cleanup();
 	fg->cleanup();
+
+	//Clean up game objects
 	shield->cleanup();
 	popEnemies->cleanup();
-
-	LWindow::getInstance()->cleanup();
-	SDL_Quit();
 }

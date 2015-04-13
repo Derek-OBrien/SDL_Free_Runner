@@ -1,48 +1,54 @@
 #ifndef _HUDLAYER_H_
 #define _HUDLAYER_H_
 
+/*
+	Author		: Derek O' Brien
+	File		: Hudlayer.h
+	Description	: In game hud layer, stores all in game labels and buttons
+*/
 #include "Layer.h"
 #include "Button.h"
 #include "Label.h"
 
+//HudLayer sub class of Layer
 class HudLayer : public Layer{
 public:
-	HudLayer(){ init(); };
-	~HudLayer(){ cleanup(); };
+	HudLayer(){ init(); };		//Constructor	- calls init()
+	~HudLayer(){ cleanup(); };  //Deconstructor - calls cleanup
 
-	bool init();
-	void create(std::string name);
-	void handleInput(SDL_Event &e);
-	void update();
-	void render();
-	void cleanup();
+	bool init();	//init
+	void create(std::string name);	//create
+	void handleInput(SDL_Event &e);	//handle input on layer
+	void update();	//update layer
+	void render();	//render layer
+	void cleanup();	//cleanup layer
 
-	std::string getScore();
-	std::string getHighScore();
-	bool checkIfHighScore();
+	std::string getScore();		//get game score
+	std::string getHighScore();	//get high score
+	bool checkIfHighScore();	//checkif current score = high score
 
-	void saveScore();
-	void saveHighScore();
-	void updateScore();
-	void updateCoinCount();
+	void saveScore();		//save current score
+	void saveHighScore();	//save high score
+	void updateScore();		//update score label
+	void updateCoinCount();	//update coin coint label
 	
 private:
-	AssetsDAO* dao;
+	AssetsDAO* dao;		//Dao for accesin xml details
 
-	Button* pauseButton;
-	Button* closeButton;
+	Button* pauseButton;	//pause button
+	Button* closeButton;	//close button
 
-	Label* scoreLabel;
-	std::string scoreText;
+	Label* scoreLabel;		//score label
+	std::string scoreText;	//score label text
 
-	LTexture* textTexture;
-	int score;
-	std::stringstream display;
-	std::string highScore;
+	LTexture* textTexture;	//text texture
+	int score;					//score
+	std::stringstream display;	//display label
+	std::string highScore;	//high score text
 	
-	Label* coinLabel;
-	std::string coinText;
-	int coinCount;
+	Label* coinLabel;		//coin label
+	std::string coinText;	//coin label text
+	int coinCount;			//coin count
 };
 
 #endif//_HUDLAYER_H_

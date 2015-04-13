@@ -6,11 +6,12 @@ void Scene::init(){
 	initCompleted = true;
 }
 
-void Scene::run()
-{
+void Scene::run(){
+	//Check init
 	if(!initCompleted){
 		init();
 	}
+	//Set Scene running
 	thisSceneState = RUNNING;
 	while(thisSceneState == RUNNING){
 		std::cout << "Update world" << std::endl;

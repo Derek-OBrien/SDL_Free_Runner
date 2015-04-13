@@ -13,6 +13,7 @@ bool LTimer::init(){
 	return true;
 }
 
+//Create timer and start 
 void LTimer::create(){
 
 	if (!init()){

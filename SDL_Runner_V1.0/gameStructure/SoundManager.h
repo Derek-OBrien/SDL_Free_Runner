@@ -1,19 +1,12 @@
-//
-//  SoundManager.h
-//  SDL Game Programming Book
-//
-//  Created by shaun mitchell on 26/03/2013.
-//  Copyright (c) 2013 shaun mitchell. All rights reserved.
-//
-
-#ifndef __SDL_Game_Programming_Book__SoundManager__
-#define __SDL_Game_Programming_Book__SoundManager__
+#ifndef _SoundManager_H_
+#define _SoundManager_H_
 
 #include <iostream>
 #include <map>
 #include <string>
 #include "SDL_mixer.h"
 
+//Type of audio enum
 enum audio_type{BG_MUSIC, SFX_MUSIC};
 
 class SoundManager{
@@ -39,4 +32,4 @@ private:
 
 
 
-#endif /* defined(__SDL_Game_Programming_Book__SoundManager__) */
+#endif//_SOUNDMANAGER_H_

@@ -1,24 +1,28 @@
 #ifndef _LAYER_H_
 #define _LAYER_H_
 
+/*
+	Author		: Derek O' Brien
+	File		: Layer.h
+	Description	: Base Class for all game layers 
+*/
+
 #include "GameObject.h"
 #include "../dao/AssetsDao.h"
 
-/*
-	Base class for all background and foreground layers
-*/
+//Laayer is sub class of object
 class Layer : public GameObject{
 public:
-	Layer(){ init(); };
-	~Layer(){ cleanup(); };
+	Layer(){ init(); };		//constructor calls inti
+	~Layer(){ cleanup(); };	//deconstructor calls cleanup
 
-	virtual void create(std::string name);
-	virtual bool init();
-	virtual void cleanup();
-	virtual void render(int alpha);
-	virtual void scrollingRender(int alpha, std::string name);
+	virtual void create(std::string name);	//create layer	
+	virtual bool init();	//init layer
+	virtual void cleanup();	//cleanup
+	virtual void render(int alpha);	//render layer
+	virtual void scrollingRender(int alpha, std::string name);	//render scrolling layr
 
-	bool loadMedia(std::string path);
+	bool loadMedia(std::string path);	//load layer media
 
 private:
 	GameObject* layer;

@@ -3,17 +3,20 @@
 
 #include "Layer.h"
 
+/*
+	SUb Class Of Layer
+*/
 class ScrollingBackground : public Layer{
 public:
 
 	ScrollingBackground(){ init();};
 	~ScrollingBackground(){ cleanup(); };
 
-	virtual bool init();
-	virtual void create(std::string name);
-	virtual void render(std::string name);
-	virtual void update();
-	virtual void cleanup();
+	virtual bool init();	//Init
+	virtual void create(std::string name);	//Create
+	virtual void render(std::string name);	//Reneder
+	virtual void update();	//update
+	virtual void cleanup();	//cleanup
 	
 private:
 

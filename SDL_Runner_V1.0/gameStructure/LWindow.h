@@ -15,7 +15,6 @@ public:
 	void cleanup();
 
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
-	//SDL_Window* getWindow() const { return m_pWindow; };
 
 private:
 	SDL_Window* m_pWindow;
