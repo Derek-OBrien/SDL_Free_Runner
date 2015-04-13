@@ -19,7 +19,7 @@ bool Collectable::init(){
 	return true;
 }
 
-void Collectable::create(std::string name){
+void Collectable::create(std::string name, int posX, int posY){
 
 	if (!init()){
 		init();
@@ -33,8 +33,9 @@ void Collectable::create(std::string name){
 	collectable->setName(collectableDetails.name);
 
 	collectable->loadMedia(collectable->getName());
-	collPosX = collectableDetails.posX;
-	collPosY = collectableDetails.posY;
+	
+	collPosX = collectableDetails.posX + posX;
+	collPosY = collectableDetails.posY + posY;
 
 	//Set Object bounding Box
 	collectable->setObjectBoundingBox(collPosX, collPosY, collectableDetails.spriteHeight, collectableDetails.spriteWidth);
@@ -53,16 +54,19 @@ void Collectable::update(){
 	collectable->setPositionX(collPosX);
 	collectable->getObjectBoundingBox()->x = collPosX;
 
-	//if it goes off screen reset to orignal position
+	//if it goes off screen celanup
 	if (collPosX < 0){
-		collPosX = GAME_WIDTH + 100;
-		collectable->setPositionX(collPosX);
-		collectable->getObjectBoundingBox()->x = collPosX;
+		resetPosition();
 	}
 }
 
+void Collectable::resetPosition(){
+	collPosX = GAME_WIDTH + 100;
+	collectable->setPositionX(collPosX);
+	collectable->getObjectBoundingBox()->x = collPosX;
+}
 //Collectable cleanup
 void Collectable::cleanup(){
-	//collectable->cleanup();
 	collectable->~Sprite();
+	collectable->setObjectBoundingBox(NULL, NULL, NULL, NULL);
 }

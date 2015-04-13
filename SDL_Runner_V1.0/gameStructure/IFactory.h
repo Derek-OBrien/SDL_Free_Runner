@@ -16,7 +16,7 @@ public:
 	virtual Npc* createBirdNpc() = 0;
 	virtual Npc* createBugNpc() = 0;
 
-//	virtual std::shared_ptr<Collectable> createCollectable() = 0;
+	virtual Collectable* createCollectable() = 0;
 };
 
 #endif//_I_FACTORY_H_
@@ -36,11 +36,12 @@ public:
 
 	virtual Npc* createBirdNpc();
 	virtual Npc* createBugNpc();
-//	virtual std::shared_ptr<Collectable> createCollectable();
+	virtual Collectable* createCollectable();
 
 private:
 
 	Npc* npcObject;
+	Collectable* collObject;
 };
 
 #endif//_FACTORY_H_

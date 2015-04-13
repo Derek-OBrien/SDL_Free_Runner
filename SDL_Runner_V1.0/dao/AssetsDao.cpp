@@ -1,3 +1,11 @@
+
+/*
+	Author		:	Derek O' Brien
+	File		:	AssetsDao.cpp
+	Description	:	Functions for Dao
+*/
+
+//Includes
 #include "AssetsDao.h"
 #include <iostream>
 
@@ -12,8 +20,10 @@ AssetsDAO* AssetsDAO::getInstance(){
 }
 
 
-
-//Read in Single Text Value
+/*
+	Read in a single text string from the Xml File
+	@returns Path string
+	*/
 Path AssetsDAO::read(std::string name, std::string elementType, std::string root){
 
 	Path temp;			//temp variable
@@ -22,10 +32,14 @@ Path AssetsDAO::read(std::string name, std::string elementType, std::string root
 	//Load Document
 	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
 
-		//get first element <Assets>
+		//Root Elemenet
 		tinyxml2::XMLElement* rootElement = doc.FirstChildElement(root.c_str());
 
-		//Loop through Child Element looking for <path> element
+		//If root null print error
+		if (rootElement == NULL)
+			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << " \n Can not find root : " << root << std::endl;
+
+		//Loop through Child Element
 		for (tinyxml2::XMLElement* pathElement = rootElement->FirstChildElement(elementType.c_str()); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
 
 			//Get Element Name Attribute 
@@ -35,7 +49,6 @@ Path AssetsDAO::read(std::string name, std::string elementType, std::string root
 			if (elementName.getText() == name){
 				temp.setText(pathElement->GetText());
 			}
-			//	}
 		}
 		return temp;
 	}
@@ -45,8 +58,10 @@ Path AssetsDAO::read(std::string name, std::string elementType, std::string root
 	return NULL;
 }
 
-
-//read sprite animation 
+/*
+	Read in Sprite Animation Details From Xml File
+	@return ImageDetails struct containg sprite details
+	*/
 ImageDetails AssetsDAO::readImageDetails(std::string name){
 
 	ImageDetails temp;			//temp variable
@@ -57,11 +72,6 @@ ImageDetails AssetsDAO::readImageDetails(std::string name){
 
 		//get first element <Assets>
 		tinyxml2::XMLElement* rootElement = doc.FirstChildElement();
-
-		//If root null print error
-		if (rootElement == NULL)
-			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << std::endl;
-
 
 		//Loop through Child Element looking for <path> element
 		for (tinyxml2::XMLElement* pathElement = rootElement->FirstChildElement("path"); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
@@ -78,8 +88,8 @@ ImageDetails AssetsDAO::readImageDetails(std::string name){
 				temp.offsetX = pathElement->IntAttribute("offsetX");	//OffsetX
 				temp.offsetY = pathElement->IntAttribute("offsetY");	//OffsetY
 				temp.frames = pathElement->IntAttribute("frames");		//Number of Frames
-				temp.posX = pathElement->IntAttribute("posX");
-				temp.posY = pathElement->IntAttribute("posY");
+				temp.posX = pathElement->IntAttribute("posX");			//Initial X Position
+				temp.posY = pathElement->IntAttribute("posY");			//Initial Y Position
 			}
 		}
 		return temp;
@@ -90,8 +100,10 @@ ImageDetails AssetsDAO::readImageDetails(std::string name){
 }
 
 
-
-//update
+/*
+	Update Xml Element text
+	@retutn void
+	*/
 void AssetsDAO::update(std::string choice, std::string type, std::string root){
 
 	//Load File

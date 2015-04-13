@@ -47,47 +47,12 @@ bool GameManager::init(){
 	hud->create("hud");
 
 	shield = new Collectable();
-	shield->create("shield");
+	shield->create("shield",100,100);
 
 	popEnemies = new PopulateEnemies();
 	birdVector = popEnemies->populateBirdVector();
-	bugVector = popEnemies->populateBugVector();
-
-	for (int i = 0; i < birdVector.size(); i++){
-		switch (i){
-		case 0:
-			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
-			npcY = 250;
-			birdVector.at(i)->create("bird", npcX, npcY);
-			break;
-		case 1:
-			npcX = GAME_WIDTH + (GAME_WIDTH *0.4);
-			npcY = 300;
-			birdVector.at(i)->create("bird", npcX, npcY);
-			break;
-		case 2:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);
-			npcY = 370;
-			birdVector.at(i)->create("bird", npcX, npcY);
-			break;
-		case 3:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.1);///slideunder
-			npcY = 450;
-			birdVector.at(i)->create("bird", npcX, npcY);
-			break;
-		case 4:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.7);///slide under
-			npcY = 450;
-			birdVector.at(i)->create("bird", npcX, npcY);
-			break;
-		default:
-			break;
-		}
-	}
-
-	for (int i = 0; i < bugVector.size(); i++){
-		bugVector.at(i)->create("bug", GAME_WIDTH, 500);
-	}
+	coinVector = popEnemies->populateCollectVector();
+	
 
 	collided = false;
 	return true;
@@ -108,16 +73,14 @@ void GameManager::render(){
 	player->render();	//Render Player
 	shield->render();
 
-
-	for (int i = 0; i < birdVector.size(); i++){
+	for (int i = 0; i < (int)birdVector.size(); i++){
 		birdVector.at(i)->render();
 	}
 
-	for (int i = 0; i < bugVector.size(); i++){
-		bugVector.at(i)->render();
+	for (int i = 0; i < (int)coinVector.size(); i++){
+		coinVector.at(i)->render();
 	}
-
-
+	
 
 	fg->render("gameFg");		//Render ForeGround 
 	hud->render();		//Render Hud Layer
@@ -125,19 +88,17 @@ void GameManager::render(){
 }
 
 void GameManager::update(){
-	//SoundManager::getInstance()->playMusic();
+	//Scroll Bacckgrounds
 	bg_city->update();
 	bg->update();
 	fg->update();
 	hud->update();
 	shield->update();
 
-	for (int i = 0; i < birdVector.size(); i++){
-		birdVector.at(i)->update();
-	}
-	for (int i = 0; i < bugVector.size(); i++){
-		bugVector.at(i)->update();
-	}
+
+	//Update Npc & Coins Positions
+	popEnemies->update();
+
 }
 
 void GameManager::handleInput(){
@@ -155,7 +116,7 @@ void GameManager::handleInput(){
 		//If space pressed Pause Game
 		if (e.type == SDL_KEYDOWN){
 			if (e.key.keysym.sym == SDLK_SPACE){
-			//	std::cout << "Space Pressed Pause Game Scene" << std::endl;
+				//	std::cout << "Space Pressed Pause Game Scene" << std::endl;
 
 				if (timer->Paused()){
 					timer->unpause();
@@ -181,35 +142,31 @@ void GameManager::handleInput(){
 //Check Collision
 void GameManager::checkCollision(){
 
+	int stateCheck = player->getPlayerState();
 	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), shield->getCollectableCollisionBox())){
-		
+
 		shield->cleanup();
-		player->setPlayerState(SUPERSIZE);
+		player->powerUp();
+
+		stateCheck = player->getPlayerState();
 	}
+
 	else{
-			for (unsigned int i = 0; i < bugVector.size(); i++){
-				if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), bugVector.at(i)->getNpcCollisionBox())){
+		for (int i = 0; i < (int)birdVector.size(); i++){
+			
+			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), coinVector.at(i)->getCollectableCollisionBox())){
+				coinVector.at(i)->resetPosition();
+				hud->updateCoinCount();
+			}
 
-					Scene* scene = SceneManager::getInstance()->getCurrentScene();
-					scene->setSceneState(DESTROY);
-					if (player->getPlayerState() != SUPERSIZE){
-						player->setPlayerState(DEAD);
-						player->cleanup();
-					}
-					else{
-						bugVector.at(i)->cleanup();
-					}
+			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
-					//Save current score
-					hud->saveScore();
-					hud->checkIfHighScore();
+				if (stateCheck == (int)POWERUP){
+					birdVector.at(i)->resetPosition();
 				}
-
-				if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
-
+				else{
 					Scene* scene = SceneManager::getInstance()->getCurrentScene();
 					scene->setSceneState(DESTROY);
-
 					player->setPlayerState(DEAD);
 					player->cleanup();
 
@@ -218,7 +175,9 @@ void GameManager::checkCollision(){
 					hud->checkIfHighScore();
 				}
 			}
-		
+
+		}
+
 	}
 }
 
@@ -231,14 +190,8 @@ void GameManager::cleanup(){
 	bg->cleanup();
 	fg->cleanup();
 	shield->cleanup();
-	//hud->cleanup();
-	
-	for (int i = 0; i < birdVector.size(); i++){
-		birdVector.at(i)->cleanup();
-	}
-	for (int i = 0; i < bugVector.size(); i++){
-		bugVector.at(i)->cleanup();
-	}
+	popEnemies->cleanup();
+
 	LWindow::getInstance()->cleanup();
 	SDL_Quit();
 }

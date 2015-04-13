@@ -1,24 +1,28 @@
 #ifndef _ASSETS_DAO_H_
 #define _ASSETS_DAO_H_
 
-#include "ImagePath.h"
-#include "../tinyxml/tinyxml2.h"
-#include "../gameStructure/GameDefines.h"
-#include "../gameStructure/Sprite.h"
-#include "../gameStructure/Button.h"
+/*
+	Author		:	Derek O' Brien
+	File		:	AssestsDao.h
+	Description	:	Dao Interface and Class for Assets Dao
+					Used for reading & writing data to an Xml file
+*/
 
+//Include Files Needed
+#include "Path.h"
+#include "../tinyxml/tinyxml2.h"
+#include "../gameStructure/Sprite.h"
+
+//Dao Interface
 class IAssetsDAO{
 public:
+	//DeConstructor
 	virtual ~IAssetsDAO(){};
 
-	//create
-	virtual void create() = 0;
-
-	//read
+	//read functions
 	virtual Path read(std::string name, std::string elementType, std::string root) = 0;
 	virtual ImageDetails readImageDetails(std::string name) = 0;
-//	virtual ButtonDetails readButtonDetails(std::string name) = 0;
-	
+
 	//update
 	virtual void update(std::string choice, std::string type, std::string root) = 0;
 
@@ -32,12 +36,10 @@ private:
 //xml implementation
 class AssetsDAO : public IAssetsDAO{
 public:
+	//Static instance
 	static AssetsDAO* getInstance();
-
+	//Deconstructor
 	virtual ~AssetsDAO(){};
-
-	//create
-	void create(){}
 
 	//read
 	Path read(std::string name, std::string elementType, std::string root);
@@ -50,6 +52,7 @@ public:
 	void del();
 private:
 
+	//Xml Document
 	tinyxml2::XMLDocument doc;
 
 };

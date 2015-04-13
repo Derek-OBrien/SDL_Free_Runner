@@ -14,7 +14,8 @@ bool HudLayer::init(){
 	pauseButton = new Button();
 	closeButton = new Button();
 	scoreLabel = new Label();
-	
+	coinLabel = new Label();
+
 	textTexture = new LTexture();
 	return true;
 }
@@ -34,11 +35,15 @@ void HudLayer::create(std::string name){
 	//set defaults
 	scoreText = "0";
 	scoreLabel->create(scoreText.c_str(), 50, RED);
+
+	coinText = "0";
+	coinLabel->create(coinText.c_str(), 50, RED);
 }
 
 //Render Layer
 void HudLayer::render(){
 	scoreLabel->render((GAME_WIDTH / 2), 10);
+	coinLabel->render(100, 10);
 	pauseButton->render("pausebutton");	//Render Pause Button
 	closeButton->render("closebutton");
 }
@@ -50,14 +55,24 @@ void HudLayer::handleInput(SDL_Event &e){
 }
 
 //update
-void HudLayer::update(){
-	//update Score + coin count
+void HudLayer::updateScore(){
 	score += 1;
 	display.str("");
 	display << score;
 	textTexture = scoreLabel->loadTTFMedia(display.str().c_str(), 50, RED);
 }
 
+void HudLayer::update(){
+	//update Score + coin count
+	updateScore();
+}
+
+void HudLayer::updateCoinCount(){
+	coinCount += 1;
+	display.str("");
+	display << coinCount;
+	textTexture = coinLabel->loadTTFMedia(display.str().c_str(), 50, RED);
+}
 //Get Score
 std::string HudLayer::getScore(){ 
 	return display.str(); 
@@ -75,7 +90,6 @@ bool HudLayer::checkIfHighScore(){
 	std::string temp1 = getHighScore();
 	std::string temp2 = getScore();
 	bool check = false;
-
 
 	//Convert Strings to Integers
 	high = std::stoi(temp1);
@@ -95,14 +109,15 @@ bool HudLayer::checkIfHighScore(){
 void HudLayer::saveScore(){
 	dao->getInstance()->update(getScore(), "currentScore", "score");
 }
-
 //Save High Score
 void HudLayer::saveHighScore(){
 	dao->getInstance()->update(getScore(), "highScore", "score");
 }
+
 //Clean Up
 void HudLayer::cleanup(){
 	pauseButton->cleanup();
 	closeButton->cleanup();
 	scoreLabel->cleanup();
+	coinLabel->cleanup();
 }

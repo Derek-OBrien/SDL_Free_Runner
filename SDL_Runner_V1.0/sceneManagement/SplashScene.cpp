@@ -9,16 +9,14 @@ void SplashScene::init(){
 	Scene::init();
 
 	std::cout << "SplashScene  Init!" << std::endl;
-	int height = SDL_DisplayMode().h;
-	int width = SDL_DisplayMode().w;
 	//Load Game Window on init
 	LWindow::getInstance()->init(
 		"In The Smoke",		//Name
-		SDL_WINDOWPOS_UNDEFINED,//Position
-		SDL_WINDOWPOS_UNDEFINED,//Position
+		10,//Position
+		10,//Position
 		GAME_HEIGHT,			//Height
 		GAME_WIDTH,				//Width
-		SDL_WINDOW_SHOWN );		//Flag
+		SDL_WINDOW_SHOWN);// || SDL_WINDOW_ALLOW_HIGHDPI);		//Flag
 
 	AssetsDAO* dao = AssetsDAO::getInstance();
 	bg.create(dao->read("sceneBg", "path", "assets").getText());

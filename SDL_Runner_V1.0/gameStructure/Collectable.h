@@ -16,10 +16,11 @@ public:
 
 	virtual bool init();
 	virtual void cleanup();
-	virtual void create(std::string name);
+	virtual void create(std::string name, int posX, int posY);
 	virtual void update();
 	virtual void render();
 
+	void resetPosition();
 	SDL_Rect* getCollectableCollisionBox(){ return collectableBB; };
 
 private:

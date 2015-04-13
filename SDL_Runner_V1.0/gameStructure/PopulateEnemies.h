@@ -11,14 +11,23 @@ public:
 	//virtual bool init();
 	std::vector<Npc*> populateBirdVector();
 	std::vector<Npc*> populateBugVector();
+	std::vector<Collectable*> populateCollectVector();
 
+	void update();
+	void render();
+	//void release();
+	void cleanup();
 private:
 
 	Factory* factory;
 	std::vector<Npc*> birdVector;
-	std::vector<Npc*> bugVector;
+	//std::vector<Npc*> bugVector;
+	std::vector<Collectable*> coinVector;
 
+	int npcX, npcY;
 };
+
+
 
 
 #endif//_POPULATE_ENEMIES_H_

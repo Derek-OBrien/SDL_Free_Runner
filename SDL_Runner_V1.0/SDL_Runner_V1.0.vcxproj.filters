@@ -191,9 +191,6 @@
     <ClInclude Include="dao\AssetsDao.h">
       <Filter>Header Files\dao</Filter>
     </ClInclude>
-    <ClInclude Include="dao\ImagePath.h">
-      <Filter>Header Files\dao</Filter>
-    </ClInclude>
     <ClInclude Include="dao\Path.h">
       <Filter>Header Files\dao</Filter>
     </ClInclude>

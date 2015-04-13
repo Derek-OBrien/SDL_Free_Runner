@@ -36,8 +36,8 @@ private:
 	Collectable* shield;
 	PopulateEnemies* popEnemies;
 	std::vector<Npc*> birdVector;
-	std::vector<Npc*> bugVector;
-
+	///std::vector<Npc*> bugVector;
+	std::vector<Collectable*> coinVector;
 	HudLayer* hud;
 	bool collided;
 

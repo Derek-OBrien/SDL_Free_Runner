@@ -45,7 +45,7 @@ void Player::render(){
 
 //Jump function sets player state to JUMP
 void Player::jump(){
-	setPlayerState(JUMPING);					//Set player State to JUMP
+	//setPlayerState(JUMPING);					//Set player State to JUMP
 	player->setName("player2jump");
 	player->loadMedia(player->getName());
 	playerPosY-= FORCE_UP * 10;
@@ -54,24 +54,29 @@ void Player::jump(){
 }
 
 void Player::fallDown(){
-	setPlayerState(FALLING);
+	//setPlayerState(FALLING);
 	playerPosY+= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;	
 }
 
 void Player::slide(){
-
 	player->setName("player2slide");
 	player->loadMedia(player->getName());
 	playerPosY = player->getPosY();
-
 }
 
 
 //Boost function sets player state to BOOST
-void Player::superSize(){
-	setPlayerState(SUPERSIZE);					//set player state to SUPERSIZE
+void Player::powerUp(){
+	powerUpTime = 5000;
+	setPlayerState(POWERUP);	//set player state to SUPERSIZE
+
+	while (powerUpTime > 0){
+		FORCE_X * 2;
+		powerUpTime--;
+	}
+	setPlayerState(ALIVE);
 }
 
 

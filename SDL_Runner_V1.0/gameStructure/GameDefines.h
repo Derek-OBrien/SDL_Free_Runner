@@ -2,8 +2,9 @@
 #define _GAMEDEFINES_H_
 
 //Window
-#define GAME_WIDTH 1280
+#define GAME_WIDTH 1900
 #define GAME_HEIGHT 640
+
 
 //Velocity
 #define FORCE_UP 10
@@ -19,8 +20,6 @@
 
 //Animations
 #define PLAYER_ANIMATION_FRAMES 8
-#define BLADE_ANIMATION_FRAMES 5
-#define BUTTON_ANIMATION_FRAMES 2
 
 //Text Colours
 #define RED SDL_Color{255,0,0}

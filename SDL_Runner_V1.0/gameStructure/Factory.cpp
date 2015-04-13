@@ -14,6 +14,8 @@ bool Factory::init(){
 
 //Factory cleanup
 void Factory::cleanup(){
+	npcObject->cleanup();
+	collObject->cleanup();
 }
 
 
@@ -28,11 +30,11 @@ Npc*Factory::createBugNpc(){
 	return npcObject;
 }
 
-/*//Create Collectable
-std::shared_ptr<Collectable> Factory::createCollectable(){
-
-	return std::shared_ptr<Collectable>(new Collectable());
-}*/
+//Create Collectable
+Collectable* Factory::createCollectable(){
+	collObject = new Collectable();
+	return collObject;
+}
 
 
 

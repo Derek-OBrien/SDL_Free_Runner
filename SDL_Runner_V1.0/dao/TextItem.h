@@ -2,7 +2,12 @@
 #define _TEXT_ITEM_H_
 #include <string>
 
-/*Base Text Item*/
+/*
+		Author		: Derek O' Brien
+		File		: TextItem.h
+		Description	: Base Text element for dao
+*/
+
 class TextItem{
 public:
 	TextItem(){}

@@ -11,10 +11,11 @@ public:
 
 	virtual bool init();
 	virtual void create(std::string npcName, int posX, int posY);
-	virtual void cleanup(){};
+	virtual void cleanup();
 	virtual void render();
 	virtual void update();
 
+	void resetPosition();
 	SDL_Rect* getNpcCollisionBox(){ return npcBoundingBox; };
 
 private:

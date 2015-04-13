@@ -1,37 +1,47 @@
 
+//Inludes
 #include "Button.h"
 #include "../dao/AssetsDao.h"
-#include "LWindow.h"
 #include "../sceneManagement/SceneManager.h"
 #include "../sceneManagement/MenuScene.h"
+#include "LWindow.h"
 #include "GameManager.h"
 #include "SoundManager.h"
 
 
 //Button init
 bool Button::init(){
-
-	GameObject::init();
+	//Super init
+	if (!Sprite::init()){
+		Sprite::init();
+	}
+	//Init Sound Manager
 	SoundManager::getInstance()->init();
 	return true;
 }
 
 //Create button
 void Button::create(std::string name){
-
+	//Check if Button init complete 
 	if (!init()){
 		init();
 	}
+	//Set state
 	currentButtonState = NORMAL;
 	setButtonState(currentButtonState);
-
+	
+	//Load button media
 	loadmedia(name);
 }
 
-
+/*
+	Load Button meida from Xml File
+	@retutn bool
+*/
 bool Button::loadmedia(std::string name){
 	bool success = true;
 
+	//get button details from Xml file
 	buttonDetails = AssetsDAO::getInstance()->readImageDetails(name);
 	std::string imagepath = buttonDetails.pathToFile;
 
@@ -47,9 +57,8 @@ bool Button::loadmedia(std::string name){
 		offsetX = 0;
 		size = buttonDetails.frames;
 		temp = buttonDetails.offsetX;
-
+		//Fill ButtonDetails from details read in
 		for (int i = 0; i < size; i++){
-
 			gSpriteClips[i].x = offsetX;
 			gSpriteClips[i].y = buttonDetails.offsetY;
 			gSpriteClips[i].w = buttonDetails.spriteWidth;
@@ -58,23 +67,28 @@ bool Button::loadmedia(std::string name){
 			offsetX += temp;
 		}
 	}
-
 	return success;
 }
 
 
 
-//Button Render
+/*
+	Redner Button to Screen
+*/
 void Button::render(std::string name){
 	currentFrame = &gSpriteClips[(int)currentButtonState];
 	buttonTexture.render(buttonDetails.posX, buttonDetails.posY, currentFrame);
 }
 
-
+/*
+	Handle All Input for all Buttons
+*/
 void Button::handleMouseEvent(SDL_Event* e){
 
+	//Get Current Scene
 	Scene* scene = SceneManager::getInstance()->getCurrentScene();
 
+	//Mouse Input
 	if (e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP){
 
 		//Mouse Position
@@ -111,14 +125,16 @@ void Button::handleMouseEvent(SDL_Event* e){
 
 			case SDL_MOUSEBUTTONDOWN:
 				currentButtonState = PRESSED;
-
+				
+				//Select Player Button 1
 				if (buttonDetails.name == "player1btn"){
 					SoundManager::getInstance()->playSfx("sfx");
+				
 					//Save selected Player & Destroy scene
 					AssetsDAO::getInstance()->update("player1", "path", "assets");
 					scene->setSceneState(DESTROY);
 				}
-
+				//Select Player Button 2
 				else if (buttonDetails.name == "player2btn"){
 					SoundManager::getInstance()->playSfx("sfx");
 
@@ -126,16 +142,19 @@ void Button::handleMouseEvent(SDL_Event* e){
 					AssetsDAO::getInstance()->update("player2", "path", "assets");
 					scene->setSceneState(DESTROY);
 				}
+
 				//Pause Button 
 				else if (buttonDetails.name == "pausebutton"){
 					SoundManager::getInstance()->playSfx("sfx");
 					
+					//If Game Paused Un-Pause
 					if (GameManager::getInstance()->getTimer()->Paused()){
 						GameManager::getInstance()->getTimer()->unpause();
 						SoundManager::getInstance()->resumeMusic();
 
 						scene->setSceneState(RUNNING);
 					}
+					//Pause
 					else{
 						SoundManager::getInstance()->pauseMusic();
 
@@ -150,8 +169,10 @@ void Button::handleMouseEvent(SDL_Event* e){
 					cleanup();
 					SDL_Quit();
 					LWindow::getInstance()->cleanup();
+					GameManager::getInstance()->cleanup();
 				}
 
+				//Restart Button (Return to Player Select)
 				else if (buttonDetails.name == "restart"){
 					SoundManager::getInstance()->playSfx("sfx");
 
@@ -172,4 +193,5 @@ void Button::handleMouseEvent(SDL_Event* e){
 //Button Cleanup
 void Button::cleanup(){
 	buttonTexture.cleanup();
+	Sprite::cleanup();
 }

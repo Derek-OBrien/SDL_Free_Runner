@@ -23,7 +23,8 @@ public:
 
 	void saveScore();
 	void saveHighScore();
-
+	void updateScore();
+	void updateCoinCount();
 	
 private:
 	AssetsDAO* dao;
@@ -39,6 +40,9 @@ private:
 	std::stringstream display;
 	std::string highScore;
 	
+	Label* coinLabel;
+	std::string coinText;
+	int coinCount;
 };
 
 #endif//_HUDLAYER_H_

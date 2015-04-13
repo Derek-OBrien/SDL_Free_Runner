@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #include <string>
+#include <vector>
+#include <memory>
 #include <cmath>
 #include <iostream>
 

@@ -4,6 +4,7 @@
     <!--Child Element-->
     <!--Selected Player-->
     <path name="selected_player">player2</path>
+    <path name="selected_bg">player1</path>
     <!--BACKGROUNDS-->
     <path name="sceneBg">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
     <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
@@ -18,17 +19,18 @@
     <path name="player2jump" width="122" height="112" offsetX="0" offsetY="0" frames="1" posX="100" posY="435">../SDL_Runner_V1.0/assets/player_sprites/player2jump.png</path>
     <!--COLLECTABLE ITEMS-->
     <path name="shield" width="50" height="50" offsetX="0" offsetY="0" frames="1" posX="1280" posY="300">../SDL_Runner_V1.0/assets/collectable_sprites/shield.png</path>
+    <path name="coin" width="50" height="50" offsetX="0" offsetY="0" frames="1" posX="1280" posY="300">../SDL_Runner_V1.0/assets/collectable_sprites/coin.png</path>
     <!--NPCS-->
     <path name="blade" width="75" height="75" offsetX="75" offsetY="0" frames="5" posX="1280" posY="500">../SDL_Runner_V1.0/assets/obstical_sprites/blade.png</path>
     <path name="bird" width="63" height="33" offsetX="63" offsetY="0" frames="6" posX="1280" posY="300">../SDL_Runner_V1.0/assets/obstical_sprites/bird.png</path>
     <path name="bug" width="63" height="60" offsetX="63" offsetY="0" frames="8" posX="1280" posY="500">../SDL_Runner_V1.0/assets/obstical_sprites/bug.png</path>
     <path name="zombie" width="64" height="81" offsetX="64" offsetY="0" frames="5" posX="1280" posY="435">../SDL_Runner_V1.0/assets/obstical_sprites/zombie.png</path>
     <!--USER INTERFACE ELEMENTS-->
-    <path name="player1btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="356" posY="200" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
-    <path name="player2btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="796" posY="200" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
-    <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1100" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
-    <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1200" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
-    <path name="restart" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1100" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
+    <path name="player1btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="580" posY="400" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
+    <path name="player2btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="1220" posY="400" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
+    <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1700" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
+    <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1800" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
+    <path name="restart" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1700" posY="5" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
     <!--SOUND FILES-->
     <path name="bgmusic">../SDL_Runner_V1.0/assets/sounds/Severe_Tire_Damage.wav</path>
     <path name="sfx">../SDL_Runner_V1.0/assets/sounds/sfx.wav</path>
@@ -36,6 +38,7 @@
 
 <!--Root-->
 <score>
-    <currentScore name="currentScore">423</currentScore>
+    <currentScore name="currentScore">750</currentScore>
     <highScore name="highScore">1562</highScore>
+    <coincount name="coincount">0</coincount>
 </score>

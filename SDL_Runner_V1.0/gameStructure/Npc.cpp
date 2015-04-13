@@ -58,11 +58,9 @@ void Npc::update(){
 		npc->setPositionX(npcPosX);
 		npc->getObjectBoundingBox()->x = npcPosX;
 		
-		//if it goes off screen reset to orignal position
+		//if it goes off screen release object
 		if (npcPosX < 0){
-			npcPosX = GAME_WIDTH + 100;
-			npc->setPositionX(npcPosX);
-			npc->getObjectBoundingBox()->x = npcPosX;
+			resetPosition();
 		}
 	}
 	else if (npc->getName() == "bug"){
@@ -70,11 +68,22 @@ void Npc::update(){
 		npc->setPositionX(npcPosX);
 		npc->getObjectBoundingBox()->x = npcPosX;
 
-		//if it goes off screen reset to orignal position
+		//if it goes off screen release object
 		if (npcPosX < 0){
-			npcPosX = GAME_WIDTH + 1000;
-			npc->setPositionX(npcPosX);
-			npc->getObjectBoundingBox()->x = npcPosX;
+			resetPosition();
 		}
 	}
+}
+
+void Npc::resetPosition(){
+	npcPosX = GAME_WIDTH + 1000;
+	npc->setPositionX(npcPosX);
+	npc->getObjectBoundingBox()->x = npcPosX;
+}
+
+
+void Npc::cleanup(){
+	npc->~Character();
+	npc->setObjectBoundingBox(NULL, NULL, NULL, NULL);
+
 }

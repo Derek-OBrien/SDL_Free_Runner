@@ -29,7 +29,7 @@ void MenuScene::run(){
 	player1btn->create("player1btn");
 	player2btn->create("player2btn");
 	closeButton->create("closebutton");
-	label->create("-[Select Player]-", 50, GREEN);
+	label->create("-[Select Your Runner]-", 50, GREEN);
 	
 	thisSceneState = RUNNING;
 	bool quit = false;

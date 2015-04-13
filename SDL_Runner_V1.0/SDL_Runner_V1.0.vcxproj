@@ -103,7 +103,6 @@
   <ItemGroup>
     <ClInclude Include="dao\AssetsDao.h" />
     <ClInclude Include="dao\Path.h" />
-    <ClInclude Include="dao\ImagePath.h" />
     <ClInclude Include="dao\TextItem.h" />
     <ClInclude Include="gameStructure\Label.h" />
     <ClInclude Include="gameStructure\Layer.h" />

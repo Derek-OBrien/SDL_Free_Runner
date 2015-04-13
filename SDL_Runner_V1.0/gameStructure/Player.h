@@ -5,7 +5,7 @@
 #include "../dao/AssetsDao.h"
 
 //Enum for player state
-typedef enum EPlayerState{ ALIVE, DEAD, SUPERSIZE, JUMPING, FALLING, SLIDING };
+typedef enum EPlayerState{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING };
 
 //player is subclass of character
 class Player : public Character{
@@ -24,7 +24,7 @@ public:
 	void jump();	//Jump up
 	void fallDown();//Fall back down
 	void slide();
-	void superSize();	//Player boost method
+	void powerUp();	//Player boost method
 
 	
 	// handle any input from the keyboard, mouse, or joystick
@@ -45,9 +45,7 @@ private:
 	Path selectedPlayer;
 
 	int playerPosX, playerPosY;
-	// player can be SuperSize for a time
-	int m_SuperSize;
-	int m_SuperSizeTime;
+	int powerUpTime;
 
 	EPlayerState currentState;	//Holds players current state
 };

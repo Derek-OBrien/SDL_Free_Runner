@@ -32,11 +32,9 @@ void GameScene::run(){
 
 		//Go To Pause Scene
 		while (getSceneState() == PAUSED){
-			//	std::cout << "Game Scene Paused" << std::endl;
 			GameManager::getInstance()->handleInput();
 		}
 	}
-
 
 
 	//Go to Game Over
