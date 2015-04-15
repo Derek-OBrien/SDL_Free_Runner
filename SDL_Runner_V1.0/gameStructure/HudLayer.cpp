@@ -37,7 +37,7 @@ void HudLayer::create(std::string name){
 	scoreText = "0";
 	scoreLabel->create(scoreText.c_str(), 50, RED);
 
-	coinText = "0";
+	coinText = "Coins";
 	coinLabel->create(coinText.c_str(), 50, RED);
 }
 
@@ -73,7 +73,7 @@ void HudLayer::updateCoinCount(){
 	coinCount += 1;
 	display.str("");
 	display << coinCount;
-	textTexture = coinLabel->loadTTFMedia(display.str().c_str(), 50, RED);
+	textTexture = coinLabel->loadTTFMedia( display.str().c_str(), 50, RED);
 }
 
 //Get Score

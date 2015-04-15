@@ -31,7 +31,7 @@ void ScrollingBackground::render(std::string name){
 		bg->scrollingRender(255, name);
 	}
 	else{
-		bg->scrollingRender(127, name);
+		bg->scrollingRender(90, name);
 	}
 }
 

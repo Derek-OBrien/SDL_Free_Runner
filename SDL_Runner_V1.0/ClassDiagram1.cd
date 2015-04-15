@@ -1,2 +1,430 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Label">
+    <Position X="0.5" Y="3" Width="4.75" />
+    <InheritanceLine Type="GameObject" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="4.5" />
+        <Point X="5.25" Y="4.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAgAAAAAEAAAAAAAAAAAAQAAAAAAAAIAAABAAAAQAAA=</HashCode>
+      <FileName>gameStructure\Label.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Layer">
+    <Position X="9.75" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAQAAAAAAAIAAAAAAAAAAAAAAAIEAABABBAQAgA=</HashCode>
+      <FileName>gameStructure\Layer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button">
+    <Position X="0.5" Y="6.25" Width="2.75" />
+    <InheritanceLine Type="Sprite" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="10.625" />
+        <Point X="9.625" Y="10.625" />
+        <Point X="9.625" Y="11.194" />
+        <Point X="1.875" Y="11.194" />
+        <Point X="1.875" Y="10.819" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QMAAAAgAgAAQAAAAAIEAAAABAAAAAAIIAABAgAUQAAA=</HashCode>
+      <FileName>gameStructure\Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character">
+    <Position X="13.5" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAKAA=</HashCode>
+      <FileName>gameStructure\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collectable">
+    <Position X="17" Y="6.25" Width="3.25" />
+    <InheritanceLine Type="Sprite" FixedToPoint="true">
+      <Path>
+        <Point X="11.375" Y="7.25" />
+        <Point X="11.375" Y="7.01" />
+        <Point X="13.59" Y="7.01" />
+        <Point X="13.59" Y="9.652" />
+        <Point X="16.76" Y="9.652" />
+        <Point X="16.76" Y="8.125" />
+        <Point X="17" Y="8.125" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAABIAACAAIAAwgAAAAAAAAAAAAAAAIAAABAAAAUAAA=</HashCode>
+      <FileName>gameStructure\Collectable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionManager">
+    <Position X="8.25" Y="17.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAQAAAAAAAAAAAAIAAAAQAAAAAAACAAAA=</HashCode>
+      <FileName>gameStructure\CollisionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudLayer">
+    <Position X="13.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QIAgAAAgAiAICQAEBAAIAQAAIAMBAAKAAEDIAAAUAAE=</HashCode>
+      <FileName>gameStructure\HudLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LTimer">
+    <Position X="26.5" Y="10.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAgAAAggEAAAAIgEAIAAARAAQEAIAA=</HashCode>
+      <FileName>gameStructure\LTimer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LWindow">
+    <Position X="22.25" Y="16.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAIAAAAAAAAAAAgAAAAAAAAAAAAAAYAAAAgAIQAAAA=</HashCode>
+      <FileName>gameStructure\LWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Npc">
+    <Position X="12.5" Y="12.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAABgAAAgAAAAAAAAAQAAAAAIQAAhQAAAUEAA=</HashCode>
+      <FileName>gameStructure\NPC.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory">
+    <Position X="4.5" Y="11.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAACAAAAAAA=</HashCode>
+      <FileName>gameStructure\IFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Factory">
+    <Position X="8.25" Y="12.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAEAAIAABAAAAAAAAABIAAAACACAAAAA=</HashCode>
+      <FileName>gameStructure\IFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="21" Y="10.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>QIQAgAiABAAAIAIBAAAAAAAQAIAAAAYBQABAAABUAAA=</HashCode>
+      <FileName>gameStructure\GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject">
+    <Position X="6" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QBAAIMAAAACAAwAAIUAjAEACBhAgAAJAAAIEIAIAAAA=</HashCode>
+      <FileName>gameStructure\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LTexture">
+    <Position X="17.25" Y="16.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAACAACABBABAAIACAAAAAAAAQAIAAAAQAAAQAAY=</HashCode>
+      <FileName>gameStructure\LTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="17.25" Y="10.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QIACAkgAAAAEAQEQIAAAAAAAAAAAAAIBAABEAQA0ABA=</HashCode>
+      <FileName>gameStructure\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PopulateEnemies">
+    <Position X="0.5" Y="11.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAAAAQAgABABAAAAHAAAAEAAAAAEAAAAAAAUAAA=</HashCode>
+      <FileName>gameStructure\PopulateEnemies.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScrollingBackground">
+    <Position X="17" Y="3" Width="2.25" />
+    <InheritanceLine Type="Layer" FixedToPoint="true">
+      <Path>
+        <Point X="11.375" Y="3" />
+        <Point X="11.375" Y="2.7" />
+        <Point X="18.062" Y="2.7" />
+        <Point X="18.062" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QACACAAAAAAAAAIAAAACAAAAAAAAAAIAAABAAAAUAAA=</HashCode>
+      <FileName>gameStructure\ScrollingBackground.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="12.75" Y="17" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAMAAQQAAAAAAAAAEAAYAAABIAAAAAAQ=</HashCode>
+      <FileName>gameStructure\SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sprite">
+    <Position X="10" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>eAACAAAAgAAAAAAAAAEAAAAAAAAAAAMQAABgQQAQAgI=</HashCode>
+      <FileName>gameStructure\Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAssetsDAO">
+    <Position X="2.75" Y="15.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAACAAgAAAEAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>dao\AssetsDao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetsDAO">
+    <Position X="2.5" Y="18.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAgAACAIgAAAAAAAAAQAAAAAAAAEAAA=</HashCode>
+      <FileName>dao\AssetsDao.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path">
+    <Position X="0.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>dao\Path.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextItem">
+    <Position X="0.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEgAAAAAACACAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>dao\TextItem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverScene">
+    <Position X="29.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAgAhAAACAAABIAAAAKAAgAIAAAAAMAAEAAAAAAAAA=</HashCode>
+      <FileName>sceneManagement\GameOverScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScene">
+    <Position X="23.5" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAACIAABAAAAIAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>sceneManagement\GameScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuScene">
+    <Position X="26.75" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgAgAAACAAABIAgAAAAAAEAAAAAIIAAAAAAAAAAAA=</HashCode>
+      <FileName>sceneManagement\MenuScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene">
+    <Position X="26.25" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAAAAAAAAiIABCAAAQAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>sceneManagement\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager">
+    <Position X="20" Y="3" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAEAAAAAAAAAAACAAAAYAAAAAAAIAAAQ=</HashCode>
+      <FileName>sceneManagement\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SplashScene">
+    <Position X="21" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAAAAEFIAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>sceneManagement\SplashScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLDocument" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAggQYEASAQAQDgABAgCAAEAAAQhAEkhAAgFRtEBEA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLElement" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAAAYCACACQAEIQpCIILSRAQQAAAoAEACgQAAAgEA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLAttribute" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IhQAoAAAACBAABAEAAggAAQAABAAAEAgAAAgQAEQgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLComment" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQAAAAAAAAAAAAAAQACAAAAAAAAAAAgAAAAgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLText" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQAAEAAQAAAAEAAAAAAAABAAAAEAAAgAAEAgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLDeclaration" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAQCAAAAAAAAAAAAAAAAAAAAAEAAAAIgAAAAgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLUnknown" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAggAAAAgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLPrinter" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGIQAggBAAAAgUAAAAEBAIAABAEgAAQoAEBAAUsghI=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::StrPair" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAiAAAAAhAAQAAIAAQgIAAAQAAAAAQAAAAQAAAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::DynArray&lt;T, INIT&gt;" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgBAAAkAABAAIAAAASAAGAAAAAAgAQEAJACAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::MemPool" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAgAAEAAAAAAAAAAgAgAAAI=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::MemPoolT&lt;SIZE&gt;" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAQAAAAhAAAAAgAAFAAABAAYAEAAAgAEAo=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLVisitor" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLUtil" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAkAMAAABAAAABAAKAAAAAgBIABggAAAAAAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLNode" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ALAgAAaIAEAACgAAEEAAYQhUgBqAIAAgAIskAAhAhAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLHandle" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgEBAAAEAACAAAAEAAIAAAAAiAAAAAAIcgAABABAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tinyxml2::XMLConstHandle" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgEBAAAEAACAAAAEAAIAAAAAiAAAAAAIMgAABABAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ImageDetails" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAADAEAAAAAAAAAAEAAAAAAAAwQAQAAg=</HashCode>
+      <FileName>gameStructure\Sprite.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="tinyxml2::Entity" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAECAAAAAAAAAAAAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ButtonState" Collapsed="true">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>gameStructure\Button.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EObjectType" Collapsed="true">
+    <Position X="4" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAEEAAAAAAAACAAAAAAAAAAAAAAAAAAgAQA=</HashCode>
+      <FileName>gameStructure\GameObject.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EPlayerState" Collapsed="true">
+    <Position X="15.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAIAAAAAAAAgAAAAAAgEAQAAAAA=</HashCode>
+      <FileName>gameStructure\Player.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="audio_type" Collapsed="true">
+    <Position X="10.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>gameStructure\SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SceneState" Collapsed="true">
+    <Position X="23.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>sceneManagement\Scene.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tinyxml2::XMLError" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKABKCAAAEAEAgoAAACAAAAAAEQBAAAAIEEgAAAgAIA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="tinyxml2::Whitespace" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tinyxml\tinyxml2.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -3,8 +3,7 @@
 <assets>
     <!--Child Element-->
     <!--Selected Player-->
-    <path name="selected_player">player2</path>
-    <path name="selected_bg">player1</path>
+    <path name="selected_player">player1</path>
     <!--BACKGROUNDS-->
     <path name="sceneBg">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
     <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
@@ -38,11 +37,12 @@
     <!--SOUND FILES-->
     <path name="bgmusic">../SDL_Runner_V1.0/assets/sounds/Severe_Tire_Damage.wav</path>
     <path name="sfx">../SDL_Runner_V1.0/assets/sounds/sfx.wav</path>
+    <path name="buttonPress">../SDL_Runner_V1.0/assets/sounds/buttonPress.wav</path>
 </assets>
 
 <!--Root-->
 <score>
-    <currentScore name="currentScore">929</currentScore>
+    <currentScore name="currentScore">1430</currentScore>
     <highScore name="highScore">2212</highScore>
     <coincount name="coincount">0</coincount>
 </score>

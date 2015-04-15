@@ -128,7 +128,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				
 				//Select Player Button 1
 				if (buttonDetails.name == "player1btn"){
-					SoundManager::getInstance()->playSfx("sfx");
+					SoundManager::getInstance()->playSfx("buttonPress");
 				
 					//Save selected Player & Destroy scene
 					AssetsDAO::getInstance()->update("player1", "path", "assets");
@@ -136,7 +136,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				}
 				//Select Player Button 2
 				else if (buttonDetails.name == "player2btn"){
-					SoundManager::getInstance()->playSfx("sfx");
+					SoundManager::getInstance()->playSfx("buttonPress");
 
 					//Save selected Player & Destroy scene
 					AssetsDAO::getInstance()->update("player2", "path", "assets");
@@ -145,7 +145,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 
 				//Pause Button 
 				else if (buttonDetails.name == "pausebutton"){
-					SoundManager::getInstance()->playSfx("sfx");
+					SoundManager::getInstance()->playSfx("buttonPress");
 					
 					//If Game Paused Un-Pause
 					if (GameManager::getInstance()->getTimer()->Paused()){
@@ -164,7 +164,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				}
 				//Close Button
 				else if (buttonDetails.name == "closebutton"){
-					SoundManager::getInstance()->playSfx("sfx");
+					SoundManager::getInstance()->playSfx("buttonPress");
 
 					cleanup();
 					SDL_Quit();
@@ -175,7 +175,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 
 				//Restart Button (Return to Player Select)
 				else if (buttonDetails.name == "restart"){
-					SoundManager::getInstance()->playSfx("sfx");
+					SoundManager::getInstance()->playSfx("buttonPress");
 
 					MenuScene* nextScene = new MenuScene();
 					SceneManager::getInstance()->runwithscene(nextScene);

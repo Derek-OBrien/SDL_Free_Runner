@@ -164,13 +164,16 @@ void GameManager::checkCollision(){
 		//Activate power up
 		player->powerUp();
 		stateCheck = player->getPlayerState();
+		SoundManager::getInstance()->playSfx("sfx");
+
 	}
 
 	else{
 		for (int i = 0; i < (int)birdVector.size(); i++){
 			//Check For Collision with Collectable
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), coinVector.at(i)->getCollectableCollisionBox())){
-				//Reset Position and update coin count
+				//Reset Position and update coin count#
+				SoundManager::getInstance()->playSfx("sfx");
 				coinVector.at(i)->resetPosition();
 				hud->updateCoinCount();
 			}
