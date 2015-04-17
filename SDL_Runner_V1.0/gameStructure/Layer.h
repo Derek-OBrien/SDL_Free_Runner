@@ -2,9 +2,12 @@
 #define _LAYER_H_
 
 /*
-	Author		: Derek O' Brien
-	File		: Layer.h
-	Description	: Base Class for all game layers 
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Layer.h
+-
+
+-		
 */
 
 #include "GameObject.h"
@@ -20,7 +23,7 @@ public:
 	virtual bool init();	//init layer
 	virtual void cleanup();	//cleanup
 	virtual void render(int alpha);	//render layer
-	virtual void scrollingRender(int alpha, std::string name);	//render scrolling layr
+	virtual void scrollingRender(int alpha, std::string name, int scrollSpeed);	//render scrolling layr
 
 	bool loadMedia(std::string path);	//load layer media
 

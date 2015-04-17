@@ -1,3 +1,12 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: MenuScene.cpp
+-
+
+-
+*/
+
 #include "MenuScene.h"
 #include "SceneManager.h"
 #include "GameScene.h"

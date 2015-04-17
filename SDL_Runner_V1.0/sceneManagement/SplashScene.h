@@ -1,6 +1,14 @@
 #ifndef _SPLASH_SCENE_H
 #define _SPLASH_SCENE_H
 
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: SplashScene.h
+-
+
+-
+*/
 #include "Scene.h"
 #include "../gameStructure/Layer.h"
 #include "../gameStructure/Label.h"

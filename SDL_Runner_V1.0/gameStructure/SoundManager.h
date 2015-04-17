@@ -1,13 +1,21 @@
 #ifndef _SoundManager_H_
 #define _SoundManager_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: SoundManager.h
+-
 
+-		Soundmanager Class Handles all sound in game
+*/
 #include <iostream>
 #include <map>
 #include <string>
 #include "SDL_mixer.h"
+#include "../gameStructure/GameDefines.h"
 
 //Type of audio enum
-enum audio_type{BG_MUSIC, SFX_MUSIC};
+//enum audio_type{BG_MUSIC, SFX_MUSIC};
 
 class SoundManager{
 public: 

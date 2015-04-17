@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Layer.cpp
+-
 
+-
+*/
 #include "Layer.h"
 #include "LWindow.h"
 
@@ -11,6 +18,8 @@ bool Layer::init(){
 
 	layer = new GameObject();
 	layer->setObjectType(OT_LAYER);
+
+	
 	return true;
 }
 
@@ -20,7 +29,8 @@ void Layer::create(std::string name){
 	if (!init()){
 		init();
 	}
-	
+
+
 	//load layer media
 	loadMedia(name);
 }
@@ -50,21 +60,24 @@ void Layer::render(int alpha){
 }
 
 //Render Scrolling Layer
-void Layer::scrollingRender(int alpha, std::string name){
+void Layer::scrollingRender(int alpha, std::string name, int scrollSpeed){
 
-	if(name == "cityBg"){
-		scrollingOffset -=3;
-	}
-	--scrollingOffset;
-	if (scrollingOffset < -bg_Texture.getWidth()){
-		scrollingOffset = 0;
-	}
+	scrollingOffset -= scrollSpeed;
 
+		if (name == "cityBg"){
+			scrollingOffset -= 5;
+		}
+		--scrollingOffset;
+		if (scrollingOffset < -bg_Texture.getWidth()){
+			scrollingOffset = 0;
+		}
+	
 	//Render Textures
 	bg_Texture.setAlpha(alpha);
 	bg_Texture.render(scrollingOffset, 0);
 	bg_Texture.render(scrollingOffset + bg_Texture.getWidth(), 0);
 }
+
 
 //Cleanup 
 void Layer::cleanup(){

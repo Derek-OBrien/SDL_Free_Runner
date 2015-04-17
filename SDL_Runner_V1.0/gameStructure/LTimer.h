@@ -1,10 +1,12 @@
 #ifndef _LTIMER_H_
 #define _LTIMER_H_
-
 /*
-Author		: Derek O' Brien
-File		: Ltimer.h
-Description	: In game timer
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: LTimer.h
+-
+
+-		
 */
 #include <SDL.h>
 #include <stdio.h>

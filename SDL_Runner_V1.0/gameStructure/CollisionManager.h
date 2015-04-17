@@ -1,6 +1,13 @@
 #ifndef _COLLISION_MANAGER_H_
 #define _COLLISION_MANAGER_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: CollisionManager.h
+-
 
+-		In game collision manager,
+*/
 #include <SDL.h>
 
 class CollisionManager{

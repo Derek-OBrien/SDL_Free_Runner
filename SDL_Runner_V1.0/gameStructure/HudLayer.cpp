@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: HudLayer.cpp
+-
 
+-
+*/
 #include "HudLayer.h"
 
 
@@ -58,9 +65,9 @@ void HudLayer::handleInput(SDL_Event &e){
 //update score 
 void HudLayer::updateScore(){
 	score += 1;
-	display.str("");
-	display << score;
-	textTexture = scoreLabel->loadTTFMedia(display.str().c_str(), 50, RED);
+	scoreDisplay.str("");
+	scoreDisplay << score;
+	textTexture = scoreLabel->loadTTFMedia(scoreDisplay.str().c_str(), 50, RED);
 }
 
 //Update Hudlayer
@@ -71,14 +78,14 @@ void HudLayer::update(){
 //update coin count
 void HudLayer::updateCoinCount(){
 	coinCount += 1;
-	display.str("");
-	display << coinCount;
-	textTexture = coinLabel->loadTTFMedia( display.str().c_str(), 50, RED);
+	countDisplay.str("");
+	countDisplay << coinCount;
+	textTexture = coinLabel->loadTTFMedia(countDisplay.str().c_str(), 50, RED);
 }
 
 //Get Score
 std::string HudLayer::getScore(){ 
-	return display.str(); 
+	return scoreDisplay.str();
 };
 
 //Get HighScore from xml

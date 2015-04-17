@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: SoundManager.cpp
+-
 
+-
+*/
 #include "SoundManager.h"
 #include "../dao/AssetsDao.h"
 

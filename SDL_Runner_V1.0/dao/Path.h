@@ -1,11 +1,13 @@
 #ifndef _PATH_H_
 #define _PATH_H
 #include "TextItem.h"
-
 /*
-	Author		: Derek O' Brien
-	File		: Path.h
-	Description	: Base Path for image paths read in from Xml file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Path.h
+-
+
+-	
 */
 
 class Path : public TextItem{

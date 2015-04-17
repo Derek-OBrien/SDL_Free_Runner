@@ -1,3 +1,13 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: GameScene.cpp
+-
+
+-
+*/
+
+//Includes
 #include "GameScene.h"
 #include "SceneManager.h"
 #include "GameOverScene.h"
@@ -7,14 +17,15 @@
 
 //Init All
 void GameScene::init(){
-	Scene::init();
-	GameManager::getInstance()->init();		//Init Game Scene
-	SoundManager::getInstance()->init();
-	SoundManager::getInstance()->loadAudio("bgmusic", BG_MUSIC);
+	Scene::init();			//init scene
+	GameManager::getInstance()->init();		//Init Game Manager
+	SoundManager::getInstance()->init();	//Init Sound Manager
+	SoundManager::getInstance()->loadAudio("bgmusic", BG_MUSIC);	//Load Background Audio
 }
 
 /*
-		Main Game Loop
+		Game Scene run
+		Contains main game loop
 */
 void GameScene::run(){
 	//Check init 
@@ -30,13 +41,16 @@ void GameScene::run(){
 
 	//Game Loop
 	while (getSceneState() == RUNNING){
-		//Handle input
+		//Continously Handle input
 		GameManager::getInstance()->handleInput();
+
 		//Continously check for collision
 		GameManager::getInstance()->checkCollision();
-		//Update game elements
+		
+		//Continously Update game elements
 		GameManager::getInstance()->update();
-		//Render everything
+		
+		//Continously Render everything
 		GameManager::getInstance()->render();
 
 		//Go To Pause Scene

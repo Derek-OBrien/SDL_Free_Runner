@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: ScrollingBackground.cpp
+-
 
+-
+*/
 #include "ScrollingBackground.h"
 
 
@@ -23,16 +30,17 @@ void ScrollingBackground::create(std::string name){
 }
 
 //Render Background
-void ScrollingBackground::render(std::string name){
+void ScrollingBackground::render(std::string name, int scrollSpeed){
 	if (name == "gameBg"){
-		bg->scrollingRender(255, name);
+		bg->scrollingRender(255, name, scrollSpeed);
 	}
 	else if (name == "cityBg"){
-		bg->scrollingRender(255, name);
+		bg->scrollingRender(255, name, scrollSpeed);
 	}
 	else{
-		bg->scrollingRender(90, name);
+		bg->scrollingRender(90, name, scrollSpeed);
 	}
+
 }
 
 //Update

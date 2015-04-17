@@ -1,9 +1,12 @@
 #ifndef _SPRITE_H_
 #define _SPRITE_H_
-
 /*
-	Derek O Brien
-	Sprite header file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Sprite.h
+-
+
+-		Sprite header Class. 
 */
 
 #include "GameObject.h"
@@ -21,6 +24,7 @@ struct ImageDetails{
 	int frames;
 	int posX;
 	int posY;
+	int frameRate;
 };
 
 class Sprite : public GameObject{

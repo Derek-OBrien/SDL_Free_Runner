@@ -1,7 +1,14 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Sprite.cpp
+-
 
+-
+*/
+#include "LWindow.h"
 #include "Sprite.h"
 #include "../dao/AssetsDao.h"
-#include "LWindow.h"
 
 //Sprite init
 bool Sprite::init(){
@@ -9,7 +16,6 @@ bool Sprite::init(){
 	if (!GameObject::init()){
 		GameObject::init();
 	}
-
 	return true;
 }
 
@@ -52,7 +58,7 @@ bool Sprite::loadMedia(std::string name){
 //Run animation 
 void Sprite::runAnimation(int posX, int posY){
 	
-	currentFrame = &gSpriteClips[frame/5];
+	currentFrame = &gSpriteClips[frame/imageDetails.frameRate];
 	spriteTexture.render(posX, posY, currentFrame);
 
 	++frame;
@@ -68,8 +74,8 @@ void Sprite::render(int posX, int posY){
 	runAnimation( posX,  posY);
 
 	//Render Bounding Box
-//	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
-//	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), getObjectBoundingBox());
+	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
+	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), getObjectBoundingBox());
 }
 
 

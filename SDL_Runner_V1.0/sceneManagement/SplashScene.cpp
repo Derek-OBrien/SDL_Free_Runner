@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: SplashScene.cpp
+-
 
+-
+*/
 #include "../gameStructure/LWindow.h"
 #include "SceneManager.h"
 #include "SplashScene.h"

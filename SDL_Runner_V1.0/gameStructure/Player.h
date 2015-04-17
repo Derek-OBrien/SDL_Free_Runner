@@ -1,11 +1,17 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Player.cpp
+-
 
+*/
 #include "Character.h"	//Include Character header file
 #include "../dao/AssetsDao.h"
 
 //Enum for player state
-typedef enum EPlayerState{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING };
+//typedef enum EPlayerState{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING };
 
 //player is subclass of character
 class Player : public Character{
@@ -38,8 +44,9 @@ public:
 	SDL_Rect* getPlayerCollisionBox(){ return playerBoundingBox; };
 
 private:	
-	Sprite* player;
+	Character* player;
 	SDL_Rect* playerBoundingBox;
+
 
 	Path selectedPlayer;
 	int playerPosX, playerPosY;

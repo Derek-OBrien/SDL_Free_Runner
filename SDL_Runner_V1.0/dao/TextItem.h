@@ -1,11 +1,13 @@
 #ifndef _TEXT_ITEM_H_
 #define _TEXT_ITEM_H_
 #include <string>
-
 /*
-		Author		: Derek O' Brien
-		File		: TextItem.h
-		Description	: Base Text element for dao
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: TextItem.h
+-
+
+-		
 */
 
 class TextItem{

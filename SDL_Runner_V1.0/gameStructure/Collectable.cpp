@@ -1,10 +1,10 @@
 /*
--		Derek O Brien K00105572
--		obstical cpp file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Collectable.cpp
+-
 
--       Sub class of Sprite
--       Has a runAI method to update logic (print statement “running AI for Collectable”)
--       Has an update method (print statement “updating Collectable”)
+-		
 */
 
 #include "Collectable.h"
@@ -37,16 +37,15 @@ void Collectable::create(std::string name, int posX, int posY){
 	collectable->setObjectType(OT_COLLECTABLE);
 
 	//Read in and load image from xml file
-	ImageDetails collectableDetails = AssetsDAO::getInstance()->readImageDetails(name);
-	collectable->setName(collectableDetails.name);
+	collectable->setName(name);
 	collectable->loadMedia(collectable->getName());
 	
 	//Set initial position
-	collPosX = collectableDetails.posX + posX;
-	collPosY = collectableDetails.posY + posY;
+	collPosX = posX;//collectableDetails.posX + posX;
+	collPosY = posY;//collectableDetails.posY + posY;
 
 	//Set Object bounding Box
-	collectable->setObjectBoundingBox(collPosX, collPosY, collectableDetails.spriteHeight, collectableDetails.spriteWidth);
+	collectable->setObjectBoundingBox(collPosX, collPosY, collectable->getObjectBoundingBox()->h, collectable->getObjectBoundingBox()->w);
 	collectableBB = collectable->getObjectBoundingBox();
 }
 

@@ -1,5 +1,10 @@
 /*
--          Is an abstract factory, used to create enemy types (boss, enemy)
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Factory.cpp
+-
+
+-
 */
 
 #include "IFactory.h"

@@ -1,4 +1,9 @@
 /*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: GameManager.cpp
+-
+
 -          Is the main controller
 -          Gets a pointer to a vector of enemies from the worldmanager
 -          Gets a pointer to the player from the worldmanager
@@ -8,7 +13,7 @@ Calls the player update
 Calls each enemy’s  update
 Calls each enemy’s runAI
 Calls the collision manager to check collisions
-Print statement (“render”)
+Render
 */
 
 #include "GameManager.h"	//Include game manager header
@@ -49,6 +54,7 @@ bool GameManager::init(){
 
 
 	collided = false;
+
 	return true;
 }
 
@@ -68,9 +74,10 @@ void GameManager::create(){
 	fg->create("gameFg");
 	timer->create();
 	hud->create("hud");
-	shield->create("shield", 100, 100);
+	shield->create("shield", 100, 300);
 	birdVector = popEnemies->populateBirdVector();
 	coinVector = popEnemies->populateCollectVector();
+
 }
 
 /*
@@ -81,25 +88,36 @@ void GameManager::render(){
 	//Clear Screen 
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
+	
+	//Read Speed from Xml File
+	std::string temp = AssetsDAO::getInstance()->read("initialSpeed", "scrollspeed", "gamedefines").getText();
+	scrollSpeed = std::stoi(temp);
 
+	//If player in slide mode
+	if (player->getPlayerState() == EPlayerState::SLIDING){
+		//Read Slide Speed from Xml File
+		std::string temp2 = AssetsDAO::getInstance()->read("slideSpeed", "scrollspeed", "gamedefines").getText();
+		scrollSpeed = std::stoi(temp2);
+	}
+	
 	//Render Backgrounds
-	bg_city->render("cityBg");
-	bg->render("gameBg");
+	bg_city->render("cityBg", scrollSpeed);
+	bg->render("gameBg", scrollSpeed);
 
 	//Render Player & Game Objects
 	player->render();
 	shield->render();
 
-	for (int i = 0; i < (int)birdVector.size(); i++){
-		birdVector.at(i)->render();
-	}
-
 	for (int i = 0; i < (int)coinVector.size(); i++){
 		coinVector.at(i)->render();
 	}
 
+	for (int i = 0; i < (int)birdVector.size(); i++){
+		birdVector.at(i)->render();
+	}
 
-	fg->render("gameFg");//Render ForeGround 
+
+	fg->render("gameFg", scrollSpeed);//Render ForeGround 
 	hud->render();		//Render Hud Layer
 
 	//Refresh Screen
@@ -181,7 +199,7 @@ void GameManager::checkCollision(){
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
 				//check player state for power up
-				if (stateCheck == (int)POWERUP){
+				if (stateCheck == EPlayerState::POWERUP){
 					//Remove bird
 					birdVector.at(i)->resetPosition();
 					player->setPlayerState(ALIVE);
@@ -189,7 +207,6 @@ void GameManager::checkCollision(){
 					
 				}
 				else{
-
 					//change player state and clean up player
 					player->setPlayerState(DEAD);
 					player->cleanup();

@@ -1,10 +1,15 @@
 #ifndef _GAME_OVER_SCENE_H
 #define _GAME_OVER_SCENE_H
 
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: GameOverScene.h
+-
+
+-
+*/
 #include "Scene.h"
-//#include "../gameStructure/layer.h"
-//#include "../gameStructure/Label.h"
-//#include "../gameStructure/Button.h"
 #include "../gameStructure/HudLayer.h"
 
 class GameOverScene : public  Scene

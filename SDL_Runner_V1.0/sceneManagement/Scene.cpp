@@ -1,3 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Scene.h
+-
+
+-
+*/
 #include "Scene.h"
 
 //Scene Init

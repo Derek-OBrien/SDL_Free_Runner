@@ -1,3 +1,12 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: GameOverScene.cpp
+-
+
+-
+*/
+
 #include "GameOverScene.h"
 #include "SceneManager.h"
 #include "../dao/AssetsDao.h"

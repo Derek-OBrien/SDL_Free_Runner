@@ -1,8 +1,10 @@
-
 /*
-	Author		:	Derek O' Brien
-	File		:	AssetsDao.cpp
-	Description	:	Functions for Dao
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: AssetsDao.cpp
+-
+
+-
 */
 
 //Includes
@@ -88,6 +90,7 @@ ImageDetails AssetsDAO::readImageDetails(std::string name){
 				temp.offsetX = pathElement->IntAttribute("offsetX");	//OffsetX
 				temp.offsetY = pathElement->IntAttribute("offsetY");	//OffsetY
 				temp.frames = pathElement->IntAttribute("frames");		//Number of Frames
+				temp.frameRate = pathElement->IntAttribute("framerate");//Frame rate for animations
 				temp.posX = pathElement->IntAttribute("posX");			//Initial X Position
 				temp.posY = pathElement->IntAttribute("posY");			//Initial Y Position
 			}

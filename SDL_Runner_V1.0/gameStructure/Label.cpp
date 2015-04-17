@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Label.cpp
+-
 
+-
+*/
 #include "Label.h"
 #include "../dao/AssetsDao.h"
 
@@ -14,11 +21,19 @@ bool Label::init(){
 	if (!TTF_WasInit()){
 		TTF_Init();
 	}
+	temp = new LTexture();
+
+	//Get font from xml file
+	Path fontPath = AssetsDAO::getInstance()->read("font", "path", "assets");
+	myFont = TTF_OpenFont(fontPath.getText().c_str(), 50);
 	return true;
 }
 
 //Create Label
 void Label::create(std::string displayText, int size, SDL_Color color){
+	if (!init()){
+		init();
+	}
 	textTexture = new LTexture();
 	textTexture = loadTTFMedia(displayText, size, color);
 }
@@ -30,12 +45,7 @@ void Label::render(int x, int y){
 
 //Load Label Font
 LTexture* Label::loadTTFMedia(std::string displayText, int size, SDL_Color color){
-	//Temp Texture
-	LTexture* temp = new LTexture();
-	
-	//Get font from xml file
-	Path fontPath = AssetsDAO::getInstance()->read("font", "path", "assets");
-	myFont = TTF_OpenFont(fontPath.getText().c_str(), size);
+
 
 	if (myFont == NULL){
 		std::cout << "Failed to load font : baveuse3 " << "\nTTF_Error :" << TTF_GetError() << std::endl;

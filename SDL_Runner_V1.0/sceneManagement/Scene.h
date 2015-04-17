@@ -1,10 +1,19 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
-#include <iostream>
 
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Scene.h
+-
+
+-
+*/
+#include <iostream>
+#include "../gameStructure/GameDefines.h"
 //Base Scene Class
 
-typedef enum  SceneState{RUNNING, PAUSED, DESTROY};
+//typedef enum  SceneState{RUNNING, PAUSED, DESTROY};
 class Scene{
 public:
 	Scene(){ init(); }; //constructor

@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: LTexture.cpp
+-
 
+-
+*/
 #include "LTexture.h"
 #include "GameManager.h"
 

@@ -1,15 +1,18 @@
 /*
--		Derek O Brien K00105572
--		Gamobject cpp file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly	
+-		@file		: GameObject.cpp
+-		
 
--		Base class for all game objects
--		Has an enum type for the type of game object it is (enemy, player, object)
+-		Base class for all game objects(Sprite, Character, Button etc)
 */
 
-#include "GameObject.h"	//Include GameObject header
+
+//Include GameObject header
+#include "GameObject.h"
 
 
-//Game Object init()
+//Game Object init(), initilize base game object
 bool GameObject::init(){
 	initCompleted = true;
 	eTypeOfObject = OT_OBJECT;	//Sets type to default object
@@ -18,11 +21,12 @@ bool GameObject::init(){
 }
 
 
-//Set up Object Bounding box
-void GameObject::setObjectBoundingBox(int x, int y, int height, int width){
+//Set up game object Bounding box
+//params: x = x position, y = y position, h = height, w = width 
+void GameObject::setObjectBoundingBox(int x, int y, int h, int w){
 
-	objectBoundingBox.h = height;		//set height of bounding box
-	objectBoundingBox.w = width;			//set width of bounding box
+	objectBoundingBox.h = h;		//set height of bounding box
+	objectBoundingBox.w = w;			//set width of bounding box
 	objectBoundingBox.x = x;	//set X position of bounding box
 	objectBoundingBox.y = y;	//set Y position of bounding box
 

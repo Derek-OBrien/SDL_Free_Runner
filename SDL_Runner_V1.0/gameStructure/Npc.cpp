@@ -1,6 +1,12 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Npc.cpp
+-
 
+-		
+*/
 #include "NPC.h"
-#include "../dao/AssetsDao.h"
 
 /*
 	Npc Init function
@@ -20,13 +26,12 @@ bool Npc::init(){
 void Npc::create(std::string npcName, int posX, int posY){
 
 	//Create npc and npc bounding box
-	npc = new Npc();
+	npc = new Character();
 	npcBoundingBox = new SDL_Rect();
 	npc->setObjectType(OT_OBSTICAL);
 	
 	//get Npc Details
-	ImageDetails npcDetails = AssetsDAO::getInstance()->readImageDetails(npcName);
-	npc->setName(npcDetails.name);
+	npc->setName(npcName);
 	npc->loadMedia(npc->getName());
 
 	//Set position
@@ -34,9 +39,8 @@ void Npc::create(std::string npcName, int posX, int posY){
 	npcPosY = posY;// npc->getPosY();
 
 	//Set Object bounding Box
-	npc->setObjectBoundingBox(npcPosX, npcPosY, npcDetails.spriteHeight, npcDetails.spriteWidth);
+	npc->setObjectBoundingBox(npcPosX, npcPosY, npc->getObjectBoundingBox()->h, npc->getObjectBoundingBox()->w);
 	npcBoundingBox = npc->getObjectBoundingBox();
-
 }
 
 
@@ -79,3 +83,5 @@ void Npc::cleanup(){
 	npc->~Character();
 	npc->setObjectBoundingBox(NULL, NULL, NULL, NULL);
 }
+
+

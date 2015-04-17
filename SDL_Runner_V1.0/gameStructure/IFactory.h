@@ -1,6 +1,14 @@
 #ifndef _I_FACTORY_H_
 #define _I_FACTORY_H_
 
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: IFactory.h
+-
+
+-		
+*/
 #include "Npc.h"
 #include <iostream>
 #include <memory>

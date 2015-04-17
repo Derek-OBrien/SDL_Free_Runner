@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: LTimer.cpp
+-
 
+-
+*/
 #include "LTimer.h"
 
 //Init Timer 

@@ -1,10 +1,15 @@
 /*
--		Derek O Brien K00105572
--		Player cpp file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Player.cpp
+-
+
+-		
 */
 
 #include "Player.h"	//Include player header
 #include "GameManager.h"
+
 
 //Player Init
 bool Player::init(){
@@ -53,22 +58,22 @@ void Player::render(){
 }
 
 
-
-
 /*
 	Player Mechanics
 */
 //Jump Mechanic
 void Player::jump(){
+	setPlayerState(JUMPING);
 	player->setName(selectedPlayer.getText() + "jump");
 	player->loadMedia(player->getName());
-	playerPosY-= FORCE_UP * 10;
+	playerPosY -= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;
 }
 
 void Player::fallDown(){
-	playerPosY+= FORCE_UP * 10;
+	setPlayerState(FALLING);
+	playerPosY += FORCE_UP * 10;
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;	
 }
@@ -76,6 +81,7 @@ void Player::fallDown(){
 
 //Slide Mechanic
 void Player::slide(){
+	setPlayerState(SLIDING);
 	player->setName(selectedPlayer.getText() + "slide");
 	player->loadMedia(player->getName());
 	playerPosY = player->getPosY();
@@ -83,14 +89,11 @@ void Player::slide(){
 
 //Player power up Mechanic
 void Player::powerUp(){
-
 	setPlayerState(POWERUP);	//set player state to POWERUP
 	//Load Power Up Sprite
 	player->setName(selectedPlayer.getText() + "powerup");
 	player->loadMedia(player->getName());
 	playerPosY = player->getPosY();
-
-		
 }
 
 
@@ -100,7 +103,7 @@ void Player::handleInput(SDL_Event& e){
 	//UP KEY
 	//If a key was pressed
 	//Check if in Power up as no jump/slide when in power up mode
-	if (currentState != (int)POWERUP){
+	if (currentState != EPlayerState::POWERUP){
 		if (e.type == SDL_KEYDOWN && e.key.repeat == 0){
 			switch (e.key.keysym.sym){
 			case SDLK_UP:	//Up key pressed
@@ -122,6 +125,7 @@ void Player::handleInput(SDL_Event& e){
 				break;
 
 			case SDLK_DOWN:		//Down key Released
+				setPlayerState(ALIVE);
 				player->setName(selectedPlayer.getText());
 				player->loadMedia(player->getName());
 				playerPosY = player->getPosY();
@@ -135,6 +139,6 @@ void Player::handleInput(SDL_Event& e){
 
 //Clean Up Function
 void Player::cleanup(){
-	player->~Sprite();
+	player->~Character();
 	player->setObjectBoundingBox(NULL, NULL, NULL, NULL);
 }

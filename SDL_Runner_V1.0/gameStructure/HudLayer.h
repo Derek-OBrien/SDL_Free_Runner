@@ -1,10 +1,12 @@
 #ifndef _HUDLAYER_H_
 #define _HUDLAYER_H_
-
 /*
-	Author		: Derek O' Brien
-	File		: Hudlayer.h
-	Description	: In game hud layer, stores all in game labels and buttons
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: HudLayer.h
+-
+
+-		
 */
 #include "Layer.h"
 #include "Button.h"
@@ -43,12 +45,14 @@ private:
 
 	LTexture* textTexture;	//text texture
 	int score;					//score
-	std::stringstream display;	//display label
+	std::stringstream scoreDisplay;	//display label
 	std::string highScore;	//high score text
 	
 	Label* coinLabel;		//coin label
 	std::string coinText;	//coin label text
 	int coinCount;			//coin count
+	std::stringstream countDisplay;	//display label
+
 };
 
 #endif//_HUDLAYER_H_

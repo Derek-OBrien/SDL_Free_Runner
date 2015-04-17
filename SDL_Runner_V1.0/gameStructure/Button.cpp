@@ -1,4 +1,12 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Button.cpp
+-
 
+-		Button Class
+-		Controls all button states, and input from user
+*/
 //Inludes
 #include "Button.h"
 #include "../dao/AssetsDao.h"

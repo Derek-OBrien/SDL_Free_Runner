@@ -1,11 +1,13 @@
 #ifndef _LABEL_H_
 #define _LABEL_H_
 /*
-Author		: Derek O' Brien
-File		: Label.h
-Description	: Base class for all in game labels
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Label.h
+-
+
+-		
 */
-//includes
 #include "GameObject.h"
 #include <sstream>
 
@@ -25,6 +27,9 @@ public:
 private:
 	//Text texture
 	LTexture* textTexture;
+
+	LTexture* temp;
+
 };
 
 #endif//_LABEL_H_

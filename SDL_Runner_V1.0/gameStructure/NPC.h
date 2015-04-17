@@ -1,6 +1,12 @@
 #ifndef _NPC_H_
 #define _NPC_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Npc.h
+-
 
+*/
 #include "Collectable.h"
 
 //Npc class Subclass of character
@@ -22,6 +28,7 @@ public:
 private:
 	Character* npc;
 	SDL_Rect* npcBoundingBox;
+
 	//Npc name & position
 	std::string npcName;
 	int npcPosX, npcPosY;

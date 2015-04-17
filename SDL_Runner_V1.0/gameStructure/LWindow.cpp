@@ -1,5 +1,12 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Lwindow.cpp
+-
 
-# include "LWindow.h"
+-		
+*/
+#include "LWindow.h"
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
 

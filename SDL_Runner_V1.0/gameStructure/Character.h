@@ -1,9 +1,12 @@
 #ifndef _CHARACTER_H_
 #define _CHARACTER_H_
-
 /*
--		Derek O Brien K00105572
--		Character header file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Character.h
+-
+
+-		
 */
 
 #include "Sprite.h"

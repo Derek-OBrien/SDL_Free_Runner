@@ -1,6 +1,13 @@
 #ifndef _MENU_SCENE_H
 #define _MENU_SCENE_H
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: MenuScene.h
+-
 
+-
+*/
 #include "Scene.h"
 #include "../gameStructure/Layer.h"
 #include "../gameStructure/Button.h"

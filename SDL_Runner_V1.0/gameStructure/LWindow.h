@@ -1,6 +1,13 @@
 #ifndef _LOAD_WINDOW_H_
 #define _LOAD_WINDOW_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: LWindow.h
+-
 
+-		
+*/
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>

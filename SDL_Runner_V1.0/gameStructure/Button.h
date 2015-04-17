@@ -1,14 +1,15 @@
 #ifndef _BUTTON_H_
 #define _BUTTON_H_
-
 /*
-	Author		:	Derek O' Brien
-	File		:	Button.h
-	Description	:	Button Class for creating button elements
-					Inherits From Sprite
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Button.h
+-
+
+-		
 */
+
 //Includes
-#include "LTexture.h"
 #include "Sprite.h"
 
 //Button State Enum

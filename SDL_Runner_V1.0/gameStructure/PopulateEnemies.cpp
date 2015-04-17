@@ -1,4 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: PopulateEnemies.cpp
+-
 
+-		
+*/
 #include "PopulateEnemies.h"
 
 std::vector<Npc*> PopulateEnemies::populateBirdVector(){
@@ -65,27 +72,27 @@ std::vector<Collectable*> PopulateEnemies::populateCollectVector(){
 		switch (i){
 		case 0:
 			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
-			npcY = 50;
+			npcY = 350;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 1:
-			npcX = GAME_WIDTH + (GAME_WIDTH *0.4);
-			npcY = 50;
+			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
+			npcY = 450;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 2:
 			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);
-			npcY = 50;
+			npcY = 350;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 3:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.8);///slideunder
-			npcY = 50;
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);///slideunder
+			npcY = 450;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 4:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.7);///slide under
-			npcY = 50;
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.8);///slide under
+			npcY = 350;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		default:

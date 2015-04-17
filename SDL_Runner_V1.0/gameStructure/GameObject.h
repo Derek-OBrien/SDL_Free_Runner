@@ -1,5 +1,13 @@
 #ifndef _GAME_OBJECT_H_
 #define _GAME_OBJECT_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: GameObject.h
+-
+
+-		Base class for all game objects(Sprite, Character, Button etc)
+*/
 
 //Include all Sdl Headers At base Class
 #include <SDL.h>
@@ -17,7 +25,8 @@
 #include "LTexture.h"
 #include "GameDefines.h"
 
-typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_LAYER, OT_BUTTON };	//enum to hold object type
+////enum to hold object type
+//typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_LAYER, OT_BUTTON };
 
 //Base class for all game objects
 class GameObject{
@@ -26,8 +35,8 @@ public:
 	GameObject(){ init(); };	//Constructor
 	~GameObject(){ cleanup(); };	//DeConstructor
 
-	virtual void cleanup();
-	virtual bool init();
+	virtual void cleanup();		//clena up function
+	virtual bool init();		//init function
 
 	//Setters
 	void setPositionX(int x){ mPosX = x; };				//Set game object position
@@ -79,7 +88,7 @@ private:
 
 	std::string objectName;		//Object Name
 
-	bool initCompleted;
+	bool initCompleted;	//init bool
 
 };
 

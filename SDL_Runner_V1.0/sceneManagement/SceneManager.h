@@ -1,5 +1,14 @@
 #ifndef _SCENE_MANAGER_H_
 #define _SCENE_MANAGER_H_
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Scene.h
+-
+
+-
+*/
+
 #include "Scene.h"
 
 //Sceen Manager Class manages which scene is called

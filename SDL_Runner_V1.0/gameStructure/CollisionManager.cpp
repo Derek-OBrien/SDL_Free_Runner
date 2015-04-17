@@ -1,12 +1,10 @@
 /*
--		Derek O Brien K00105572
--		Collision manager cpp file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: CollisionManager.cpp
+-
 
-		CollisionManager
--       Singleton
--       registerWithCollisionManager (collision manager will take GameObject’s)
--       registerPlayer (takes in a player object)
--       checkCollisions (this will check player against any all types of objects)
+-
 */
 
 #include "CollisionManager.h"//include collisionManager header file

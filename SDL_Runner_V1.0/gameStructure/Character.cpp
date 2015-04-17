@@ -1,8 +1,10 @@
 /*
--		Derek O Brien K00105572
--		Character cpp file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Character.cpp
+-
 
--       Base class for all characters, subclass of game object
+-
 */
 
 #include "Character.h"	//Include Character header 

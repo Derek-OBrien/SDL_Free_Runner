@@ -1,3 +1,11 @@
+/*
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: Main.cpp
+-
+
+-
+*/
 #include "sceneManagement\SceneManager.h"
 #include "sceneManagement\SplashScene.h"
 

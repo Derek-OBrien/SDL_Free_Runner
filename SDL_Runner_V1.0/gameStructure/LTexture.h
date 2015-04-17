@@ -1,11 +1,13 @@
 #ifndef _L_TEXTURE_H_
 #define _L_TEXTURE_H_
 
-//Texture wrapper class
 /*
-	Author		: Derek O' Brien
-	File		: LTexture.h
-	Description	: Base texture class for all in game textures
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: LTexture.h
+-
+
+-		Game Texture class.
 */
 #include "GameObject.h"
 

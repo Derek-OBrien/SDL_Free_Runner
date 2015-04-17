@@ -2,10 +2,12 @@
 #define _ASSETS_DAO_H_
 
 /*
-	Author		:	Derek O' Brien
-	File		:	AssestsDao.h
-	Description	:	Dao Interface and Class for Assets Dao
-					Used for reading & writing data to an Xml file
+-		@author		: Derek O Brien K00105572
+-		@lecutrer	: James Daly
+-		@file		: AssetsDao.h
+-
+
+-		
 */
 
 //Include Files Needed
@@ -16,6 +18,7 @@
 //Dao Interface
 class IAssetsDAO{
 public:
+
 	//DeConstructor
 	virtual ~IAssetsDAO(){};
 
@@ -38,6 +41,7 @@ class AssetsDAO : public IAssetsDAO{
 public:
 	//Static instance
 	static AssetsDAO* getInstance();
+	
 	//Deconstructor
 	virtual ~AssetsDAO(){};
 
