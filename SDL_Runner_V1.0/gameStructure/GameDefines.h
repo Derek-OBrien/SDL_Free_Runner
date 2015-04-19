@@ -8,6 +8,12 @@
 
 -		All in game global defines
 */
+
+//Include SDL
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
 //Window
 #define GAME_WIDTH 1920
 #define GAME_HEIGHT 1080
@@ -35,7 +41,7 @@ typedef enum{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_LAYER, OT_BU
 typedef enum{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING }EPlayerState;
 typedef enum{ BG_MUSIC, SFX_MUSIC }audio_type;
 typedef enum{ RUNNING, PAUSED, DESTROY }SceneState;
-
+typedef enum{ NORMAL, HOVER, PRESSED }ButtonState;
 //Sprite Image Detials Struct
 struct ImageDetails{
 	std::string name;

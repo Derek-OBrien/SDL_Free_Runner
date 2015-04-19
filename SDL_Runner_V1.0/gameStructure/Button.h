@@ -12,8 +12,7 @@
 //Includes
 #include "Sprite.h"
 
-//Button State Enum
-typedef enum ButtonState{ NORMAL, HOVER, PRESSED };	
+
 
 class Button : public Sprite{
 public:

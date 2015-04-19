@@ -10,6 +10,7 @@
 -		Game Texture class.
 */
 #include "GameObject.h"
+#include "GameDefines.h"
 
 class LTexture{
 public:

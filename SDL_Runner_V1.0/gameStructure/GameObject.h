@@ -9,11 +9,6 @@
 -		Base class for all game objects(Sprite, Character, Button etc)
 */
 
-//Include all Sdl Headers At base Class
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-
 #include <stdio.h>
 #include <string>
 #include <vector>
