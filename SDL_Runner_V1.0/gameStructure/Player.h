@@ -26,13 +26,14 @@ public:
 	virtual void update();		//update player
 	virtual void cleanup();		//cleanup player
 
+	void loadPlayerSprite();	//Load Player sprite 
 
 	//Player Movements
 	void jump();	//Jump up
 	void fallDown();//Fall back down
-	void slide();
+	void slide();	//slide
 	void powerUp();	//Player power up method
-
+	
 	
 	// handle any input from the keyboard, mouse, or joystick
 	void handleInput(SDL_Event& e);

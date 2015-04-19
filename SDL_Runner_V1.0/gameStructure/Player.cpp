@@ -36,10 +36,9 @@ void Player::create(){
 
 	//read in selected player sprite from xml file
 	selectedPlayer = AssetsDAO::getInstance()->read("selected_player", "path", "assets");
-
+	
 	//load player sprite
-	player->setName(selectedPlayer.getText());
-	player->loadMedia(player->getName());
+	loadPlayerSprite();
 
 	//set Player Position
 	playerPosX = player->getPosX();
@@ -57,6 +56,35 @@ void Player::render(){
 	player->render(playerPosX, playerPosY);
 }
 
+//Load player Sprite from XML file depending on player state
+void Player::loadPlayerSprite(){
+
+	switch (currentState){
+	case ALIVE:
+		player->setName(selectedPlayer.getText());
+		player->loadMedia(player->getName());
+		break;
+	case DEAD:
+		break;
+	case POWERUP:
+		player->setName(selectedPlayer.getText() + "powerup");
+		player->loadMedia(player->getName());
+		break;
+	case JUMPING:
+		player->setName(selectedPlayer.getText() + "jump");
+		player->loadMedia(player->getName());
+		break;
+	case FALLING:
+		break;
+	case SLIDING:
+		setPlayerState(SLIDING);
+		player->setName(selectedPlayer.getText() + "slide");
+		player->loadMedia(player->getName());
+		break;
+	default:
+		break;
+	}
+}
 
 /*
 	Player Mechanics
@@ -64,8 +92,7 @@ void Player::render(){
 //Jump Mechanic
 void Player::jump(){
 	setPlayerState(JUMPING);
-	player->setName(selectedPlayer.getText() + "jump");
-	player->loadMedia(player->getName());
+	loadPlayerSprite();
 	playerPosY -= FORCE_UP * 10;
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;
@@ -82,17 +109,14 @@ void Player::fallDown(){
 //Slide Mechanic
 void Player::slide(){
 	setPlayerState(SLIDING);
-	player->setName(selectedPlayer.getText() + "slide");
-	player->loadMedia(player->getName());
+	loadPlayerSprite();
 	playerPosY = player->getPosY();
 }
 
 //Player power up Mechanic
 void Player::powerUp(){
 	setPlayerState(POWERUP);	//set player state to POWERUP
-	//Load Power Up Sprite
-	player->setName(selectedPlayer.getText() + "powerup");
-	player->loadMedia(player->getName());
+	loadPlayerSprite();
 	playerPosY = player->getPosY();
 }
 
@@ -130,16 +154,14 @@ void Player::handleInput(SDL_Event& e){
 
 			case SDLK_DOWN:		//Down key Released
 				setPlayerState(ALIVE);
-				player->setName(selectedPlayer.getText());
-				player->loadMedia(player->getName());
+				loadPlayerSprite();
 				playerPosY = player->getPosY();
 
 				break;
 
 			case SDLK_SPACE:
 					setPlayerState(ALIVE);
-					player->setName(selectedPlayer.getText());
-					player->loadMedia(player->getName());
+					loadPlayerSprite();
 					playerPosY = player->getPosY();
 				break;
 			}
