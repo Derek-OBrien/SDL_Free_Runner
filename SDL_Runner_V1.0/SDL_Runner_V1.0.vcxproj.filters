@@ -93,9 +93,6 @@
     <ClCompile Include="gameStructure\ScrollingBackground.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files\gameStructure</Filter>
-    </ClCompile>
     <ClCompile Include="gameStructure\LTimer.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
@@ -117,6 +114,7 @@
     <ClCompile Include="gameStructure\SoundManager.cpp">
       <Filter>Source Files\gameStructure</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameStructure\Character.h">

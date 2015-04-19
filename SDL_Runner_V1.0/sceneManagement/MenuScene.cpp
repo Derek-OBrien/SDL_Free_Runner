@@ -66,7 +66,7 @@ void MenuScene::run(){
 		player1btn->render("player1btn");
 		player2btn->render("player2btn");
 		closeButton->render("closebutton");
-		label->render((GAME_WIDTH / 2), 20);
+		label->render((GAME_WIDTH / 2), 50);
 
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 	}

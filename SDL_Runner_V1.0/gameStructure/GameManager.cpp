@@ -49,7 +49,6 @@ bool GameManager::init(){
 	timer = new LTimer();
 	hud = new HudLayer();
 
-	shield = new Collectable();
 	popEnemies = new PopulateEnemies();
 
 
@@ -74,7 +73,6 @@ void GameManager::create(){
 	fg->create("gameFg");
 	timer->create();
 	hud->create("hud");
-	shield->create("shield", 100, 300);
 	birdVector = popEnemies->populateBirdVector();
 	coinVector = popEnemies->populateCollectVector();
 
@@ -89,24 +87,12 @@ void GameManager::render(){
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0x00, 0x00, 0x00, 255);
 	SDL_RenderClear(LWindow::getInstance()->getRenderer());
 	
-	//Read Speed from Xml File
-	std::string temp = AssetsDAO::getInstance()->read("initialSpeed", "scrollspeed", "gamedefines").getText();
-	scrollSpeed = std::stoi(temp);
-
-	//If player in slide mode
-	if (player->getPlayerState() == EPlayerState::SLIDING){
-		//Read Slide Speed from Xml File
-		std::string temp2 = AssetsDAO::getInstance()->read("slideSpeed", "scrollspeed", "gamedefines").getText();
-		scrollSpeed = std::stoi(temp2);
-	}
-	
 	//Render Backgrounds
 	bg_city->render("cityBg", scrollSpeed);
 	bg->render("gameBg", scrollSpeed);
 
 	//Render Player & Game Objects
 	player->render();
-	shield->render();
 
 	for (int i = 0; i < (int)coinVector.size(); i++){
 		coinVector.at(i)->render();
@@ -129,6 +115,17 @@ void GameManager::render(){
 	Calls all game elements update functions
 	*/
 void GameManager::update(){
+	
+	//Update scroll speed and velocty when player sliding
+	scrollSpeed = AssetsDAO::getInstance()->readInt("initialSpeed", "scrollspeed", "gamedefines");
+	velocityX = AssetsDAO::getInstance()->readInt("velX", "velx", "gamedefines");
+
+	if (player->getPlayerState() == EPlayerState::SLIDING){
+		scrollSpeed = AssetsDAO::getInstance()->readInt("slideSpeed", "scrollspeed", "gamedefines");
+		velocityX = AssetsDAO::getInstance()->readInt("velX2", "velx", "gamedefines");
+	}
+
+
 	//Scroll Bacckgrounds
 	bg_city->update();
 	bg->update();
@@ -138,8 +135,7 @@ void GameManager::update(){
 	hud->update();
 
 	//Update Npc & Coins Positions
-	shield->update();
-	popEnemies->update();
+	popEnemies->update(velocityX);
 }
 
 /*
@@ -173,20 +169,7 @@ void GameManager::checkCollision(){
 	//Get Player State
 	int stateCheck = player->getPlayerState();
 
-	//Check for Collision with Power Up
-	if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), shield->getCollectableCollisionBox())){
-
-		//Reset Shield Position
-		shield->resetPosition();
-
-		//Activate power up
-		player->powerUp();
-		stateCheck = player->getPlayerState();
-		SoundManager::getInstance()->playSfx("sfx");
-
-	}
-
-	else{
+	
 		for (int i = 0; i < (int)birdVector.size(); i++){
 			//Check For Collision with Collectable
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), coinVector.at(i)->getCollectableCollisionBox())){
@@ -195,6 +178,7 @@ void GameManager::checkCollision(){
 				coinVector.at(i)->resetPosition();
 				hud->updateCoinCount();
 			}
+
 			//Check For collision with enemy
 			if (CollisionManager::getInstance()->checkCollision(player->getPlayerCollisionBox(), birdVector.at(i)->getNpcCollisionBox())){
 
@@ -202,9 +186,8 @@ void GameManager::checkCollision(){
 				if (stateCheck == EPlayerState::POWERUP){
 					//Remove bird
 					birdVector.at(i)->resetPosition();
+
 					player->setPlayerState(ALIVE);
-					player->loadMedia(player->getName());
-					
 				}
 				else{
 					//change player state and clean up player
@@ -221,7 +204,7 @@ void GameManager::checkCollision(){
 				}
 			}
 		}
-	}
+	//}
 }
 
 
@@ -236,6 +219,5 @@ void GameManager::cleanup(){
 	fg->cleanup();
 
 	//Clean up game objects
-	shield->cleanup();
 	popEnemies->cleanup();
 }

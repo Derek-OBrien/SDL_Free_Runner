@@ -11,21 +11,7 @@
 
 #include "GameObject.h"
 #include "LTexture.h"
-#include "GameDefines.h"
-
-//Sprite image details struct
-struct ImageDetails{
-	std::string name;
-	std::string pathToFile;
-	int spriteHeight;
-	int spriteWidth;
-	int offsetX;
-	int offsetY;
-	int frames;
-	int posX;
-	int posY;
-	int frameRate;
-};
+///#include "GameDefines.h"
 
 class Sprite : public GameObject{
 public:

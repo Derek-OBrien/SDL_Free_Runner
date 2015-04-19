@@ -33,7 +33,7 @@ public:
 #ifndef _FACTORY_H_
 #define _FACTORY_H_
 
-class Factory : public IFactory{
+class Factory{
 public:
 
 	Factory(){ };			// constructor

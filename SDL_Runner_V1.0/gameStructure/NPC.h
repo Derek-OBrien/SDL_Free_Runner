@@ -19,7 +19,7 @@ public:
 	virtual void create(std::string npcName, int posX, int posY);//Create
 	virtual void cleanup();	//Cleanup
 	virtual void render();	//Render
-	virtual void update();	//Update
+	virtual void update(int vel);	//Update
 
 	void resetPosition();	//Reset Position
 	//Get objects bounding box

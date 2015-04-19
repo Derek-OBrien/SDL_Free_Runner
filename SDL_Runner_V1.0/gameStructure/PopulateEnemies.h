@@ -17,13 +17,16 @@ public:
 
 	//virtual bool init();
 	std::vector<Npc*> populateBirdVector();
-	std::vector<Npc*> populateBugVector();
 	std::vector<Collectable*> populateCollectVector();
 
-	void update();
+	
+	void update(int vel);
 	void render();
 	//void release();
 	void cleanup();
+
+	int setYposition();
+	std::vector<Sprite*> getGameObjects();
 private:
 
 	Factory* factory;

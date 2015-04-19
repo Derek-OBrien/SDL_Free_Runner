@@ -64,6 +64,7 @@ void Layer::scrollingRender(int alpha, std::string name, int scrollSpeed){
 
 	scrollingOffset -= scrollSpeed;
 
+		//Move city image( very rear image slight bit faster)
 		if (name == "cityBg"){
 			scrollingOffset -= 5;
 		}

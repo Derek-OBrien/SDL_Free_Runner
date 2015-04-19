@@ -20,7 +20,7 @@ public:
 
 	virtual bool init();		//Init
 	virtual void create(std::string name, int posX, int posY);	//Creat
-	virtual void update();		//Update
+	virtual void update(int vel);		//Update
 	void resetPosition();		//resetPosition
 	virtual void render();		//Render
 	virtual void cleanup();		//cleanup

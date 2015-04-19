@@ -103,7 +103,6 @@ void Player::handleInput(SDL_Event& e){
 	//UP KEY
 	//If a key was pressed
 	//Check if in Power up as no jump/slide when in power up mode
-	if (currentState != EPlayerState::POWERUP){
 		if (e.type == SDL_KEYDOWN && e.key.repeat == 0){
 			switch (e.key.keysym.sym){
 			case SDLK_UP:	//Up key pressed
@@ -113,8 +112,13 @@ void Player::handleInput(SDL_Event& e){
 			case SDLK_DOWN:	//Down Key Pressed
 				slide();
 				break;
+
+			case SDLK_SPACE:
+				powerUp();
+				break;
 			}
 		}
+
 		//If a key was released
 		else if (e.type == SDL_KEYUP && e.key.repeat == 0){
 			switch (e.key.keysym.sym){
@@ -131,9 +135,15 @@ void Player::handleInput(SDL_Event& e){
 				playerPosY = player->getPosY();
 
 				break;
+
+			case SDLK_SPACE:
+					setPlayerState(ALIVE);
+					player->setName(selectedPlayer.getText());
+					player->loadMedia(player->getName());
+					playerPosY = player->getPosY();
+				break;
 			}
 		}
-	}
 }
 
 

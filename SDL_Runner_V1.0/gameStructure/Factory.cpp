@@ -25,15 +25,13 @@ void Factory::cleanup(){
 
 //Create Obstical
 Npc*Factory::createBirdNpc(){
-	npcObject = new Npc();
-	return npcObject;
+	return new Npc();
 }
 
 
 //Create Collectable
 Collectable* Factory::createCollectable(){
-	collObject = new Collectable();
-	return collObject;
+	return new Collectable();
 }
 
 

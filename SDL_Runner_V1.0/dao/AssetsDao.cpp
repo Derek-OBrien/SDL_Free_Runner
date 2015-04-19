@@ -60,6 +60,41 @@ Path AssetsDAO::read(std::string name, std::string elementType, std::string root
 	return NULL;
 }
 
+
+
+int AssetsDAO::readInt(std::string name, std::string elementType, std::string root){
+	int temp;			//temp variable
+	Path elementName;	//temp name 
+
+	//Load Document
+	if (doc.LoadFile(XMLDOC) == tinyxml2::XML_SUCCESS){
+
+		//Root Elemenet
+		tinyxml2::XMLElement* rootElement = doc.FirstChildElement(root.c_str());
+
+		//If root null print error
+		if (rootElement == NULL)
+			std::cout << tinyxml2::XML_ERROR_FILE_READ_ERROR << " \n Can not find root : " << root << std::endl;
+
+		//Loop through Child Element
+		for (tinyxml2::XMLElement* pathElement = rootElement->FirstChildElement(elementType.c_str()); pathElement != NULL; pathElement = pathElement->NextSiblingElement()){
+
+			//Get Element Name Attribute 
+			elementName.setText(pathElement->Attribute("name"));
+
+			//If Element name == Name passed in get text of Element
+			if (elementName.getText() == name){
+				temp = std::stoi(pathElement->GetText());
+			}
+		}
+		return temp;
+	}
+	else
+		std::cout << "Could Not Load XML Document : %s" << XMLDOC << std::endl;
+
+	return NULL;
+}
+
 /*
 	Read in Sprite Animation Details From Xml File
 	@return ImageDetails struct containg sprite details

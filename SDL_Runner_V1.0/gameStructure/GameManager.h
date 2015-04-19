@@ -37,7 +37,7 @@ private:
 	~GameManager(){ this->cleanup(); };	//DeCOnstructor
 
 	bool collided;
-	int scrollSpeed;
+	int scrollSpeed, velocityX;
 
 	LTimer* timer;
 	ScrollingBackground* bg_city;
@@ -46,7 +46,6 @@ private:
 	Player* player;
 	HudLayer* hud;
 
-	Collectable* shield;
 	PopulateEnemies* popEnemies;
 	std::vector<Npc*> birdVector;
 	std::vector<Collectable*> coinVector;

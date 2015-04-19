@@ -9,18 +9,13 @@
 -		All in game global defines
 */
 //Window
-#define GAME_WIDTH 1900
-#define GAME_HEIGHT 640
+#define GAME_WIDTH 1920
+#define GAME_HEIGHT 1080
 
 
 //Velocity
-#define FORCE_UP 10
-#define FORCE_X 10
-#define FORCE_WORLD 5
-
-//Player Jump Defines
-#define MAX_LIMIT 100
-#define MIN_LIMIT 0
+#define FORCE_UP 20
+#define FORCE_WORLD 10
 
 //Xml Document
 #define XMLDOC "../SDL_Runner_V1.0/assets/assets.xml"
@@ -41,5 +36,18 @@ typedef enum{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING }EPlayerState;
 typedef enum{ BG_MUSIC, SFX_MUSIC }audio_type;
 typedef enum{ RUNNING, PAUSED, DESTROY }SceneState;
 
+//Sprite Image Detials Struct
+struct ImageDetails{
+	std::string name;
+	std::string pathToFile;
+	int spriteHeight;
+	int spriteWidth;
+	int offsetX;
+	int offsetY;
+	int frames;
+	int posX;
+	int posY;
+	int frameRate;
+};
 
 #endif//_GAMEDEFINES_H_

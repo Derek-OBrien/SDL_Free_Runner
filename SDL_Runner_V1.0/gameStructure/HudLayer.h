@@ -26,7 +26,7 @@ public:
 	void cleanup();	//cleanup layer
 
 	std::string getScore();		//get game score
-	std::string getHighScore();	//get high score
+	int getHighScore();	//get high score
 	bool checkIfHighScore();	//checkif current score = high score
 
 	void saveScore();		//save current score
@@ -46,7 +46,7 @@ private:
 	LTexture* textTexture;	//text texture
 	int score;					//score
 	std::stringstream scoreDisplay;	//display label
-	std::string highScore;	//high score text
+	int highScore;	//high score text
 	
 	Label* coinLabel;		//coin label
 	std::string coinText;	//coin label text

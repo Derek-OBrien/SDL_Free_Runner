@@ -42,9 +42,9 @@ void GameOverScene::run(){
 
 
 	//Create Labels
-	label->create("-[Game Over]-", 50, BLACK);
+	label->create("-[Game Over]-", 50, GREEN);
 	scoreLabel->create(("-[Your Score : " + currentScore + "]-"), 50, RED);
-	highScoreLabel->create(("-[High Score : " + highScore + "]-"), 50, RED);
+	highScoreLabel->create(("-[High Score : " + highScore + "]-"), 50, ORANGE);
 
 
 	//Create Buttons
@@ -65,9 +65,9 @@ void GameOverScene::run(){
 
 		//Render Everything
 		bg.render(255);
-		label->render((GAME_WIDTH / 2), 80);
-		scoreLabel->render((GAME_WIDTH / 2), 200);
-		highScoreLabel->render((GAME_WIDTH / 2), 300);
+		label->render((GAME_WIDTH / 2), 100);
+		scoreLabel->render((GAME_WIDTH / 2), 250);
+		highScoreLabel->render((GAME_WIDTH / 2), 350);
 
 		closebutton->render("closebutton");
 		restart->render("restart");

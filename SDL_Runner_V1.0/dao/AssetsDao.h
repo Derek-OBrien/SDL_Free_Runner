@@ -45,9 +45,13 @@ public:
 	//Deconstructor
 	virtual ~AssetsDAO(){};
 
-	//read
+	//Read Functions
+	//Read in string
 	Path read(std::string name, std::string elementType, std::string root);
+	//Read in ImageDetails Struct
 	ImageDetails readImageDetails(std::string name);
+	//Read in In Value
+	int readInt(std::string name, std::string elementType, std::string root);
 
 	//update
 	void update(std::string choice, std::string type, std::string root);

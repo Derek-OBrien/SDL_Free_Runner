@@ -18,7 +18,6 @@ CollisionManager *CollisionManager::getInstance(){
 	return collisionManagerInstance;						//return instance
 }
 
-
 //Check for collision between player and object 
 //first check state of player
 bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
@@ -31,8 +30,6 @@ bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 		isCollide = false;
 	}
 	
-	
-
 	return isCollide;
 }
 

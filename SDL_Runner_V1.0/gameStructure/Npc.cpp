@@ -57,10 +57,11 @@ void Npc::render(){
 	Npc Update()
 	Updates the Npc's Position on the Screen
 */
-void Npc::update(){
+void Npc::update(int vel){
 	//Update bird npc position
+	
 	if (npc->getName() == "bird"){
-		npcPosX -= FORCE_X * 0.8;
+		npcPosX -= vel ;
 		npc->setPositionX(npcPosX);
 		npc->getObjectBoundingBox()->x = npcPosX;
 		

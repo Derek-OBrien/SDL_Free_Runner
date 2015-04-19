@@ -24,27 +24,32 @@ for (int i = 0; i < size; i++){
 	switch (i){
 	case 0:
 		npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
-		npcY = 250;
+		npcY = GAME_HEIGHT - 550;
 		birdVector.at(i)->create("bird", npcX, npcY);
 		break;
 	case 1:
 		npcX = GAME_WIDTH + (GAME_WIDTH *0.4);
-		npcY = 300;
+		npcY = GAME_HEIGHT - 300;
 		birdVector.at(i)->create("bird", npcX, npcY);
 		break;
 	case 2:
 		npcX = GAME_WIDTH + (GAME_WIDTH*0.6);
-		npcY = 370;
+		npcY = GAME_HEIGHT - 180;
 		birdVector.at(i)->create("bird", npcX, npcY);
 		break;
 	case 3:
-		npcX = GAME_WIDTH + (GAME_WIDTH*0.1);///slideunder
-		npcY = 450;
+		npcX = GAME_WIDTH + (GAME_WIDTH*0.8);
+		npcY = GAME_HEIGHT - 450;
 		birdVector.at(i)->create("bird", npcX, npcY);
 		break;
 	case 4:
-		npcX = GAME_WIDTH + (GAME_WIDTH*0.7);///slide under
-		npcY = 450;
+		npcX = GAME_WIDTH + (GAME_WIDTH);
+		npcY = GAME_HEIGHT - 250;
+		birdVector.at(i)->create("bird", npcX, npcY);
+		break;
+	case 5:
+		npcX = GAME_WIDTH + (GAME_WIDTH);
+		npcY = GAME_HEIGHT - 350;
 		birdVector.at(i)->create("bird", npcX, npcY);
 		break;
 	default:
@@ -65,34 +70,37 @@ std::vector<Collectable*> PopulateEnemies::populateCollectVector(){
 	coinVector.push_back(factory->createCollectable());
 	coinVector.push_back(factory->createCollectable());
 
-	int offsetX = 50;
-	int offsetY = 50;
 	for (int i = 0; i < (int)coinVector.size(); i++){
 
 		switch (i){
 		case 0:
 			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
-			npcY = 350;
+			npcY = GAME_HEIGHT - 450;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 1:
 			npcX = GAME_WIDTH + (GAME_WIDTH *0.2);
-			npcY = 450;
+			npcY = GAME_HEIGHT - 500;;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 2:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);
-			npcY = 350;
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.4);
+			npcY = GAME_HEIGHT - 350;;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 3:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);///slideunder
-			npcY = 450;
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.4);///slideunder
+			npcY = GAME_HEIGHT - 300;;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		case 4:
-			npcX = GAME_WIDTH + (GAME_WIDTH*0.8);///slide under
-			npcY = 350;
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);///slide under
+			npcY = GAME_HEIGHT - 250;;
+			coinVector.at(i)->create("coin", npcX, npcY);
+			break;
+		case 5:
+			npcX = GAME_WIDTH + (GAME_WIDTH*0.6);///slide under
+			npcY = GAME_HEIGHT - 200;;
 			coinVector.at(i)->create("coin", npcX, npcY);
 			break;
 		default:
@@ -102,12 +110,12 @@ std::vector<Collectable*> PopulateEnemies::populateCollectVector(){
 	return coinVector;
 }
 
-void PopulateEnemies::update(){
+void PopulateEnemies::update(int vel){
 	for (int i = 0; i < (int)birdVector.size(); i++){
-		birdVector.at(i)->update();
+		birdVector.at(i)->update(vel);
 	}
 	for (int i = 0; i < (int)coinVector.size(); i++){
-		coinVector.at(i)->update();
+		coinVector.at(i)->update(vel);
 	}
 }
 

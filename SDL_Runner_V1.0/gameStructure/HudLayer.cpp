@@ -50,8 +50,8 @@ void HudLayer::create(std::string name){
 
 //Render Layer
 void HudLayer::render(){
-	scoreLabel->render((GAME_WIDTH / 2), 10);
-	coinLabel->render(100, 10);
+	scoreLabel->render((GAME_WIDTH / 2), 20);
+	coinLabel->render(150, 20);
 	pauseButton->render("pausebutton");	//Render Pause Button
 	closeButton->render("closebutton");
 }
@@ -89,21 +89,20 @@ std::string HudLayer::getScore(){
 };
 
 //Get HighScore from xml
-std::string HudLayer::getHighScore(){
+int HudLayer::getHighScore(){
 	//read current high score
-	highScore = dao->getInstance()->read("highScore", "highScore", "score").getText();
+	highScore = dao->getInstance()->readInt("highScore", "highScore", "score");
 	return highScore;
 }
 
 //Check if current score = high score
 bool HudLayer::checkIfHighScore(){
 	int high, current;
-	std::string temp1 = getHighScore();	//get high score text
 	std::string temp2 = getScore();		//get score text
 	bool check = false;	
 
 	//Convert Strings to Integers
-	high = std::stoi(temp1);
+	high = getHighScore();
 	current = std::stoi(temp2);
 
 	//If new high score save current as high score

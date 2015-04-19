@@ -55,9 +55,9 @@ void Collectable::render(){
 }
 
 //Update Collectable position
-void Collectable::update(){
+void Collectable::update(int vel){
 
-	collPosX -= FORCE_X * 0.8;
+	collPosX -= vel ;
 	collectable->setPositionX(collPosX);
 	collectable->getObjectBoundingBox()->x = collPosX;
 

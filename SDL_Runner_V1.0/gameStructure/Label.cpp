@@ -25,7 +25,7 @@ bool Label::init(){
 
 	//Get font from xml file
 	Path fontPath = AssetsDAO::getInstance()->read("font", "path", "assets");
-	myFont = TTF_OpenFont(fontPath.getText().c_str(), 50);
+	myFont = TTF_OpenFont(fontPath.getText().c_str(), 70);
 	return true;
 }
 
