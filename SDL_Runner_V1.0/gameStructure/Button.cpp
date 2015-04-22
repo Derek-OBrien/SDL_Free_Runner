@@ -185,6 +185,8 @@ void Button::handleMouseEvent(SDL_Event* e){
 				else if (buttonDetails.name == "restart"){
 					SoundManager::getInstance()->playSfx("buttonPress");
 
+					scene->setSceneState(DESTROY);
+					scene->cleanup();
 					MenuScene* nextScene = new MenuScene();
 					SceneManager::getInstance()->runwithscene(nextScene);
 				}
@@ -201,6 +203,9 @@ void Button::handleMouseEvent(SDL_Event* e){
 
 //Button Cleanup
 void Button::cleanup(){
-	buttonTexture.cleanup();
 	Sprite::cleanup();
+	buttonTexture.cleanup();
+
+	currentButtonState == NULL;
+	currentFrame = NULL;
 }

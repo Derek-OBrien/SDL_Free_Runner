@@ -21,6 +21,8 @@ void GameScene::init(){
 	GameManager::getInstance()->init();		//Init Game Manager
 	SoundManager::getInstance()->init();	//Init Sound Manager
 	SoundManager::getInstance()->loadAudio("bgmusic", BG_MUSIC);	//Load Background Audio
+
+	std::cout << "GameScene init" << std::endl;
 }
 
 /*
@@ -55,6 +57,7 @@ void GameScene::run(){
 
 		//Go To Pause Scene
 		while (getSceneState() == PAUSED){
+			//Handle input on pause scene
 			GameManager::getInstance()->handleInput();
 		}
 	}

@@ -7,7 +7,7 @@
 -		@file		: Path.h
 -
 
--	
+-		Create a Path to return from xml
 */
 
 class Path : public TextItem{

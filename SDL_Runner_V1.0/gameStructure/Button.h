@@ -32,6 +32,7 @@ public:
 	void setButtonState(ButtonState state) { currentButtonState = state; };
 	ButtonState getButtonState(){ return currentButtonState; };
 
+	//get selected player for player button
 	std::string playerSelected(){ return selectedPlayer; };
 
 private:

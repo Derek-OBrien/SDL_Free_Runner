@@ -1,215 +1,217 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Header Files">
+    <Filter Include="Classes">
+      <UniqueIdentifier>{b0376412-92a4-40ad-95d1-16eb88458c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\gameStructure">
+    <Filter Include="Classes\Header Files\gameStructure">
       <UniqueIdentifier>{6d724bab-6f8d-45b6-81e9-4bdec04a16b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\dao">
+    <Filter Include="Classes\Header Files\dao">
       <UniqueIdentifier>{f08a9501-1ef4-4fff-98b3-ff334391ff1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
+    <Filter Include="Classes\Header Files\SceneManagement">
+      <UniqueIdentifier>{c070793c-1106-4fcc-8fd0-b1cc0b6c1a8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\gameStructure">
+    <Filter Include="Classes\Source Files\gameStructure">
       <UniqueIdentifier>{db462246-d751-4936-9c63-c9647bd3bde6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\dao">
+    <Filter Include="Classes\Source Files\dao">
       <UniqueIdentifier>{ba169b31-0446-4fba-8f79-af4238136929}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SceneManagement">
+    <Filter Include="Classes\Source Files\SceneManagement">
       <UniqueIdentifier>{be0938be-37fe-4d44-b35c-1cac248bb286}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\SceneManagement">
-      <UniqueIdentifier>{c070793c-1106-4fcc-8fd0-b1cc0b6c1a8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Resource Files">
+    <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameStructure\Character.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\CollisionManager.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\GameManager.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\GameObject.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Player.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Sprite.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Collectable.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Factory.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\LTexture.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\MenuScene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\Scene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\SceneManager.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\GameOverScene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\GameScene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="sceneManagement\SplashScene.cpp">
-      <Filter>Source Files\SceneManagement</Filter>
+      <Filter>Classes\Source Files\SceneManagement</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\LWindow.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="tinyxml\tinyxml2.cpp">
-      <Filter>Source Files\dao</Filter>
+      <Filter>Classes\Source Files\dao</Filter>
     </ClCompile>
     <ClCompile Include="dao\AssetsDao.cpp">
-      <Filter>Source Files\dao</Filter>
+      <Filter>Classes\Source Files\dao</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Button.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\ScrollingBackground.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\LTimer.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Layer.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\HudLayer.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Npc.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\PopulateEnemies.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\Label.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="gameStructure\SoundManager.cpp">
-      <Filter>Source Files\gameStructure</Filter>
+      <Filter>Classes\Source Files\gameStructure</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameStructure\Character.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\CollisionManager.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\GameManager.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\GameObject.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Player.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Sprite.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\LTexture.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Collectable.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\IFactory.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\GameDefines.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\ScrollingBackground.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\GameOverScene.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\GameScene.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\MenuScene.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\Scene.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\SceneManager.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="sceneManagement\SplashScene.h">
-      <Filter>Header Files\SceneManagement</Filter>
+      <Filter>Classes\Header Files\SceneManagement</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\LWindow.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="tinyxml\tinyxml2.h">
-      <Filter>Header Files\dao</Filter>
+      <Filter>Classes\Header Files\dao</Filter>
     </ClInclude>
     <ClInclude Include="dao\AssetsDao.h">
-      <Filter>Header Files\dao</Filter>
+      <Filter>Classes\Header Files\dao</Filter>
     </ClInclude>
     <ClInclude Include="dao\Path.h">
-      <Filter>Header Files\dao</Filter>
+      <Filter>Classes\Header Files\dao</Filter>
     </ClInclude>
     <ClInclude Include="dao\TextItem.h">
-      <Filter>Header Files\dao</Filter>
+      <Filter>Classes\Header Files\dao</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Button.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\LTimer.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\HudLayer.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Layer.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\NPC.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\PopulateEnemies.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\Label.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
     <ClInclude Include="gameStructure\SoundManager.h">
-      <Filter>Header Files\gameStructure</Filter>
+      <Filter>Classes\Header Files\gameStructure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

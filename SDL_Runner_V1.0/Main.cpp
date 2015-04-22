@@ -15,13 +15,8 @@ int main(int argc, char* args[]){
 	
 	SplashScene* splash = new SplashScene();
 
-	bool quit = false;
-	SDL_Event e;	//Event handler
-	while (!quit){ //Run Main Loop untill player quits
-
-		//Create & Run Game
-		SceneManager::getInstance()->runwithscene(splash);
-	}
+	//Create & Run Game
+	SceneManager::getInstance()->runwithscene(splash);
 
 	return 0;
 }

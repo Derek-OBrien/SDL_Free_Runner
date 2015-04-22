@@ -23,7 +23,7 @@ void SplashScene::init(){
 		0,//Position
 		GAME_HEIGHT,			//Height
 		GAME_WIDTH,				//Width
-		SDL_WINDOW_SHOWN || SDL_WINDOW_ALLOW_HIGHDPI);		//Flag
+		SDL_WINDOW_SHOWN);// || SDL_WINDOW_ALLOW_HIGHDPI);		//Flag
 
 	AssetsDAO* dao = AssetsDAO::getInstance();
 	bg.create(dao->read("sceneBg", "path", "assets").getText());
@@ -47,10 +47,6 @@ void SplashScene::run(){
 	while (thisSceneState == RUNNING){
 		//Render everything
 		lifetimeofscene--;
-		if (lifetimeofscene < 1){
-			bg.cleanup();
-			thisSceneState = DESTROY;
-		}
 
 
 		bg.render(255);
@@ -58,6 +54,10 @@ void SplashScene::run(){
 
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
+		if (lifetimeofscene < 1){
+			bg.cleanup();
+			thisSceneState = DESTROY;
+		}
 	}
 
 	//Next Scene to load

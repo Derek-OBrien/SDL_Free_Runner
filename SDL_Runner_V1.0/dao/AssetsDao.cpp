@@ -4,7 +4,8 @@
 -		@file		: AssetsDao.cpp
 -
 
--
+-		Assets Dao read in different elements form an Xml file
+
 */
 
 //Includes
@@ -61,7 +62,10 @@ Path AssetsDAO::read(std::string name, std::string elementType, std::string root
 }
 
 
-
+/*
+	Read in an int value from the Xml File
+	@returns Path string
+	*/
 int AssetsDAO::readInt(std::string name, std::string elementType, std::string root){
 	int temp;			//temp variable
 	Path elementName;	//temp name 

@@ -7,7 +7,7 @@
 -		@file		: AssetsDao.h
 -
 
--		
+-		DAO Interface and class contains virtual method signatures for DAO
 */
 
 //Include Files Needed
@@ -25,6 +25,7 @@ public:
 	//read functions
 	virtual Path read(std::string name, std::string elementType, std::string root) = 0;
 	virtual ImageDetails readImageDetails(std::string name) = 0;
+	virtual int readInt(std::string name, std::string elementType, std::string root) = 0;
 
 	//update
 	virtual void update(std::string choice, std::string type, std::string root) = 0;
@@ -41,11 +42,12 @@ class AssetsDAO : public IAssetsDAO{
 public:
 	//Static instance
 	static AssetsDAO* getInstance();
-	
+
 	//Deconstructor
 	virtual ~AssetsDAO(){};
 
 	//Read Functions
+
 	//Read in string
 	Path read(std::string name, std::string elementType, std::string root);
 	//Read in ImageDetails Struct

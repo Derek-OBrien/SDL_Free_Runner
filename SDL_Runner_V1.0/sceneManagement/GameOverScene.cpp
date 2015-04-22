@@ -73,6 +73,10 @@ void GameOverScene::run(){
 		restart->render("restart");
 		SDL_RenderPresent(LWindow::getInstance()->getRenderer());
 
+		if (getSceneState() == DESTROY){
+			std::cout << "Game Over Scene Destroyed" << std::endl;
+			cleanup();
+		}
 	}
 }
 

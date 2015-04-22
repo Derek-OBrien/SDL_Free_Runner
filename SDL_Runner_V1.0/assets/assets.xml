@@ -3,7 +3,7 @@
 <assets>
     <!--Child Element-->
     <!--Selected Player-->
-    <path name="selected_player">player2</path>
+    <path name="selected_player">player1</path>
     <!--BACKGROUNDS-->
     <path name="sceneBg">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
     <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
@@ -41,8 +41,8 @@
 
 <!--Root-->
 <score>
-    <currentScore name="currentScore">592</currentScore>
-    <highScore name="highScore">1185</highScore>
+    <currentScore name="currentScore">464</currentScore>
+    <highScore name="highScore">1859</highScore>
 </score>
 
 <!--Defines-->
