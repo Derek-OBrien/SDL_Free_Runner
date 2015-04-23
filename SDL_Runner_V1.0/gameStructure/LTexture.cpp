@@ -24,6 +24,7 @@ LTexture LTexture::loadmedia(std::string path){
 	//Loading success flag
 	bool success = true;
 	LTexture texture;
+
 	//Load press texture
 	if (!texture.loadFromFile(path)){
 		std::cout << "P: Failed to load texture!" << std::endl;
@@ -78,8 +79,7 @@ bool LTexture::loadFromFile(std::string path){
 //Load Rendered text for TTF fonts
 //Creates image from font string
 
-bool LTexture::loadFromRenderedText(std::string text, SDL_Color color, TTF_Font* myFont)
-{
+bool LTexture::loadFromRenderedText(std::string text, SDL_Color color, TTF_Font* myFont){
 	//Get rid of preexisting texture
 	cleanup();
 

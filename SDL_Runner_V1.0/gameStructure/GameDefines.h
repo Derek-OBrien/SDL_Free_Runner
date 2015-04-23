@@ -21,7 +21,7 @@
 
 //Velocity
 #define FORCE_UP 20
-#define FORCE_WORLD 10
+#define FORCE_WORLD 20
 
 //Xml Document
 #define XMLDOC "../SDL_Runner_V1.0/assets/assets.xml"
@@ -42,6 +42,8 @@ typedef enum{ ALIVE, DEAD, POWERUP, JUMPING, FALLING, SLIDING }EPlayerState;
 typedef enum{ BG_MUSIC, SFX_MUSIC }audio_type;
 typedef enum{ RUNNING, PAUSED, DESTROY }SceneState;
 typedef enum{ NORMAL, HOVER, PRESSED }ButtonState;
+
+
 //Sprite Image Detials Struct
 struct ImageDetails{
 	std::string name;

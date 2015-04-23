@@ -37,7 +37,7 @@ private:
 	//clock time when started
 	Uint32 startTime;
 
-	//closk time when paused
+	//clock time when paused
 	Uint32 pausedTime;
 
 	//timer status

@@ -11,7 +11,7 @@
 
 //Init menthod
 bool ScrollingBackground::init(){
-
+	//Super init 
 	if (!Layer::init()){
 		Layer::init();
 	}
@@ -22,9 +22,12 @@ bool ScrollingBackground::init(){
 
 //Create Background
 void ScrollingBackground::create(std::string name){
+	//Check init 
 	if (!init()){
 		init();
 	}
+
+	//Load in image 
 	path = AssetsDAO::getInstance()->read(name, "path", "assets");
 	bg->loadMedia(path.getText());
 }
@@ -37,7 +40,7 @@ void ScrollingBackground::render(std::string name, int scrollSpeed){
 	else if (name == "cityBg"){
 		bg->scrollingRender(255, name, scrollSpeed);
 	}
-	else{
+	else{//rendere foreground layer at lower transperency
 		bg->scrollingRender(90, name, scrollSpeed);
 	}
 

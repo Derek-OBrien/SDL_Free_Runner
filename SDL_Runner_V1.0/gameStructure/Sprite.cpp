@@ -23,6 +23,7 @@ bool Sprite::init(){
 bool Sprite::loadMedia(std::string name){
 	bool success = true;
 
+	//load in image details 
 	imageDetails = AssetsDAO::getInstance()->readImageDetails(name);
 	std::string imagepath = imageDetails.pathToFile;
 
@@ -48,7 +49,7 @@ bool Sprite::loadMedia(std::string name){
 
 			offsetX += temp;
 		}
-
+		//Set up object bouding box around sprite
 		setObjectBoundingBox(imageDetails.posX, imageDetails.posY, imageDetails.spriteHeight, imageDetails.spriteWidth);
 	}
 

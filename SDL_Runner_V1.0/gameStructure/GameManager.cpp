@@ -126,7 +126,7 @@ void GameManager::update(){
 	}
 
 
-	//Scroll Bacckgrounds
+	//Scroll Backgrounds
 	bg_city->update();
 	bg->update();
 	fg->update();
@@ -204,7 +204,7 @@ void GameManager::checkCollision(){
 				}
 			}
 		}
-	//}
+		
 }
 
 

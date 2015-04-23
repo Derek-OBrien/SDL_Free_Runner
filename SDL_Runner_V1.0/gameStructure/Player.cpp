@@ -4,7 +4,8 @@
 -		@file		: Player.cpp
 -
 
--		
+-		Player Class: Create and adjust player mechanics here 
+						Also Handles all player in put for mechanics
 */
 
 #include "Player.h"	//Include player header
@@ -14,6 +15,7 @@
 //Player Init
 bool Player::init(){
 
+	//Super init 
 	if (!Character::init()){
 		Character::init();
 	}
@@ -77,7 +79,6 @@ void Player::loadPlayerSprite(){
 	case FALLING:
 		break;
 	case SLIDING:
-		setPlayerState(SLIDING);
 		player->setName(selectedPlayer.getText() + "slide");
 		player->loadMedia(player->getName());
 		break;
@@ -94,13 +95,16 @@ void Player::jump(){
 	setPlayerState(JUMPING);
 	loadPlayerSprite();
 	playerPosY -= FORCE_UP * 10;
+
+	//Reajust player position and Bounding box position
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;
 }
 
 void Player::fallDown(){
 	setPlayerState(FALLING);
-	playerPosY += FORCE_UP * 10;
+	playerPosY += FORCE_WORLD * 10;
+	//Reajust player position and Bounding box position
 	player->setPositionY(playerPosY);
 	player->getObjectBoundingBox()->y = playerPosY;	
 }
@@ -110,6 +114,7 @@ void Player::fallDown(){
 void Player::slide(){
 	setPlayerState(SLIDING);
 	loadPlayerSprite();
+	//Readjust player position and Bounding box position
 	playerPosY = player->getPosY();
 }
 

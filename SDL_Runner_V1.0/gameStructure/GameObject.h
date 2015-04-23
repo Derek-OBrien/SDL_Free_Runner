@@ -20,8 +20,6 @@
 #include "LTexture.h"
 #include "GameDefines.h"
 
-////enum to hold object type
-//typedef enum EObjectType{ OT_OBJECT, OT_PLAYER, OT_OBSTICAL, OT_COLLECTABLE, OT_LAYER, OT_BUTTON };
 
 //Base class for all game objects
 class GameObject{

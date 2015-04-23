@@ -23,7 +23,7 @@ CollisionManager *CollisionManager::getInstance(){
 bool CollisionManager::checkCollision( SDL_Rect* a, SDL_Rect* b){
 	
 	//Check if bounding box's intersect
-	if (SDL_HasIntersection(a, b) == true){
+	if (SDL_HasIntersection(a, b) == SDL_TRUE){
 		isCollide = true;
 	}
 	else{

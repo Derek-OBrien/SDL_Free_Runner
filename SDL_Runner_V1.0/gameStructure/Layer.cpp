@@ -19,7 +19,7 @@ bool Layer::init(){
 	layer = new GameObject();
 	layer->setObjectType(OT_LAYER);
 
-	
+
 	return true;
 }
 
@@ -62,17 +62,20 @@ void Layer::render(int alpha){
 //Render Scrolling Layer
 void Layer::scrollingRender(int alpha, std::string name, int scrollSpeed){
 
+	//Set up scrolling speed
 	scrollingOffset -= scrollSpeed;
+	--scrollingOffset;
 
-		//Move city image( very rear image slight bit faster)
-		if (name == "cityBg"){
-			scrollingOffset -= 5;
-		}
-		--scrollingOffset;
-		if (scrollingOffset < -bg_Texture.getWidth()){
-			scrollingOffset = 0;
-		}
+	//Move city image( very rear image slight bit faster)
+	if (name == "cityBg"){
+		scrollingOffset -= 5;
+	}
 	
+	//Reset image
+	if (scrollingOffset < -bg_Texture.getWidth()){
+		scrollingOffset = 0;
+	}
+
 	//Render Textures
 	bg_Texture.setAlpha(alpha);
 	bg_Texture.render(scrollingOffset, 0);

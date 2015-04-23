@@ -8,6 +8,7 @@
 
 -		
 */
+//Includes
 #include <iostream>
 #include "LWindow.h"
 #include "ScrollingBackground.h"

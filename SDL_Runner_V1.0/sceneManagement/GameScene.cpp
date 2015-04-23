@@ -66,12 +66,15 @@ void GameScene::run(){
 	//Go to Game Over
 	if (getSceneState() == DESTROY){
 		std::cout << "Game Scene Destroyed" << std::endl;
+		//Stop music and clean up game
 		SoundManager::getInstance()->stopMusic();
 		GameManager::getInstance()->cleanup();
 
+		//Load Game Over Scene
 		GameOverScene* nextScene = new GameOverScene();
 		SceneManager::getInstance()->runwithscene(nextScene);
 	}
 
+	//Clean up game Manager
 	GameManager::getInstance()->cleanup();
 }

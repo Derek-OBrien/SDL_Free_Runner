@@ -4,7 +4,8 @@
 -		@file		: PopulateEnemies.cpp
 -
 
--		
+-		Popoulate vector of enemies and vector or collectables &
+		Set their poistions
 */
 #include "PopulateEnemies.h"
 

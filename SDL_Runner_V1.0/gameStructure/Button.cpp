@@ -81,7 +81,7 @@ bool Button::loadmedia(std::string name){
 
 
 /*
-	Redner Button to Screen
+	Render Button to Screen
 */
 void Button::render(std::string name){
 	currentFrame = &gSpriteClips[(int)currentButtonState];
@@ -131,7 +131,7 @@ void Button::handleMouseEvent(SDL_Event* e){
 				currentButtonState = HOVER;
 				break;
 
-			case SDL_MOUSEBUTTONDOWN:	//If mouse button porssed
+			case SDL_MOUSEBUTTONDOWN:	//If mouse button pressed
 				currentButtonState = PRESSED;
 				
 				//Select Player Button 1
