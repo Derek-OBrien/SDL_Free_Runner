@@ -41,8 +41,8 @@
 
 <!--Root-->
 <score>
-    <currentScore name="currentScore">0</currentScore>
-    <highScore name="highScore">0</highScore>
+    <currentScore name="currentScore">2075</currentScore>
+    <highScore name="highScore">2075</highScore>
 </score>
 
 <!--Defines-->

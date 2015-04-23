@@ -76,7 +76,7 @@ void Sprite::render(int posX, int posY){
 
 	//Render Bounding Box
 	SDL_SetRenderDrawColor(LWindow::getInstance()->getRenderer(), 0xff, 0x00, 0x00, 0xFF);
-	SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), getObjectBoundingBox());
+	//SDL_RenderDrawRect(LWindow::getInstance()->getRenderer(), getObjectBoundingBox());
 }
 
 
