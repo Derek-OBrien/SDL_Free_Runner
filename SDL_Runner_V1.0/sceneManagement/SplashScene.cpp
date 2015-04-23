@@ -23,7 +23,7 @@ void SplashScene::init(){
 		0,//Position
 		GAME_HEIGHT,			//Height
 		GAME_WIDTH,				//Width
-		SDL_WINDOW_SHOWN);// || SDL_WINDOW_ALLOW_HIGHDPI);		//Flag
+		SDL_WINDOW_FULLSCREEN);// || SDL_WINDOW_ALLOW_HIGHDPI);		//Flag
 
 	AssetsDAO* dao = AssetsDAO::getInstance();
 	bg.create(dao->read("sceneBg", "path", "assets").getText());
