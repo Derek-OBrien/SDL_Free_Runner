@@ -15,8 +15,8 @@
 #include <SDL_ttf.h>
 
 //Window
-#define GAME_WIDTH 1920
-#define GAME_HEIGHT 1080
+#define GAME_WIDTH 1800
+#define GAME_HEIGHT 1050
 
 
 //Velocity

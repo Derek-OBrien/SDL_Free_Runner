@@ -3,7 +3,7 @@
 <assets>
     <!--Child Element-->
     <!--Selected Player-->
-    <path name="selected_player">player2</path>
+    <path name="selected_player">player1</path>
     <!--BACKGROUNDS-->
     <path name="sceneBg">../SDL_Runner_V1.0/assets/backgrounds/menu.png</path>
     <path name="gameBg">../SDL_Runner_V1.0/assets/backgrounds/bg_image.png</path>
@@ -30,9 +30,9 @@
     <!--USER INTERFACE ELEMENTS-->
     <path name="player1btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="580" posY="400" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player1btn.png</path>
     <path name="player2btn" width="160" height="300" offsetX="160" offsetY="0" frames="3" posX="1200" posY="400" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/player2btn.png</path>
-    <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1700" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
-    <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1800" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
-    <path name="restart" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1700" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
+    <path name="pausebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1600" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/pausebutton.png</path>
+    <path name="closebutton" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1700" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/closebutton.png</path>
+    <path name="restart" width="64" height="64" offsetX="64" offsetY="0" frames="3" posX="1600" posY="15" state="0">../SDL_Runner_V1.0/assets/menu_hud_items/playbutton.png</path>
     <!--SOUND FILES-->
     <path name="bgmusic">../SDL_Runner_V1.0/assets/sounds/Severe_Tire_Damage.wav</path>
     <path name="sfx">../SDL_Runner_V1.0/assets/sounds/sfx.wav</path>
@@ -41,7 +41,7 @@
 
 <!--Root-->
 <score>
-    <currentScore name="currentScore">246</currentScore>
+    <currentScore name="currentScore">909</currentScore>
     <highScore name="highScore">2075</highScore>
 </score>
 
